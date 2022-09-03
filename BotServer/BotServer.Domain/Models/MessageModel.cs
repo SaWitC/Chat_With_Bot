@@ -10,13 +10,10 @@ namespace BotServer.Domain.Models
     public class MessageModel : IEntity
     {
         public string id { get; set; }
-
         public string text { get; set; }
-
         public string avtroId { get; set; }
-
         public string chatId { get; set; }
-
+        public ChatModel chat { get; set; }
         public bool IsFromBot { get; set; } = false;
 
     }

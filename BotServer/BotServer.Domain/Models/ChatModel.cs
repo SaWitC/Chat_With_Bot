@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Domain.Models
 {
-    public class ChatModel : IEntity
+    public class ChatModel : IEntity,IHasTitle, IHasCreated
     {
         public string id { get; set; }
 
@@ -15,6 +15,8 @@ namespace BotServer.Domain.Models
 
         public string Title { get; set; }
         public DateTime Created { get; set; }
+
+        public IEnumerable<MessageModel> Messages { get; set; }
 
 
         //public string botId { get; set; }

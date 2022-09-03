@@ -1230,7 +1230,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "BotServer.Data": "1.0.0",
+          "BotServer.Services": "1.0.0",
           "FluentValidation": "11.2.1",
           "Microsoft.AspNetCore.Identity": "2.2.0"
         },
@@ -1260,6 +1260,19 @@
         },
         "runtime": {
           "bin/placeholder/BotServer.Infrastructure.dll": {}
+        }
+      },
+      "BotServer.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BotServer.Data": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BotServer.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BotServer.Services.dll": {}
         }
       }
     }
@@ -3204,6 +3217,11 @@
       "type": "project",
       "path": "../Features/BotServer.Infrastructure.csproj",
       "msbuildProject": "../Features/BotServer.Infrastructure.csproj"
+    },
+    "BotServer.Services/1.0.0": {
+      "type": "project",
+      "path": "../BotServer.Services/BotServer.Services.csproj",
+      "msbuildProject": "../BotServer.Services/BotServer.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {

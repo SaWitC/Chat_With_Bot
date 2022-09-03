@@ -1,0 +1,24 @@
+﻿using FluentValidation;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BotServer.Features.Features.Commands.Messages.SendMessage
+{
+    public class SendMessageCommandValidator:AbstractValidator<SendMessageCommand>
+    {
+        public SendMessageCommandValidator()
+        {
+            RuleFor(x => x.SendMessageDTO)
+                .NotNull();
+
+            RuleFor(x => x.SendMessageDTO.text).NotEmpty();
+
+            RuleFor(x => x.SendMessageDTO.avtroId).NotEmpty();
+
+            RuleFor(x => x.SendMessageDTO.ParentId).NotEmpty();
+        }
+    }
+}
