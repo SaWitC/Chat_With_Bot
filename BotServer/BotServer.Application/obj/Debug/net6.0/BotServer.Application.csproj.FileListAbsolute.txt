@@ -1,0 +1,15 @@
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\bin\Debug\net6.0\BotServer.Application.deps.json
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\bin\Debug\net6.0\BotServer.Application.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\bin\Debug\net6.0\BotServer.Application.pdb
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\bin\Debug\net6.0\BotServer.Domain.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\bin\Debug\net6.0\BotServer.Domain.pdb
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\obj\Debug\net6.0\BotServer.Application.csproj.AssemblyReference.cache
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\obj\Debug\net6.0\BotServer.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\obj\Debug\net6.0\BotServer.Application.AssemblyInfoInputs.cache
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\obj\Debug\net6.0\BotServer.Application.AssemblyInfo.cs
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\obj\Debug\net6.0\BotServer.Application.csproj.CoreCompileInputs.cache
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\obj\Debug\net6.0\BotServer.Application.csproj.CopyComplete
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\obj\Debug\net6.0\BotServer.Application.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\obj\Debug\net6.0\refint\BotServer.Application.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\obj\Debug\net6.0\BotServer.Application.pdb
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Application\obj\Debug\net6.0\ref\BotServer.Application.dll
