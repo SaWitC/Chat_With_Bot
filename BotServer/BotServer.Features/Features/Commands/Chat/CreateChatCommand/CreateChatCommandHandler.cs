@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Features.Features.Commands.Chat.CreateChatCommand
 {
-    public class CreateChatCommandHandler : IRequestHandler<CreateChatCommand, EntityEntry<ChatModel>>
+    public class CreateChatCommandHandler : IRequestHandler<CreateChatCommand,ChatModel>
     {
         private readonly IBaseRepository _baseRepository;
         private readonly IMapper _mapper;
@@ -20,13 +20,16 @@ namespace BotServer.Features.Features.Commands.Chat.CreateChatCommand
             _baseRepository = baseRepository;
             _mapper = mapper;
         }
-        public async Task<EntityEntry<ChatModel>> Handle(CreateChatCommand request, CancellationToken cancellationToken)
+        public async Task<ChatModel> Handle(CreateChatCommand request, CancellationToken cancellationToken)
         {
             var model = _mapper.Map<ChatModel>(request.createChatDTO);
+
             model.id = Guid.NewGuid().ToString();
+            model.Created = DateTime.Now;
             
             var res =await _baseRepository.Create<ChatModel>(model);
-            return res;
+            await _baseRepository.SaveChangesAsync();
+            return res.Entity;
         }
     }
 }

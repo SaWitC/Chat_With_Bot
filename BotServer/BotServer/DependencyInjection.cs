@@ -16,8 +16,7 @@ namespace BotServer
             var authoptions = configuration.GetSection("auth");
             Services.Configure<AuthOptions>(authoptions);
 
-            Services.AddScoped<IBaseRepository, BaseRepository>();
-            Services.AddScoped<IAccountRepository, AccountRepository>();
+           // Services.AddAutoMapper(typeof(BotServer.Features.startup));
 
 
             var AuthOptionsForVlidation = configuration.GetSection("auth").Get<AuthOptions>();

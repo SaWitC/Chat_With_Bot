@@ -1,4 +1,5 @@
 ﻿using BotServer.Application.Repositories;
+using BotServer.Domain.Models;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -15,9 +16,11 @@ namespace BotServer.Features.Features.Commands.Chat.DeleteChatCommand
         {
             _baseRepository = baseRepository;
         }
-        public Task<bool> Handle(DeleteChatCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteChatCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var res =await _baseRepository.Delete<ChatModel>(request.id);
+            await _baseRepository.SaveChangesAsync();
+            return res;
         }
     }
 }

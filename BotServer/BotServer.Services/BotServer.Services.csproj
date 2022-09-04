@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BotServer.Data\BotServer.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CustomHTTPClients\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

@@ -81,3 +81,5 @@ C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotSe
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.Domain.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\Humanizer.dll
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.Services.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.Services.pdb

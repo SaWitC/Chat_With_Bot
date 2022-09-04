@@ -48,14 +48,17 @@ namespace BotServer.Data.Migrations
                     b.Property<string>("id")
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsFromBot")
                         .HasColumnType("bit");
 
-                    b.Property<string>("avtroId")
+                    b.Property<string>("ParentId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("chatId")
+                    b.Property<string>("avtroId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -64,6 +67,8 @@ namespace BotServer.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("id");
+
+                    b.HasIndex("ParentId");
 
                     b.ToTable("Messages");
                 });
@@ -266,6 +271,17 @@ namespace BotServer.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("BotServer.Domain.Models.MessageModel", b =>
+                {
+                    b.HasOne("BotServer.Domain.Models.ChatModel", "chat")
+                        .WithMany("Messages")
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("chat");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -315,6 +331,11 @@ namespace BotServer.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("BotServer.Domain.Models.ChatModel", b =>
+                {
+                    b.Navigation("Messages");
                 });
 #pragma warning restore 612, 618
         }

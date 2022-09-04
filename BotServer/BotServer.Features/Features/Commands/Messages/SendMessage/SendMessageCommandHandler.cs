@@ -34,6 +34,11 @@ namespace BotServer.Features.Features.Commands.Messages.SendMessage
                     await _baseRepository.SaveChangesAsync();
                 return res;
             }
+            catch
+            {
+                //logg
+                return null;
+            }
         }
     }
 }

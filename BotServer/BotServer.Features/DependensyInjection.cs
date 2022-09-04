@@ -1,4 +1,6 @@
-﻿using BotServer.Features.ValidationPipeline;
+﻿using BotServer.Application.Repositories;
+using BotServer.Data.Repositories;
+using BotServer.Features.ValidationPipeline;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -17,10 +19,11 @@ namespace BotServer.Features
         {
            // Services.AddValidatorsFromAssembly(typeof(startup).Assembly);
             Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            Services.AddScoped<ISelectRepository,SelectRepository>();
 
             Services.AddMediatR(Assembly.GetExecutingAssembly());
 
-            Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            Services.AddAutoMapper(typeof(startup));
         }
     }
 }

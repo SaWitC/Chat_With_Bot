@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BotServer.Domain.Models.Interfaces
 {
-    internal class IHasParent
+    public interface IHasParent
     {
+        public string ParentId { get; set; }
     }
 }

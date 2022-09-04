@@ -1,4 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BotServer.Features.Features.Commands.Chat.CreateChatCommand;
+using BotServer.Features.Features.Commands.Chat.DeleteChatCommand;
+using BotServer.Features.Features.Queries.Chat.GetChatById;
+using BotServer.Features.Features.Queries.Chat.GetMyChats;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,36 +15,56 @@ namespace BotServer.Controllers
     [ApiController]
     public class ChatController : ControllerBase
     {
-        // GET: api/<ChatController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
 
-        // GET api/<ChatController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        public Guid Id => Guid.Parse(User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
+
+        private readonly IMediator _mediatr;
+
+        public ChatController(IMediator mediatr)
         {
-            return "value";
+            _mediatr = mediatr;
         }
 
         // POST api/<ChatController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Authorize]
+        public async Task<IActionResult> CreateChat(CreateChatCommand createChatCommand)
         {
+            createChatCommand.createChatDTO.avtorId = Id.ToString();
+            var res =await _mediatr.Send(createChatCommand);
+            return Ok(res);
         }
-
-        // PUT api/<ChatController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpGet("getMy/{page}")]
+        [Authorize]
+        public async Task<IActionResult> GetMyChats(int page)
         {
+            GetMyChatsQuery query = new GetMyChatsQuery();
+            query.AvtorId = Id.ToString();
+            query.Page = page;
+            var res = await _mediatr.Send(query);
+            return Ok(res);
+        }
+        [HttpGet("Details/{page}&{id}")]
+        [Authorize]
+        public async Task<IActionResult> Details(int page,string id)
+        {
+            var query = new GetChatByIdQuery();
+            query.page = page;
+            query.id = id;
+            //getChatById.id
+            var res =await _mediatr.Send(query);
+            return Ok(res);
         }
 
         // DELETE api/<ChatController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
+            var command = new DeleteChatCommand();
+            command.id = id;
+            var res = await _mediatr.Send(command);
+
+            return Ok(res);
         }
     }
 }

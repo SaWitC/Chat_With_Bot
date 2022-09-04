@@ -21,6 +21,6 @@ namespace BotServer.Application.Repositories
 
         Task<T> GetByid<T>(string id) where T : class, IEntity;
 
-        Task<EntityEntry<T>> Create<T>(string ParentId, T model) where T : IEntity, IHasParent;
+        Task<EntityEntry<TKind>> Create<TParent, TKind>(string ParentId, TKind model) where TKind : class, IEntity, IHasParent where TParent : class, IEntity;
     }
 }

@@ -7,16 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BotServer.Data\BotServer.Data.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BotServer.Services\BotServer.Services.csproj" />
   </ItemGroup>
 
 </Project>

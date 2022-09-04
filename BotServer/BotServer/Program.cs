@@ -15,6 +15,9 @@ builder.Services.AddSwaggerGen(c =>
     //c.IncludeXmlComments(string.Format(@"{0}\BotServer.xml",System.AppDomain.CurrentDomain.BaseDirectory));
 });
 
+
+
+BotServer.Data.DependencyInjection.AddData(builder.Services);
 BotServer.Features.DependensyInjection.AddFeatures(builder.Services);
 BotServer.DependencyInjection.AddBotServer(builder.Services,builder.Configuration);
 

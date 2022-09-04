@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BotServer.Services
 {
-    internal class DependencyInjection
+    public class DependencyInjection
     {
+        public static void AddServices()
+        {
+
+        }
     }
 }

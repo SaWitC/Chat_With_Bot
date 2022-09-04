@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BotServer.Application.Repositories
 {
-    internal class IMessageRepository
+    public interface IMessageRepository
     {
+        //public IEnumerable<MessageModel> SelectFrom
     }
 }

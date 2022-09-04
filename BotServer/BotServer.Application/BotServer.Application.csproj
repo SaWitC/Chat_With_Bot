@@ -14,4 +14,8 @@
     <ProjectReference Include="..\BotServer.Domain\BotServer.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="CustomHTTPClients\" />
+  </ItemGroup>
+
 </Project>

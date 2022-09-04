@@ -806,12 +806,20 @@
       },
       "BotServer.Features/1.0.0": {
         "dependencies": {
-          "BotServer.Data": "1.0.0",
+          "BotServer.Services": "1.0.0",
           "FluentValidation": "11.2.1",
           "Microsoft.AspNetCore.Identity": "2.2.0"
         },
         "runtime": {
           "BotServer.Features.dll": {}
+        }
+      },
+      "BotServer.Services/1.0.0": {
+        "dependencies": {
+          "BotServer.Data": "1.0.0"
+        },
+        "runtime": {
+          "BotServer.Services.dll": {}
         }
       }
     }
@@ -1433,6 +1441,11 @@
       "sha512": ""
     },
     "BotServer.Features/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BotServer.Services/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

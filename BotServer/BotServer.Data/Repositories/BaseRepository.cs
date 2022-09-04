@@ -70,5 +70,20 @@ namespace BotServer.Data.Repositories
             }
             return false;
         }
+
+        public async Task<EntityEntry<TKind>> Create<TParent,TKind>(string ParentId, TKind model) where TKind : class ,IEntity, IHasParent where TParent:class,IEntity
+        {
+            if (!string.IsNullOrEmpty(ParentId)&&!string.IsNullOrEmpty(model.id))
+            {
+                var parent = await _appDbContext.Set<TParent>().FirstOrDefaultAsync(o => o.id == ParentId);
+                if (parent != null)
+                {
+                    model.ParentId = ParentId;
+                    return await _appDbContext.Set<TKind>().AddAsync(model);
+                }
+                throw new Exception("Parent not found in db");
+            }
+            throw new ArgumentException("model.id i null or ParentId is null it is not cool");
+        }
     }
 }

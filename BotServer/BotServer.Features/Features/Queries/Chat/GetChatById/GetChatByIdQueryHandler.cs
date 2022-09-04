@@ -13,9 +13,11 @@ namespace BotServer.Features.Features.Queries.Chat.GetChatById
     {
         public IBaseRepository _baseRepository;
         public ISelectRepository _selectRepository;
-        public GetChatByIdQueryHandler(IBaseRepository baseRepository)
+        public GetChatByIdQueryHandler(IBaseRepository baseRepository, ISelectRepository selectRepository)
         {
             _baseRepository = baseRepository;
+            _selectRepository = selectRepository;
+             
         }
 
         public async Task<ChatModel> Handle(GetChatByIdQuery request, CancellationToken cancellationToken)
@@ -23,7 +25,9 @@ namespace BotServer.Features.Features.Queries.Chat.GetChatById
             var chat =await _baseRepository.GetByid<ChatModel>(request.id);
             if (chat != null)
             {
-                chat.Messages = _selectRepository.SelectWithSortByTimeByParentId<ChatModel,MessageModel>(chat.id,DESC:true);
+                var messages =_selectRepository.SelectWithSortByTimeByParentId<ChatModel,MessageModel>(chat.id,DESC:true);
+                if (messages != null)
+                    chat.Messages = messages;
             }
             return chat;
         }

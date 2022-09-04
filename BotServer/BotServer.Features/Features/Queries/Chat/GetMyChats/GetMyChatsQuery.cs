@@ -10,7 +10,8 @@ namespace BotServer.Features.Features.Queries.Chat.GetMyChats
 {
     public class GetMyChatsQuery:IRequest<IEnumerable<ChatModel>>
     {
-        public int page { get; set; }
+        public int Page { get; set; }
         public string Title { get; set; }
+        public string AvtorId { get; set; }
     }
 }
