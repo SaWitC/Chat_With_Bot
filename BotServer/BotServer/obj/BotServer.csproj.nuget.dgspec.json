@@ -161,6 +161,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.8, )"
+            },
+            "Scrutor": {
+              "target": "Package",
+              "version": "[4.2.0, )"
             }
           },
           "imports": [
@@ -393,6 +397,77 @@
         }
       }
     },
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalR.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalR.csproj",
+        "projectName": "BotServer.SignalR",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalR.csproj",
+        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.SignalR.Core": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer\\BotServer.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -424,11 +499,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj"
-              },
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Features\\BotServer.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Features\\BotServer.Infrastructure.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalR.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalR.csproj"
               }
             }
           }
@@ -443,6 +515,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.2.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.2.1, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.8, )"
@@ -457,9 +537,25 @@
               "target": "Package",
               "version": "[6.2.3, )"
             },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
             "Swashbuckle.AspNetCore.Swagger": {
               "target": "Package",
               "version": "[6.4.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "Swashbuckle.Core": {
+              "target": "Package",
+              "version": "[5.6.0, )"
             }
           },
           "imports": [
@@ -476,105 +572,6 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Features\\BotServer.Infrastructure.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Features\\BotServer.Infrastructure.csproj",
-        "projectName": "BotServer.Infrastructure",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Features\\BotServer.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Features\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[11.0.1, )"
-            },
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[11.0.0, )"
-            },
-            "FluentValidation": {
-              "target": "Package",
-              "version": "[11.2.1, )"
-            },
-            "FluentValidation.AspNetCore": {
-              "target": "Package",
-              "version": "[11.2.1, )"
-            },
-            "FluentValidation.DependencyInjectionExtensions": {
-              "target": "Package",
-              "version": "[11.2.1, )"
-            },
-            "MediatR": {
-              "target": "Package",
-              "version": "[10.0.1, )"
-            },
-            "MediatR.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[10.0.1, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.8, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

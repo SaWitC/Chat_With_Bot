@@ -16,14 +16,10 @@ namespace BotServer
             var authoptions = configuration.GetSection("auth");
             Services.Configure<AuthOptions>(authoptions);
 
-           // Services.AddAutoMapper(typeof(BotServer.Features.startup));
+            // Services.AddAutoMapper(typeof(BotServer.Features.startup));
 
 
             var AuthOptionsForVlidation = configuration.GetSection("auth").Get<AuthOptions>();
-
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
-            Services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(connectionString));
 
             Services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
@@ -42,7 +38,24 @@ namespace BotServer
                     ValidIssuer = AuthOptionsForVlidation.Issuer,
                     ValidAudience = AuthOptionsForVlidation.Audience
                 };
+                o.Events = new JwtBearerEvents
+                {
+                    OnMessageReceived = context =>
+                    {
+                        var accessToken = context.Request.Query["access_token"];
 
+                        // если запрос направлен хабу
+                        var path = context.HttpContext.Request.Path;
+                        if (!string.IsNullOrEmpty(accessToken) &&
+                            (path.StartsWithSegments("/toastr")))
+                        {
+                            // получаем токен из строки запроса
+                            context.Token = accessToken;
+                        }
+                        return Task.CompletedTask;
+                    }
+
+                };
             });
         }
     }

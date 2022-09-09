@@ -11,6 +11,8 @@ namespace BotServer.Features.Features.Commands.Chat.CreateChatCommand
 {
     public class CreateChatCommand:IRequest<ChatModel>
     {
-        public CreateChatDTO createChatDTO { get; set; }
+        //public string avtorId { get; set; }
+
+        public string Title { get; set; }
     }
 }

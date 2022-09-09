@@ -1,5 +1,8 @@
-﻿using BotServer.Application.Repositories;
+﻿using AutoMapper;
+using BotServer.Application.Repositories;
 using BotServer.Domain.Models;
+using BotServer.Domain.Models.Details;
+using BotServer.Domain.Models.Short;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -9,27 +12,34 @@ using System.Threading.Tasks;
 
 namespace BotServer.Features.Features.Queries.Chat.GetChatById
 {
-    public class GetChatByIdQueryHandler : IRequestHandler<GetChatByIdQuery, ChatModel>
+    public class GetChatByIdQueryHandler : IRequestHandler<GetChatByIdQuery, ChatDetailsModel>
     {
-        public IBaseRepository _baseRepository;
-        public ISelectRepository _selectRepository;
-        public GetChatByIdQueryHandler(IBaseRepository baseRepository, ISelectRepository selectRepository)
+        private readonly IBaseRepository _baseRepository;
+        private readonly ISelectRepository _selectRepository;
+        private readonly IMapper _mapper;
+        private readonly IMessageRepository _messageRepository;
+        public GetChatByIdQueryHandler(IBaseRepository baseRepository, ISelectRepository selectRepository,IMapper mapper, IMessageRepository messageRepository)
         {
             _baseRepository = baseRepository;
+            _mapper = mapper;
             _selectRepository = selectRepository;
-             
+            _messageRepository = messageRepository;
         }
 
-        public async Task<ChatModel> Handle(GetChatByIdQuery request, CancellationToken cancellationToken)
+        public async Task<ChatDetailsModel> Handle(GetChatByIdQuery request, CancellationToken cancellationToken)
         {
             var chat =await _baseRepository.GetByid<ChatModel>(request.id);
+
+            var ChatDetails = _mapper.Map<ChatDetailsModel>(chat);
+            ChatDetails.Page = _selectRepository.CountPages<ChatModel>(5);
             if (chat != null)
             {
-                var messages =_selectRepository.SelectWithSortByTimeByParentId<ChatModel,MessageModel>(chat.id,DESC:true);
+                
+                var messages = _messageRepository.SelectWithSortByTimeByParentId(chat.id,DESC:true);
                 if (messages != null)
-                    chat.Messages = messages;
+                    ChatDetails.Messages = messages.ToList();
             }
-            return chat;
+            return ChatDetails;
         }
     }
 }

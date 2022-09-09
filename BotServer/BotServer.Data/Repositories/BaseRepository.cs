@@ -55,7 +55,7 @@ namespace BotServer.Data.Repositories
             return await _appDbContext.Set<T>().FirstOrDefaultAsync(o => o.id == id);
         }
 
-        public async Task<bool> Update<T>(T model, string id) where T : class, IEntity
+        public async Task<EntityEntry<T>> Update<T>(T model, string id) where T : class, IEntity
         {
             if (!string.IsNullOrEmpty(id))
             {
@@ -64,11 +64,11 @@ namespace BotServer.Data.Repositories
                 {
                     model.id = id;
                     // _appDbContext.Set<T>
-                    _appDbContext.Set<T>().Update(model);
-                    return true;
+                    var res = _appDbContext.Set<T>().Update(model);
+                    return res;
                 }
             }
-            return false;
+            return null;
         }
 
         public async Task<EntityEntry<TKind>> Create<TParent,TKind>(string ParentId, TKind model) where TKind : class ,IEntity, IHasParent where TParent:class,IEntity

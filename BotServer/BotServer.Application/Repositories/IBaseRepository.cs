@@ -12,7 +12,7 @@ namespace BotServer.Application.Repositories
     {
         Task SaveChangesAsync();
         Task<EntityEntry<T>> Create<T>(T model) where T : class, IEntity;
-        Task<bool> Update<T>(T model, string Id) where T : class, IEntity;
+        Task<EntityEntry<T>> Update<T>(T model, string Id) where T : class, IEntity;
 
 
         Task<bool> Delete<T>(string Id) where T : class, IEntity;

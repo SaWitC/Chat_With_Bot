@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Features.Features.Commands.Messages.SendMessage
 {
-    public class SendMessageCommand:IRequest<EntityEntry<MessageModel>>
+    public class SendMessageCommand:IRequest<MessageModel>
     {
         public SendMessageDTO SendMessageDTO { get; set; }
     }

@@ -12,10 +12,10 @@ namespace BotServer.Features.Features.Commands.Chat.CreateChatCommand
 
         public CreateChatCommandValidator()
         {
-            RuleFor(x => x.createChatDTO.avtorId).NotEmpty();
+            //RuleFor(x => x.avtorId).NotEmpty();
 
-            RuleFor(x => x.createChatDTO.Title).MinimumLength(5).WithMessage("Chat title can not be chort that 5 subols");
-            RuleFor(x => x.createChatDTO.Title).MaximumLength(25).WithMessage("Chat title can not be longer that 25 subols");
+            RuleFor(x => x.Title).MinimumLength(5).WithMessage("Chat title can not be chort that 5 subols");
+            RuleFor(x => x.Title).MaximumLength(25).WithMessage("Chat title can not be longer that 25 subols");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BotServer.Domain.Models.Short;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace BotServer.Application.Repositories
 {
     public interface IMessageRepository
     {
-        //public IEnumerable<MessageModel> SelectFrom
+        public IEnumerable<MessageSortModel> SelectWithSortByTimeByParentId(string parentId, int page = 0, int size = 5, bool DESC = false);
     }
 }

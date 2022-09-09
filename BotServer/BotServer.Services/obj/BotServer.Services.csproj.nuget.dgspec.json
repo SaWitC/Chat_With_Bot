@@ -161,6 +161,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.8, )"
+            },
+            "Scrutor": {
+              "target": "Package",
+              "version": "[4.2.0, )"
             }
           },
           "imports": [

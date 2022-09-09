@@ -15,6 +15,9 @@ namespace BotServer.Application.Repositories
 
         public IEnumerable<TKind> SelectWithSortByTimeByParentId<TParents,TKind>(string parentsId, int page = 0, int size = 5, bool DESC = false) where TKind : class, IHasCreated, IHasParent, IEntity where TParents : class,IEntity;
 
+ 
+
+        public int CountPages<T>(int size) where T:class, IEntity;
 
     }
 }
