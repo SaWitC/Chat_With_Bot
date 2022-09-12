@@ -9,7 +9,8 @@
       "BotServer.Application/1.0.0": {
         "dependencies": {
           "BotServer.Domain": "1.0.0",
-          "Microsoft.EntityFrameworkCore": "6.0.8"
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "OpenWeatherAPI": "1.0.2"
         },
         "runtime": {
           "BotServer.Application.dll": {}
@@ -235,6 +236,25 @@
           }
         }
       },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "OpenWeatherAPI/1.0.2": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/OpenWeatherAPI.dll": {
+            "assemblyVersion": "1.0.2.0",
+            "fileVersion": "1.0.2.0"
+          }
+        }
+      },
       "System.Collections.Immutable/6.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
@@ -410,6 +430,20 @@
       "sha512": "sha512-gTqzsGcmD13HgtNePPcuVHZ/NXWmyV+InJgalW/FhWpII1D7V1k0obIseGlWMeA4G+tZfeGMfXr0klnWbMR/mQ==",
       "path": "microsoft.identitymodel.tokens/6.8.0",
       "hashPath": "microsoft.identitymodel.tokens.6.8.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "OpenWeatherAPI/1.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JGUrEgZJ4ePQS6S1lK5m4A/EgRZ+6GT8Ph2LnMBK+ih8Rlb+IzE9RoHedAfE+6hbVK081eoPv3nlSLAzsAof4Q==",
+      "path": "openweatherapi/1.0.2",
+      "hashPath": "openweatherapi.1.0.2.nupkg.sha512"
     },
     "System.Collections.Immutable/6.0.0": {
       "type": "package",

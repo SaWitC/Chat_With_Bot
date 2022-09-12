@@ -19,7 +19,7 @@ namespace BotServer.Features.Features.Queries.Messages.GetMessagesQuery
 
         public async Task<IEnumerable<MessageModel>> Handle(GetMessagesQuery request, CancellationToken cancellationToken)
         {
-            var res = _selectRepository.SelectWithSortByTimeByParentId<ChatModel,MessageModel>(request.id,page:request.page,DESC:true);
+            var res = _selectRepository.SelectWithSortByTimeByParentId<ChatModel,MessageModel>(request.id,request.page,DESC:false);
             return res;
         }
     }

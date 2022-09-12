@@ -49,7 +49,7 @@ builder.Services.AddSignalR(opt =>
     opt.EnableDetailedErrors = true;
 });
 BotServer.Data.DependencyInjection.AddData(builder.Services,builder.Configuration);
-BotServer.Services.DependencyInjection.AddServices(builder.Services);
+BotServer.Services.DependencyInjection.AddServices(builder.Services,builder.Configuration);
 BotServer.Features.DependensyInjection.AddFeatures(builder.Services);
 BotServer.DependencyInjection.AddBotServer(builder.Services,builder.Configuration);
 
@@ -62,6 +62,7 @@ await BotServer.SetSampleData.SetData(app);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    
     app.UseSwagger(c =>
     {
         c.SerializeAsV2 = true;

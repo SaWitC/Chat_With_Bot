@@ -2,6 +2,7 @@
 using BotServer.Features.Features.Queries.Messages.GetMessagesQuery;
 using BotServer.SignalR.Hubs;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Swashbuckle.AspNetCore.Annotations;
@@ -27,12 +28,15 @@ namespace BotServer.Controllers
             _hubContext = hubContext;
         }
         // GET api/<MessageController>/5
+        [Authorize(AuthenticationSchemes ="Bearer")]
         [HttpGet("{page}&{chatid}")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "get messages", OperationId = "GetMessages")]
         public async Task<IActionResult> Get(int page, string chatid)
         {
             var query = new GetMessagesQuery();
+            query.id = chatid;
+            query.page = page;
             var res = await _mediatr.Send(query);
             return Ok(res);
         }

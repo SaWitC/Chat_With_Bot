@@ -55,5 +55,11 @@ namespace BotServer.Data.Repositories
             var count =_appDbContext.Set<T>().Count();
             return count/size;
         }
+
+        public int CountPagesWithParent<T>(int size, string parentId) where T : class, IEntity, IHasParent
+        {
+            var count = _appDbContext.Set<T>().Where(o=>o.ParentId==parentId).Count();
+            return count / size;
+        }
     }
 }

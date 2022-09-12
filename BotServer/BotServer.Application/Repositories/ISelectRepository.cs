@@ -18,6 +18,8 @@ namespace BotServer.Application.Repositories
  
 
         public int CountPages<T>(int size) where T:class, IEntity;
+        public int CountPagesWithParent<T>(int size,string parentId) where T : class, IEntity,IHasParent;
+
 
     }
 }

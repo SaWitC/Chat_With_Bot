@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "MnT24Iqo2ubXepQ+CZ18zCa6eEJwXQT+sYLsNNtg0QzIRss+4/H6UIe6cAGUF3IK9e2rCMxWxgJKiYW7nrbmoQ==",
+  "dgSpecHash": "pwvQLOg8G+du2t/Wo24nLhw66F1I4fZmFuWcE6jEsSv+KqLUL9kuPbot6u8QY4flvzbA5LJttXtH4JOIi4uvFw==",
   "success": true,
   "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
   "expectedPackageFiles": [
@@ -25,6 +25,8 @@
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.identitymodel.logging\\6.8.0\\microsoft.identitymodel.logging.6.8.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\openweatherapi\\1.0.2\\openweatherapi.1.0.2.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",

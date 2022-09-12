@@ -92,3 +92,6 @@ C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\Swash
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\Swashbuckle.Core.dll
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\Scrutor.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\OpenWeatherAPI.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\OpenWeatherMap.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

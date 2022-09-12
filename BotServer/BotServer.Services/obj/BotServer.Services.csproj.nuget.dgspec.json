@@ -54,6 +54,10 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.8, )"
+            },
+            "OpenWeatherAPI": {
+              "target": "Package",
+              "version": "[1.0.2, )"
             }
           },
           "imports": [
@@ -303,6 +307,32 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "OpenWeatherAPI": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "OpenWeatherMap": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
