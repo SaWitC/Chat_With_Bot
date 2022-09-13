@@ -35,7 +35,7 @@ namespace BotServer.Services.CustomHTTPClients.Wiki
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var respstring= await request.Content.ReadAsStringAsync();
+                    var respstring= await response.Content.ReadAsStringAsync();
                     return Parse(respstring);
                 }
                     //return await response.Content.ReadAsAsync<WikiModels.Rootobject>();

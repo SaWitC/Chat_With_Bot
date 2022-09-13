@@ -28,7 +28,7 @@ namespace BotServer.Services.Services.Commands.WikiCommand
         public async Task<string> ProcessCommand(ICommand command)
         {
             string wikiDomain = "https://en.wikipedia.org/wiki/";
-            var requeststring = Regex.Replace(command.CommandString, "[wiki|wikipedia|wikidepia]", "");
+            var requeststring = Regex.Replace(command.CommandString, "(wiki|wikipedia|wikidepia)", "");
             var respmodel = await _wikiHttpClient.GetLinks(requeststring);
 
             if (respmodel != null)
