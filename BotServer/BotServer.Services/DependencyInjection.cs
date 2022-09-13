@@ -28,9 +28,25 @@ namespace BotServer.Services
             //    .AddClasses()
             //    .AsSelf();
             //});
+
+
             Services.AddScoped<ICommandHandler, GetCurrentWeatherCommand>();
             Services.AddScoped<ICommandHandler, HelloCommand>();
             Services.AddScoped<ICommandHandler, GetArticleLinks>();
+
+            //Services.Scan(scan =>
+            //{
+            //    scan.FromAssemblyOf<ICommandHandler>()
+            //    .AddClasses(classes => classes.AssignableTo<ICommandHandler>())
+            //    .AsImplementedInterfaces()
+            //    .WithScopedLifetime();
+            //});
+
+            //Services.Scan(scan => scan
+            //  .FromAssemblyOf<ICommandHandler>()
+            //    .AddClasses()
+            //      .AsSelf()
+            //      .WithTransientLifetime());
 
 
             Services.AddHttpClient<WeatherHttpClient>("WeatherHttpClient");
