@@ -11,6 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Microsoft.Extensions.Configuration;
+using BotServer.Services.Services.Commands.WikiCommand;
+using BotServer.Services.CustomHTTPClients.Wiki;
 
 namespace BotServer.Services
 {
@@ -28,8 +30,9 @@ namespace BotServer.Services
             //});
             Services.AddScoped<ICommandHandler, GetCurrentWeatherCommand>();
             Services.AddScoped<ICommandHandler, HelloCommand>();
+            Services.AddScoped<ICommandHandler, GetArticleLinks>();
 
-            // Services.AddScoped<IWeatherHttpClient, WeatherHttpClient>();
+
             Services.AddHttpClient<WeatherHttpClient>("WeatherHttpClient");
             Services.AddTransient<IWeatherHttpClient>(o =>
             {
@@ -37,6 +40,15 @@ namespace BotServer.Services
                 var httpClient = clientFactory.CreateClient("WeatherHttpClient");
 
                 return new WeatherHttpClient(httpClient, configuration);
+            });
+
+            Services.AddHttpClient<WikiHttpClient>("WikiHttpClient");
+            Services.AddTransient<IWikiHttpClient>(o =>
+            {
+                var clientFactory = o.GetRequiredService<IHttpClientFactory>();
+                var httpClient = clientFactory.CreateClient("WikiHttpClient");
+
+                return new WikiHttpClient(httpClient, configuration);
             });
         }
     }

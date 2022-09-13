@@ -30,11 +30,7 @@ namespace BotServer.Services.Services.Commands.WeatherCommands
         {
             var currentLocation = "";
 
-
             var token = _configuration["OpenWeatherMap:Token"];
-
-            var openWeatherAPI = new OpenWeatherAPI.OpenWeatherApiClient(token);
-            // Use async version wherever possible
 
             foreach (var x in location)
             {
@@ -47,11 +43,10 @@ namespace BotServer.Services.Services.Commands.WeatherCommands
 
             if (res != null)
             {
-                return $"Weather in {currentLocation}:\n" +
-                    $"Temperature: {res.main.temp} \n" +
-                    $"temp max: {res.main.temp_max}\n"+
-                    $"temp min: {res.main.temp_min}\n";
-
+                return $"Weather in {currentLocation}:</br>" +
+                    $"Temperature: {res.main.temp} </br>" +
+                    $"temp max: {res.main.temp_max}</br>" +
+                    $"temp min: {res.main.temp_min}</br>";
             }
 
             return "Sory but I can't found any weather";
