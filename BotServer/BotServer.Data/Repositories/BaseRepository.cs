@@ -25,10 +25,10 @@ namespace BotServer.Data.Repositories
             await _appDbContext.SaveChangesAsync();
         }
 
-        public async Task<EntityEntry<T>> Create<T>(T model) where T : class, IEntity
+        public async Task<T> Create<T>(T model) where T : class, IEntity
         {
             var entity = await _appDbContext.Set<T>().AddAsync(model);
-            return entity;
+            return entity.Entity;
         }
 
         public async Task<bool> Delete<T>(string id) where T : class, IEntity
@@ -55,7 +55,7 @@ namespace BotServer.Data.Repositories
             return await _appDbContext.Set<T>().FirstOrDefaultAsync(o => o.id == id);
         }
 
-        public async Task<EntityEntry<T>> Update<T>(T model, string id) where T : class, IEntity
+        public async Task<T> Update<T>(T model, string id) where T : class, IEntity
         {
             if (!string.IsNullOrEmpty(id))
             {
@@ -65,13 +65,13 @@ namespace BotServer.Data.Repositories
                     model.id = id;
                     // _appDbContext.Set<T>
                     var res = _appDbContext.Set<T>().Update(model);
-                    return res;
+                    return res.Entity;
                 }
             }
             return null;
         }
 
-        public async Task<EntityEntry<TKind>> Create<TParent,TKind>(string ParentId, TKind model) where TKind : class ,IEntity, IHasParent where TParent:class,IEntity
+        public async Task<TKind> Create<TParent,TKind>(string ParentId, TKind model) where TKind : class ,IEntity, IHasParent where TParent:class,IEntity
         {
             if (!string.IsNullOrEmpty(ParentId)&&!string.IsNullOrEmpty(model.id))
             {
@@ -79,7 +79,8 @@ namespace BotServer.Data.Repositories
                 if (parent != null)
                 {
                     model.ParentId = ParentId;
-                    return await _appDbContext.Set<TKind>().AddAsync(model);
+                    var res= await _appDbContext.Set<TKind>().AddAsync(model);
+                    return res.Entity;
                 }
                 throw new Exception("Parent not found in db");
             }

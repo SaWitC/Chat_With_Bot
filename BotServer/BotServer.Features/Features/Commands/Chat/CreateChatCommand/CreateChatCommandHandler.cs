@@ -36,7 +36,7 @@ namespace BotServer.Features.Features.Commands.Chat.CreateChatCommand
             
             var res =await _baseRepository.Create<ChatModel>(model);
             await _baseRepository.SaveChangesAsync();
-            return res.Entity;
+            return res;
         }
     }
 }

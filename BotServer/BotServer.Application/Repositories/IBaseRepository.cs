@@ -11,8 +11,8 @@ namespace BotServer.Application.Repositories
     public interface IBaseRepository
     {
         Task SaveChangesAsync();
-        Task<EntityEntry<T>> Create<T>(T model) where T : class, IEntity;
-        Task<EntityEntry<T>> Update<T>(T model, string Id) where T : class, IEntity;
+        Task<T> Create<T>(T model) where T : class, IEntity;
+        Task<T> Update<T>(T model, string Id) where T : class, IEntity;
 
 
         Task<bool> Delete<T>(string Id) where T : class, IEntity;
@@ -21,6 +21,6 @@ namespace BotServer.Application.Repositories
 
         Task<T> GetByid<T>(string id) where T : class, IEntity;
 
-        Task<EntityEntry<TKind>> Create<TParent, TKind>(string ParentId, TKind model) where TKind : class, IEntity, IHasParent where TParent : class, IEntity;
+        Task<TKind> Create<TParent, TKind>(string ParentId, TKind model) where TKind : class, IEntity, IHasParent where TParent : class, IEntity;
     }
 }

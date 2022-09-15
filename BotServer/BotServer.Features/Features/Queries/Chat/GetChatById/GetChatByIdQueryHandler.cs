@@ -29,7 +29,7 @@ namespace BotServer.Features.Features.Queries.Chat.GetChatById
         public async Task<ChatDetailsModel> Handle(GetChatByIdQuery request, CancellationToken cancellationToken)
         {
             var chat =await _baseRepository.GetByid<ChatModel>(request.id);
-            var ChatDetails =new ChatDetailsModel();
+            ChatDetailsModel ChatDetails= null;// =new ChatDetailsModel();
             if (chat != null) { 
                 ChatDetails = _mapper.Map<ChatDetailsModel>(chat);
                 ChatDetails.Page = _selectRepository.CountPagesWithParent<MessageModel>(5,chat.id);

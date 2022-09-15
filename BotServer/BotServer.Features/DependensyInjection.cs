@@ -25,7 +25,7 @@ namespace BotServer.Features
 
             Services.AddMediatR(Assembly.GetExecutingAssembly());
 
-            Services.AddAutoMapper(typeof(Profile));
+            Services.AddAutoMapper(typeof(CustomMapperProfile));
         }
     }
 }

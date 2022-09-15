@@ -40,7 +40,7 @@ namespace BotServer.Features.Features.Commands.Messages.SendMessage
                         await _baseRepository.SaveChangesAsync();
 
 
-                    return res.Entity;
+                    return res;
                 }
                 return null;
 

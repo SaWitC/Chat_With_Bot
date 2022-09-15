@@ -545,6 +545,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EntityFrameworkCore.AutoFixture": {
+              "target": "Package",
+              "version": "[2.0.0, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[11.2.1, )"
@@ -566,6 +570,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[6.0.9, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

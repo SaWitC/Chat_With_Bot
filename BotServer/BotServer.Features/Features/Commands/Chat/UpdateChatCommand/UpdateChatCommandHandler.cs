@@ -28,7 +28,7 @@ namespace BotServer.Features.Features.Commands.Chat.UpdateChatCommand
             var res =await _baseRepository.Update<ChatModel>(model,request.oldModelId);
             await _baseRepository.SaveChangesAsync();
 
-            return res.Entity;
+            return res;
         }
     }
 }
