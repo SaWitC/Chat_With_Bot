@@ -2,7 +2,6 @@
 using BotServer.Application.Repositories;
 using BotServer.Application.Services.Commands;
 using BotServer.Domain.Models;
-using BotServer.Services.Services.Commands;
 using MediatR;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System;

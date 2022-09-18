@@ -10,6 +10,7 @@ namespace BotServer.Application.Repositories
 {
     public interface IBaseRepository
     {
+        Task<T> FictiveRemove<T>(string Id) where T : class, IFictiveRemove,IEntity;
         Task SaveChangesAsync();
         Task<T> Create<T>(T model) where T : class, IEntity;
         Task<T> Update<T>(T model, string Id) where T : class, IEntity;

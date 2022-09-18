@@ -50,6 +50,9 @@ builder.Services.AddSignalR(opt =>
 {
     opt.EnableDetailedErrors = true;
 });
+
+
+Botserve.MigrationApp.DependencyInjection.AddMigraion(builder.Services,builder.Configuration);
 BotServer.Data.DependencyInjection.AddData(builder.Services,builder.Configuration);
 BotServer.Services.DependencyInjection.AddServices(builder.Services,builder.Configuration);
 BotServer.Features.DependensyInjection.AddFeatures(builder.Services);

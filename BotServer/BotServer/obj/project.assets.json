@@ -2797,6 +2797,20 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Botserve.MigrationApp/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "BotServer.Data": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8"
+        },
+        "compile": {
+          "bin/placeholder/Botserve.MigrationApp.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Botserve.MigrationApp.dll": {}
+        }
+      },
       "BotServer.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2851,7 +2865,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "BotServer.Services": "1.0.0",
+          "Botserve.MigrationApp": "1.0.0",
           "FluentValidation": "11.2.1",
           "Microsoft.AspNetCore.Identity": "2.2.0"
         },
@@ -2866,7 +2880,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "BotServer.Data": "1.0.0",
+          "BotServer.Application": "1.0.0",
+          "BotServer.Features": "1.0.0",
           "Microsoft.AspNet.WebApi.Client": "5.2.9",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.Extensions.Http": "6.0.0",
@@ -2885,7 +2900,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "BotServer.Features": "1.0.0",
+          "BotServer.Services": "1.0.0",
           "Microsoft.AspNetCore.SignalR.Core": "1.1.0"
         },
         "compile": {
@@ -8691,6 +8706,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Botserve.MigrationApp/1.0.0": {
+      "type": "project",
+      "path": "../Botserve.MigrationApp/Botserve.MigrationApp.csproj",
+      "msbuildProject": "../Botserve.MigrationApp/Botserve.MigrationApp.csproj"
+    },
     "BotServer.Application/1.0.0": {
       "type": "project",
       "path": "../BotServer.Application/BotServer.Application.csproj",
@@ -8866,7 +8886,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   },

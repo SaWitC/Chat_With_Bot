@@ -5,6 +5,7 @@ using BotServer.Domain.Models.Short;
 using BotServer.Features.Features.Commands.Chat.CreateChatCommand;
 using BotServer.Features.Features.Commands.Chat.UpdateChatCommand;
 using BotServer.Features.Features.Commands.Messages.SendMessage;
+using BotServer.Features.Features.Commands.Remind.CreateRemind;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,8 @@ namespace BotServer.Data.MapperProfiles
             CreateMap<MessageModel, SendMessageDTO>().ReverseMap();
 
             CreateMap<MessageShortModel, MessageModel>().ReverseMap();
+            CreateMap<CreateRemindCommand, RemindModel>().ReverseMap();
+
             //CreateMap<SendMessageDTO, MessageModel>();
 
 

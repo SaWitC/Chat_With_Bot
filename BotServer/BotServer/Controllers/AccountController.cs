@@ -35,9 +35,7 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "Register new user", OperationId = "Register")]
         public async Task<IActionResult> Register(RegistrationCommand registrationCommand)
         {
-           
-
-
+          
             var res = await _mediatr.Send(registrationCommand);
             return Ok(res);
         }

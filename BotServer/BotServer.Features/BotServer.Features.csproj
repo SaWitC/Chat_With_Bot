@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BotServer.Services\BotServer.Services.csproj" />
+    <ProjectReference Include="..\Botserve.MigrationApp\Botserve.MigrationApp.csproj" />
   </ItemGroup>
 
 </Project>

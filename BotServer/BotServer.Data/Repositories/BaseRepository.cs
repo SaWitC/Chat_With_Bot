@@ -86,5 +86,17 @@ namespace BotServer.Data.Repositories
             }
             throw new ArgumentException("model.id i null or ParentId is null it is not cool");
         }
+
+        public async Task<T> FictiveRemove<T>(string Id) where T:class,IFictiveRemove,IEntity
+        {
+            var oldVersionModel = await _appDbContext.Set<T>().FirstOrDefaultAsync(x => x.id == Id);
+            if (oldVersionModel != null)
+            {
+                oldVersionModel.IsDeleted = true;
+                var res =_appDbContext.Set<T>().Update(oldVersionModel).Entity;
+                return res;
+            }
+            return null;
+        }
     }
 }

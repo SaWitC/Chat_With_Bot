@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BotServer.Features\BotServer.Features.csproj" />
+    <ProjectReference Include="..\BotServer.Services\BotServer.Services.csproj" />
   </ItemGroup>
 
 </Project>

@@ -16,19 +16,13 @@ namespace BotServer.Data
     {
         public static void AddData(IServiceCollection Services,IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
-            Services.AddDbContext<AppDbContext>(options => {
-                options.UseSqlServer(connectionString,opt=>opt.MigrationsAssembly("BotServer.Migrations"));
-               
-
-
-
-                });
 
             Services.AddScoped<IChatRepository, ChatRepository>();
             Services.AddScoped<IBaseRepository, BaseRepository>();
             Services.AddScoped<IAccountRepository, AccountRepository>();
             Services.AddScoped<IMessageRepository, MessageRepository>();
+            Services.AddScoped<IRemindRepository, RemindRepository>();
+
 
         }
     }

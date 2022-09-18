@@ -13,6 +13,7 @@ using System.Net.Http;
 using Microsoft.Extensions.Configuration;
 using BotServer.Services.Services.Commands.WikiCommand;
 using BotServer.Services.CustomHTTPClients.Wiki;
+using BotServer.Services.Services.Commands.RemindCommands;
 
 namespace BotServer.Services
 {
@@ -33,6 +34,9 @@ namespace BotServer.Services
             Services.AddScoped<ICommandHandler, GetCurrentWeatherCommand>();
             Services.AddScoped<ICommandHandler, HelloCommand>();
             Services.AddScoped<ICommandHandler, GetArticleLinks>();
+            Services.AddScoped<ICommandHandler, RemindMeCommand>();
+            Services.AddScoped<ICommandHandler, RemindMeTaimeSaveCommand>();
+
 
             //Services.Scan(scan =>
             //{

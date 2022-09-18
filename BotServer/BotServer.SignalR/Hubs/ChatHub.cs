@@ -1,5 +1,4 @@
 ﻿using BotServer.Application.Services.Commands;
-using BotServer.Services.Services.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
@@ -11,6 +10,7 @@ using System.Threading.Tasks;
 using BotServer.Features.Features.Commands.Messages.SendMessage;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using BotServer.Services.Services.Commands;
 
 namespace BotServer.SignalR.Hubs
 {
@@ -31,7 +31,16 @@ namespace BotServer.SignalR.Hubs
         public async Task askServer(string someTextFromClient,string chatId)
         {
             string tempString ="";
-
+            if (string.IsNullOrEmpty(someTextFromClient))
+            {
+                await Clients.Client(this.Context.ConnectionId).SendAsync("askServerResponse", "incorrect message (empty)");
+                return;
+            }
+            if (someTextFromClient.Length > 400)
+            {
+                await Clients.Client(this.Context.ConnectionId).SendAsync("askServerResponse", "incorrect message (message>400)");
+                return;
+            }
             foreach (var handler in _commandHandlers)
             {
                 if (handler.CanProcess(new Command(someTextFromClient)))
@@ -40,33 +49,31 @@ namespace BotServer.SignalR.Hubs
                     break;
                 }
             }
-            if (!string.IsNullOrEmpty(someTextFromClient))
-            {
-                //user quest
-                SendMessageCommand sendMessageCommand = new SendMessageCommand();
-                SendMessageDTO messageDTO = new();
-                sendMessageCommand.SendMessageDTO = messageDTO;
-                sendMessageCommand.SendMessageDTO.text = someTextFromClient;
-                sendMessageCommand.SendMessageDTO.ParentId = chatId;
-                sendMessageCommand.SendMessageDTO.avtroId = Id.ToString();
-                sendMessageCommand.SendMessageDTO.IsFromBot = false;
+                    //user quest
+            SendMessageCommand sendMessageCommand = new SendMessageCommand();
+            SendMessageDTO messageDTO = new();
+            sendMessageCommand.SendMessageDTO = messageDTO;
+            sendMessageCommand.SendMessageDTO.text = someTextFromClient;
+            sendMessageCommand.SendMessageDTO.ParentId = chatId;
+            sendMessageCommand.SendMessageDTO.avtroId = Id.ToString();
+            sendMessageCommand.SendMessageDTO.IsFromBot = false;
 
-                var res = await _mediatr.Send(sendMessageCommand);
+            var res = await _mediatr.Send(sendMessageCommand);
 
-                await Clients.Client(this.Context.ConnectionId).SendAsync("messageFromPeople",res.text);
+            await Clients.Client(this.Context.ConnectionId).SendAsync("messageFromPeople", res.text);
 
-                //server response
-                SendMessageCommand sendMessageCommandFromServer = new SendMessageCommand();
-                SendMessageDTO BotMessageDTO = new();
-                BotMessageDTO.text = tempString;
-                BotMessageDTO.ParentId = chatId;
-                BotMessageDTO.avtroId = Guid.Empty.ToString();
-                BotMessageDTO.IsFromBot = true;
-                sendMessageCommandFromServer.SendMessageDTO = BotMessageDTO;
-                var botResp = await _mediatr.Send(sendMessageCommandFromServer);
+            //server response
+            SendMessageCommand sendMessageCommandFromServer = new SendMessageCommand();
+            SendMessageDTO BotMessageDTO = new();
+            BotMessageDTO.text = tempString;
+            BotMessageDTO.ParentId = chatId;
+            BotMessageDTO.avtroId = Guid.Empty.ToString();
+            BotMessageDTO.IsFromBot = true;
+            sendMessageCommandFromServer.SendMessageDTO = BotMessageDTO;
+            var botResp = await _mediatr.Send(sendMessageCommandFromServer);
 
-                await Clients.Client(this.Context.ConnectionId).SendAsync("askServerResponse", botResp.text);
-            }
+            await Clients.Client(this.Context.ConnectionId).SendAsync("askServerResponse", botResp.text);
+            
         }
     }
 }

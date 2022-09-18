@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace BotServer.Migrations.Migrations
+namespace Botserve.MigrationApp.Migrations
 {
-    public partial class test : Migration
+    public partial class addedRemindsTable2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,12 +54,28 @@ namespace BotServer.Migrations.Migrations
                 {
                     id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     avtorId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
                     Created = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Chats", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reminds",
+                columns: table => new
+                {
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    RemindMessage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Created = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    RemindAtTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    AvtorId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reminds", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -254,6 +270,9 @@ namespace BotServer.Migrations.Migrations
 
             migrationBuilder.DropTable(
                 name: "Messages");
+
+            migrationBuilder.DropTable(
+                name: "Reminds");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
