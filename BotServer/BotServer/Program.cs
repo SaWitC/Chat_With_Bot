@@ -55,7 +55,7 @@ builder.Services.AddSignalR(opt =>
 Botserve.MigrationApp.DependencyInjection.AddMigraion(builder.Services,builder.Configuration);
 BotServer.Data.DependencyInjection.AddData(builder.Services,builder.Configuration);
 BotServer.Services.DependencyInjection.AddServices(builder.Services,builder.Configuration);
-BotServer.Features.DependensyInjection.AddFeatures(builder.Services);
+BotServer.Features.DependensyInjection.AddFeatures(builder.Services,builder.Configuration);
 BotServer.DependencyInjection.AddBotServer(builder.Services,builder.Configuration);
 
 var app = builder.Build();

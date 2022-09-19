@@ -20,7 +20,7 @@ namespace BotServer.Services.Services.Commands.RemindCommands
 
         public bool CanProcess(ICommand command)
         {
-            if (Regex.IsMatch(command.CommandString, @"[0-9]{4}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2} [а-яa-zА-ЯA-Z0-9. ]{1,}"))
+            if (Regex.IsMatch(command.CommandString, @"[0-9]{4}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}"))
                 return true;
             return false;
         }
@@ -32,7 +32,7 @@ namespace BotServer.Services.Services.Commands.RemindCommands
             var remndMessage = command.CommandString.Replace(match.Groups[0].Value, "");
             if (string.IsNullOrEmpty(remndMessage))
             {
-                return $"write remind message '{date} message'";
+                return $"❗❗❗write remind message '{date} message'❗❗❗";
             }
 
             if (DateTime.Now.AddMinutes(6) < date)
