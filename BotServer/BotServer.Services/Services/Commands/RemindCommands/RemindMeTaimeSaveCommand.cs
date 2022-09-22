@@ -27,7 +27,9 @@ namespace BotServer.Services.Services.Commands.RemindCommands
 
         public async Task<string> ProcessCommand(ICommand command)
         {
+
             Match match = Regex.Match(command.CommandString.ToLower(), @"[0-9]{4}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}");
+                
             DateTime date = DateTime.Parse(match.Groups[0].Value);
             var remndMessage = command.CommandString.Replace(match.Groups[0].Value, "");
             if (string.IsNullOrEmpty(remndMessage))
@@ -40,10 +42,9 @@ namespace BotServer.Services.Services.Commands.RemindCommands
                 var createRemindCommand = new CreateRemindCommand();
                 createRemindCommand.RemindMessage = remndMessage;
                 createRemindCommand.RemindAtTime = date;
-                var res =await _mediatr.Send(createRemindCommand);
+                var res = await _mediatr.Send(createRemindCommand);
 
                 return $"Correct Date {res.RemindAtTime} saved remind {res.RemindMessage}";
-               
             }
             else
             {

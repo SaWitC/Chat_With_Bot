@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(); ;
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
@@ -58,6 +58,7 @@ BotServer.Services.DependencyInjection.AddServices(builder.Services,builder.Conf
 BotServer.Features.DependensyInjection.AddFeatures(builder.Services,builder.Configuration);
 BotServer.DependencyInjection.AddBotServer(builder.Services,builder.Configuration);
 
+builder.Configuration.AddJsonFile("settings.json");
 var app = builder.Build();
 
 await BotServer.SetSampleData.SetData(app);
@@ -84,7 +85,6 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
 
 app.MapControllers();
 

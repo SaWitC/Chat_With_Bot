@@ -65,8 +65,7 @@ namespace BotServer.Features.Tests.Commands.Chat
             {
                 new Claim(ClaimTypes.NameIdentifier,Guid.NewGuid().ToString())
             };
-            httpContext.Object.HttpContext.User.AddIdentity(new ClaimsIdentity(claims));
-            //httpContext.Setup(x => x.HttpContext.User.Claims.Single()).Returns(new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString()));
+            //httpContext.Object.HttpContext.User.AddIdentity(new ClaimsIdentity(claims));
 
 
             CreateChatCommand createChatCommand = new CreateChatCommand();

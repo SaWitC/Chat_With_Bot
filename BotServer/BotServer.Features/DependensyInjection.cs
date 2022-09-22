@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using VkNet;
 using VkNet.Abstractions;
 using VkNet.Model;
+using Hangfire;
 
 namespace BotServer.Features
 {
@@ -28,6 +29,8 @@ namespace BotServer.Features
                 api.Authorize(new ApiAuthParams() { AccessToken = Configuration["Config:AccessToken"] });
                 return api;
             });
+
+            //Services.AddHangfire(c=>c.UseSqlServerStorage);
             
            // Services.AddValidatorsFromAssembly(typeof(startup).Assembly);
             Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
@@ -36,6 +39,13 @@ namespace BotServer.Features
             Services.AddMediatR(Assembly.GetExecutingAssembly());
 
             Services.AddAutoMapper(typeof(CustomMapperProfile));
+
+            //Services.AddScoped<IVkApi>(sp => {
+            //    var api = new VkApi();
+            //    //api.Token=""
+            //    //api.Authorize(new ApiAuthParams { AccessToken = Configuration["VkConfig:token"]});
+            //    return api;
+            //});
         }
     }
 }

@@ -20,4 +20,8 @@
     <ProjectReference Include="..\BotServer.Features\BotServer.Features.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Commands\VkCommands\" />
+  </ItemGroup>
+
 </Project>

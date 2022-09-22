@@ -14,6 +14,8 @@ using Microsoft.Extensions.Configuration;
 using BotServer.Services.Services.Commands.WikiCommand;
 using BotServer.Services.CustomHTTPClients.Wiki;
 using BotServer.Services.Services.Commands.RemindCommands;
+using VkNet.Abstractions;
+using VkNet;
 
 namespace BotServer.Services
 {
@@ -30,7 +32,8 @@ namespace BotServer.Services
             //    .AsSelf();
             //});
 
-
+            //Services.AddScoped<IVkApi, VkApi>();
+            
             Services.AddScoped<ICommandHandler, GetCurrentWeatherCommand>();
             Services.AddScoped<ICommandHandler, HelloCommand>();
             Services.AddScoped<ICommandHandler, GetArticleLinks>();
