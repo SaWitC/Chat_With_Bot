@@ -458,9 +458,6 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj"
-              },
               "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj": {
                 "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj"
               }

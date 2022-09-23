@@ -18,7 +18,7 @@ namespace BotServer.Data.Data
         public DbSet<MessageModel> Messages { get; set; }
         public DbSet<User> users { get; set; }
         public DbSet<RemindModel> Reminds { get; set; }
-
+        public DbSet<HubConnections>HubConnections { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

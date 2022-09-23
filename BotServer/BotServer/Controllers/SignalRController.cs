@@ -1,5 +1,5 @@
 ﻿using BotServer.Features.Features.Commands.Messages.SendMessage;
-using BotServer.SignalR.Hubs;
+//using BotServer.SignalR.Hubs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,34 +16,34 @@ namespace BotServer.Controllers
     [ApiController]
     public class SignalRController : ControllerBase
     {
-        private readonly IMediator _mediatr;
-        private readonly IHubContext<ChatHub> _hubContext;
+        //private readonly IMediator _mediatr;
+        //private readonly IHubContext<ChatHub> _hubContext;
 
-        public SignalRController(IMediator mediatr, IHubContext<ChatHub> hubContext)
-        {
-            _mediatr = mediatr;
-            _hubContext = hubContext;
-        }
+        //public SignalRController(IMediator mediatr, IHubContext<ChatHub> hubContext)
+        //{
+        //    _mediatr = mediatr;
+        //    _hubContext = hubContext;
+        //}
 
-        public Guid Id => Guid.Parse(User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
+        //public Guid Id => Guid.Parse(User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
 
-        // POST api/<MessageController>
-        [Route("Send")]
-        [HttpPost]
+        //// POST api/<MessageController>
         //[Route("Send")]
-        //[SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
-        //[SwaggerOperation(summary: "send message ", OperationId = "SendMessage")]
-        //[Authorize]
-        public async Task<IActionResult> Post(messageDTo sendMessageModel)
-        {
-            //var command = new SendMessageCommand();
-            //command.SendMessageDTO = sendMessageModel;
-            //var res = await _mediatr.Send(command);
-            await _hubContext.Clients.All.SendAsync("Notify", sendMessageModel.user,sendMessageModel.msgText);
+        //[HttpPost]
+        ////[Route("Send")]
+        ////[SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
+        ////[SwaggerOperation(summary: "send message ", OperationId = "SendMessage")]
+        ////[Authorize]
+        //public async Task<IActionResult> Post(messageDTo sendMessageModel)
+        //{
+        //    //var command = new SendMessageCommand();
+        //    //command.SendMessageDTO = sendMessageModel;
+        //    //var res = await _mediatr.Send(command);
+        //    await _hubContext.Clients.All.SendAsync("Notify", sendMessageModel.user,sendMessageModel.msgText);
 
-            //return Ok(res);
-            return Ok();
-        }
+        //    //return Ok(res);
+        //    return Ok();
+        //}
 
     }
     public class messageDTo

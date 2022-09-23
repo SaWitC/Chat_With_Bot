@@ -2,33 +2,67 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BotServer.Features.Features.Commands.Messages.SendMessage;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+//using BotServer.Services.Services.Commands;
+using BotServer.Application.Repositories;
+using BotServer.Domain.Models;
+using BotServer.Features.Features.Commands.Messages.SendMessage;
 using BotServer.Services.Services.Commands;
+using BotServer.Application.HubsAbstraction;
 
 namespace BotServer.SignalR.Hubs
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
-    public class ChatHub : Hub
+    public class ChatHub : Hub,IChatHub
     {
+        
         private readonly IMediator _mediatr;
         private readonly IEnumerable<ICommandHandler> _commandHandlers;
         private readonly IHttpContextAccessor _accesor;
-        public ChatHub(IEnumerable<ICommandHandler> commandHandlers,IMediator mediator, IHttpContextAccessor accessor)
+        private readonly IBaseRepository _baseRepository;
+        private readonly IHubRepository _hubRepository;
+
+        public override async Task OnConnectedAsync()
+        {
+            HubConnections hubConnection = new HubConnections();
+            hubConnection.AvtorId = Id.ToString();
+            hubConnection.id = Guid.NewGuid().ToString();
+            hubConnection.HubConnection = Context.ConnectionId;
+
+            hubConnection.IsClosed = false;
+            await _baseRepository.Create<HubConnections>(hubConnection);
+            await _baseRepository.SaveChangesAsync();
+            await base.OnConnectedAsync();
+        }
+        public override async Task OnDisconnectedAsync(Exception? exception)
+        {
+            var connection =await _hubRepository.GetByHubConnection(Context.ConnectionId);
+            if (connection != null)
+            {
+                var res =_hubRepository.CloseConnectionById(connection.id);
+                if(res != null)
+                {
+                    await _baseRepository.SaveChangesAsync();
+                }
+            }
+            await base.OnDisconnectedAsync(exception);
+        }
+        public ChatHub(IEnumerable<ICommandHandler> commandHandlers,
+            IMediator mediator,
+            IHttpContextAccessor accessor,
+            IHubRepository hubRepository,
+            IBaseRepository baseRepository)
         {
             _commandHandlers = commandHandlers;
             _mediatr = mediator;
             _accesor = accessor;
+            _hubRepository = hubRepository;
+            _baseRepository = baseRepository;
         }
 
         public Guid Id => Guid.Parse(_accesor.HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
-        public async Task askServer(string someTextFromClient,string chatId)
+        public async Task AskServer(string someTextFromClient,string chatId)
         {
             string tempString ="";
             if (string.IsNullOrEmpty(someTextFromClient))
@@ -73,7 +107,14 @@ namespace BotServer.SignalR.Hubs
             var botResp = await _mediatr.Send(sendMessageCommandFromServer);
 
             await Clients.Client(this.Context.ConnectionId).SendAsync("askServerResponse", botResp.text);
-            
+
+            //BackgroundJob.Schedule(() => SendToVk(user, model), delay);
+
+        }
+
+        public async Task SendMessage(string ChatId, string message)
+        {
+            await Clients.Client(ChatId).SendAsync("askServerResponse", message);
         }
     }
 }

@@ -2,6 +2,7 @@
 
 using BotServer.SignalR.Hubs;
 using FluentValidation;
+using Hangfire;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -87,6 +88,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseHangfireDashboard("/dashboard");
 
 //app.UseSignalR(routes =>
 //{

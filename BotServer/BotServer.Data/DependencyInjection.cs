@@ -22,6 +22,8 @@ namespace BotServer.Data
             Services.AddScoped<IAccountRepository, AccountRepository>();
             Services.AddScoped<IMessageRepository, MessageRepository>();
             Services.AddScoped<IRemindRepository, RemindRepository>();
+            Services.AddScoped<IHubRepository, HubRepository>();
+
 
 
         }

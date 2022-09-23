@@ -3083,7 +3083,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "BotServer.Application": "1.0.0",
           "BotServer.Features": "1.0.0",
           "Microsoft.AspNet.WebApi.Client": "5.2.9",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
@@ -3104,6 +3103,8 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "BotServer.Services": "1.0.0",
+          "MediatR": "10.0.1",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.SignalR.Core": "1.1.0"
         },
         "compile": {

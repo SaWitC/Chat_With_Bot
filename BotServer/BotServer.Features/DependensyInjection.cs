@@ -15,6 +15,8 @@ using VkNet;
 using VkNet.Abstractions;
 using VkNet.Model;
 using Hangfire;
+using BotServer.Features.BackgroundJobs.Remind;
+using BotServer.Application.HubsAbstraction;
 
 namespace BotServer.Features
 {
@@ -40,6 +42,10 @@ namespace BotServer.Features
 
             Services.AddAutoMapper(typeof(CustomMapperProfile));
 
+            Services.AddHangfire(o => o.UseSqlServerStorage(Configuration.GetConnectionString("DefaultConnection")));
+            Services.AddHangfireServer();
+
+            Services.AddScoped<IBGJobRemind,BGJobRemind>();
             //Services.AddScoped<IVkApi>(sp => {
             //    var api = new VkApi();
             //    //api.Token=""

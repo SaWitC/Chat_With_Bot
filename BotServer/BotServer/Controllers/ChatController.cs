@@ -2,7 +2,7 @@
 using BotServer.Features.Features.Commands.Chat.DeleteChatCommand;
 using BotServer.Features.Features.Queries.Chat.GetChatById;
 using BotServer.Features.Features.Queries.Chat.GetMyChats;
-using BotServer.SignalR.Hubs;
+//using BotServer.SignalR.Hubs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,12 +23,12 @@ namespace BotServer.Controllers
         public Guid Id => Guid.Parse(User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
 
         private readonly IMediator _mediatr;
-        private readonly IHubContext<ChatHub> _hubContext;
+        //private readonly IHubContext<ChatHub> _hubContext;
 
-        public ChatController(IMediator mediatr , IHubContext<ChatHub> hub)
+        public ChatController(IMediator mediatr /*, IHubContext<ChatHub> hub*/)
         {
             _mediatr = mediatr;
-            _hubContext = hub;
+          //  _hubContext = hub;
         }
 
         // POST api/<ChatController>

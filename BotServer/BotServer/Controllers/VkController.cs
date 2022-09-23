@@ -1,17 +1,19 @@
-﻿using BotServer.Domain.Models.VkModels;
+﻿using BotServer.Domain.Models;
+using BotServer.Domain.Models.VkModels;
 using BotServer.Features.Features.Commands.Vk.VkAuthorization;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.Swagger;
 using System.Security.Claims;
-using VkNet;
-using VkNet.Abstractions;
-using VkNet.Model;
-using VkNet.Model.RequestParams;
-using VkNet.Utils;
+//using VkNet;
+//using VkNet.Abstractions;
+//using VkNet.Model;
+//using VkNet.Model.RequestParams;
+//using VkNet.Utils;
 
 namespace BotServer.Controllers
 {
@@ -21,17 +23,51 @@ namespace BotServer.Controllers
     {
 
         private readonly IConfiguration _configuration;
+        private readonly UserManager<BotServer.Domain.Models.User> _usermanager;
         //private readonly IVkApi _vkApi;
         private readonly IMediator _mediator;
         public Guid UserId => Guid.Parse(HttpContext.User.Claims.Single(x=>x.Type == ClaimTypes.NameIdentifier).Value);
         public VkController(IConfiguration configuration,
            // IVkApi vkApi,
+           UserManager<BotServer.Domain.Models.User> userManager,
             IMediator mediator)
         {
             this._configuration = configuration;
             //_vkApi = vkApi; 
             _mediator = mediator;
+            _usermanager= userManager;
             
+        }
+
+        [HttpPost("test")]
+        //[Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> test()
+        {
+            //var user = await _usermanager.FindByIdAsync(UserId.ToString());
+            //VkApi vkApi = new VkApi();
+            //vkApi.Authorize(new ApiAuthParams()
+            //{
+            //    AccessToken = _configuration["VkConfig:Token"]
+            //    //ApplicationId = ulong.Parse(_configuration["VkConfig:AppId"])
+            //});
+            //await vkApi.Messages.SendAsync(new MessagesSendParams()
+            //{
+            //    UserId = 404055010,
+            //    Message = "You loged in",
+            //    RandomId = Environment.TickCount
+            //});
+
+
+
+            var resp = gggg();
+
+            var user = resp as User;
+            return Ok(new { user,resp });
+        }
+
+        private object gggg()
+        {
+            return new User();
         }
 
         //[HttpPost]
@@ -78,5 +114,6 @@ namespace BotServer.Controllers
             var res =await _mediator.Send(vkAIdSaveCommand);
             return Ok(res);
         }
+
     }
 }

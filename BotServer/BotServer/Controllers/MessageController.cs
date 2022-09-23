@@ -1,6 +1,6 @@
 ﻿using BotServer.Features.Features.Commands.Messages.SendMessage;
 using BotServer.Features.Features.Queries.Messages.GetMessagesQuery;
-using BotServer.SignalR.Hubs;
+//using BotServer.SignalR.Hubs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -20,12 +20,12 @@ namespace BotServer.Controllers
         public Guid Id => Guid.Parse(User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
 
         private readonly IMediator _mediatr;
-        private readonly IHubContext<ChatHub> _hubContext;
+        //private readonly IHubContext<ChatHub> _hubContext;
 
-        public MessageController(IMediator mediator,IHubContext<ChatHub> hubContext)
+        public MessageController(IMediator mediator/*,IHubContext<ChatHub> hubContext*/)
         {
             _mediatr = mediator;
-            _hubContext = hubContext;
+            //_hubContext = hubContext;
         }
         // GET api/<MessageController>/5
         [Authorize(AuthenticationSchemes ="Bearer")]

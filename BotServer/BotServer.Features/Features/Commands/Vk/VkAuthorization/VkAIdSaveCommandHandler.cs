@@ -20,7 +20,6 @@ namespace BotServer.Features.Features.Commands.Vk.VkAuthorization
         private readonly IBaseRepository _baseRepository;
         private readonly UserManager<BotServer.Domain.Models.User> _userManager;
         private readonly IAccountRepository _accountRepository;
-        private readonly IVkApi _vkApi;
         private readonly IConfiguration _configuration;
 
 
@@ -30,7 +29,6 @@ namespace BotServer.Features.Features.Commands.Vk.VkAuthorization
             IConfiguration configuration,
             IVkApi vkApi)
         {
-            _vkApi = vkApi;
             _baseRepository = baseRepository;
             _userManager = userManager;
             _accountRepository = accountRepository;
@@ -55,7 +53,7 @@ namespace BotServer.Features.Features.Commands.Vk.VkAuthorization
 
                 if (api.UserId != null)
                 {
-                    user.VkId = _vkApi.UserId;
+                    user.VkId = api.UserId;
                     user.VkEmail = request.Email;
                    
                     await _userManager.UpdateAsync(user);
