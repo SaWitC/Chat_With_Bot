@@ -21,21 +21,21 @@ namespace BotServer.Features.Features.Commands.Remind.CreateRemind
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _accesor;
         private readonly UserManager<User> _userManager;
-        //private readonly IBGJobRemind _bGJobRemind;
+        private readonly IBGJobRemind _bGJobRemind;
 
 
         public CreateRemindCommandHandler(IBaseRepository baseRepostory,
             IMapper mapper,
             IHttpContextAccessor accesor,
-            UserManager<User> userManager
-            //IBGJobRemind bGJobRemind
+            UserManager<User> userManager,
+            IBGJobRemind bGJobRemind
             )
         {
             _userManager = userManager;
             _baseRepostory = baseRepostory;
             _mapper = mapper;
             _accesor = accesor;
-            //_bGJobRemind = bGJobRemind;
+            _bGJobRemind = bGJobRemind;
         }
 
         public async Task<RemindModel> Handle(CreateRemindCommand request, CancellationToken cancellationToken)
@@ -55,7 +55,7 @@ namespace BotServer.Features.Features.Commands.Remind.CreateRemind
 
                 var res = await _baseRepostory.Create(model);
                 if (res != null) {
-                     //await _bGJobRemind.SetBgJobRemind(res);
+                    var DleayedTasSetResponse = await _bGJobRemind.SetBgJobRemind(res);
                      await _baseRepostory.SaveChangesAsync();
                 }
                 return res;

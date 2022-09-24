@@ -12,6 +12,8 @@ using VkNet.Model.RequestParams;
 using Microsoft.Extensions.Configuration;
 using VkNet.Model;
 using BotServer.Application.HubsAbstraction;
+using Microsoft.AspNetCore.SignalR;
+using BotServer.SignalR_info.Hubs;
 
 namespace BotServer.Features.BackgroundJobs.Remind
 {
@@ -20,16 +22,16 @@ namespace BotServer.Features.BackgroundJobs.Remind
         private readonly UserManager<BotServer.Domain.Models.User> _userManager;
         private readonly IHubRepository _hubRepository;
         private readonly IConfiguration _configuration;
-        //private readonly IChatHub _chatHub;
+        private readonly IHubContext<HubForNotify> _notifyHub;
 
         public BGJobRemind(UserManager<BotServer.Domain.Models.User> userManager,
             IHubRepository hubRepository,
-            IConfiguration configuration
-            //IChatHub chatHub
+            IConfiguration configuration,
+            IHubContext<HubForNotify> chatHub
             )
         {
-            //_chatHub = chatHub;
-            _userManager= userManager;
+            _notifyHub = chatHub;
+            _userManager = userManager;
             _hubRepository= hubRepository;
             _configuration= configuration;
         }
@@ -37,14 +39,14 @@ namespace BotServer.Features.BackgroundJobs.Remind
         {
             if (!string.IsNullOrEmpty(remind.AvtorId))
             {
-                var delay = DateTime.Now - remind.RemindAtTime;
+                var delay = remind.RemindAtTime -DateTime.Now;
                 BackgroundJob.Schedule(() => SendMessage(remind), delay);
                 return true;
             }
             return false;    
         }
 
-        private async Task SendMessage(RemindModel remind)
+        public async Task SendMessage(RemindModel remind)
         {
             var user = await _userManager.FindByIdAsync(remind.AvtorId);
             if (user != null)
@@ -58,8 +60,8 @@ namespace BotServer.Features.BackgroundJobs.Remind
                     });
                     await vkApi.Messages.SendAsync(new MessagesSendParams()
                     {
-                        UserId = 404055010,
-                        Message = "You loged in",
+                        UserId = user.VkId,
+                        Message = remind.RemindMessage,
                         RandomId = Environment.TickCount
                     });
                 }
@@ -68,7 +70,7 @@ namespace BotServer.Features.BackgroundJobs.Remind
 
                 foreach(var x in activeConnections)
                 {
-                    //await _chatHub.SendMessage(x.HubConnection, remind.RemindMessage);
+                    await _notifyHub.Clients.Client(x.HubConnection).SendAsync("Notify",remind.RemindMessage);
                 }
             }
         }

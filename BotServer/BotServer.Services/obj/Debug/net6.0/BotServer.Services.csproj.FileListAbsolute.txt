@@ -21,3 +21,5 @@ C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Services\obj\Debug\net
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Services\obj\Debug\net6.0\refint\BotServer.Services.dll
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Services\obj\Debug\net6.0\BotServer.Services.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Services\obj\Debug\net6.0\ref\BotServer.Services.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Services\bin\Debug\net6.0\BotServer.SignalR_info.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Services\bin\Debug\net6.0\BotServer.SignalR_info.pdb

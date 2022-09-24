@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotServer.Data", "BotServer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotServer.Services", "BotServer.Services\BotServer.Services.csproj", "{BE151187-58E7-4495-9881-F9B75D65ADA1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotServer.SignalR", "BotServer.SignalR\BotServer.SignalR.csproj", "{24D5FCD4-A92D-4320-8DDE-222B240AB7C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotServer.SignalRforChats", "BotServer.SignalR\BotServer.SignalRforChats.csproj", "{24D5FCD4-A92D-4320-8DDE-222B240AB7C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BD1ACFF0-0DD4-4F02-B1C6-D92909CBC959}"
 EndProject
@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotServer.Features.Tests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotServer.Services.Tests", "BotServer.Services.Tests\BotServer.Services.Tests.csproj", "{6E052549-BB0B-4377-B0EF-3FD6FF682123}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Botserve.MigrationApp", "Botserve.MigrationApp\Botserve.MigrationApp.csproj", "{70B6809C-6DFD-4DC5-9B61-120BB9DBDCFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Botserve.MigrationApp", "Botserve.MigrationApp\Botserve.MigrationApp.csproj", "{70B6809C-6DFD-4DC5-9B61-120BB9DBDCFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotServer.SignalR_info", "BotServer.SignalR_info\BotServer.SignalR_info.csproj", "{BA28AB5C-0D77-40A0-880E-5C1C10641BB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,6 +81,10 @@ Global
 		{70B6809C-6DFD-4DC5-9B61-120BB9DBDCFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70B6809C-6DFD-4DC5-9B61-120BB9DBDCFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70B6809C-6DFD-4DC5-9B61-120BB9DBDCFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA28AB5C-0D77-40A0-880E-5C1C10641BB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA28AB5C-0D77-40A0-880E-5C1C10641BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA28AB5C-0D77-40A0-880E-5C1C10641BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA28AB5C-0D77-40A0-880E-5C1C10641BB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,6 +101,7 @@ Global
 		{FFD20B6F-C91A-4B8F-A39C-3FA2BE66BB5E} = {8E9404C8-0218-4C8E-B7A5-04F071276EED}
 		{6E052549-BB0B-4377-B0EF-3FD6FF682123} = {8E9404C8-0218-4C8E-B7A5-04F071276EED}
 		{70B6809C-6DFD-4DC5-9B61-120BB9DBDCFD} = {E8D73C84-8BCD-4CC5-A641-DD1A5AD584CD}
+		{BA28AB5C-0D77-40A0-880E-5C1C10641BB1} = {E8D73C84-8BCD-4CC5-A641-DD1A5AD584CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E22A032-E7C5-4FA5-92DF-5FD8D7F60BAF}

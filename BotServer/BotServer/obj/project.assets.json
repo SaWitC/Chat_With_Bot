@@ -3064,7 +3064,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Botserve.MigrationApp": "1.0.0",
+          "BotServer.SignalR_info": "1.0.0",
           "FluentValidation": "11.2.1",
           "Hangfire.AspNetCore": "1.7.31",
           "Hangfire.Core": "1.7.31",
@@ -3098,7 +3098,7 @@
           "bin/placeholder/BotServer.Services.dll": {}
         }
       },
-      "BotServer.SignalR/1.0.0": {
+      "BotServer.SignalRforChats/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
@@ -3108,10 +3108,25 @@
           "Microsoft.AspNetCore.SignalR.Core": "1.1.0"
         },
         "compile": {
-          "bin/placeholder/BotServer.SignalR.dll": {}
+          "bin/placeholder/BotServer.SignalRforChats.dll": {}
         },
         "runtime": {
-          "bin/placeholder/BotServer.SignalR.dll": {}
+          "bin/placeholder/BotServer.SignalRforChats.dll": {}
+        }
+      },
+      "BotServer.SignalR_info/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Botserve.MigrationApp": "1.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.SignalR.Core": "1.1.0"
+        },
+        "compile": {
+          "bin/placeholder/BotServer.SignalR_info.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BotServer.SignalR_info.dll": {}
         }
       }
     }
@@ -9300,15 +9315,20 @@
       "path": "../BotServer.Services/BotServer.Services.csproj",
       "msbuildProject": "../BotServer.Services/BotServer.Services.csproj"
     },
-    "BotServer.SignalR/1.0.0": {
+    "BotServer.SignalRforChats/1.0.0": {
       "type": "project",
-      "path": "../BotServer.SignalR/BotServer.SignalR.csproj",
-      "msbuildProject": "../BotServer.SignalR/BotServer.SignalR.csproj"
+      "path": "../BotServer.SignalR/BotServer.SignalRforChats.csproj",
+      "msbuildProject": "../BotServer.SignalR/BotServer.SignalRforChats.csproj"
+    },
+    "BotServer.SignalR_info/1.0.0": {
+      "type": "project",
+      "path": "../BotServer.SignalR_info/BotServer.SignalR_info.csproj",
+      "msbuildProject": "../BotServer.SignalR_info/BotServer.SignalR_info.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "BotServer.SignalR >= 1.0.0",
+      "BotServer.SignalRforChats >= 1.0.0",
       "EntityFrameworkCore.AutoFixture >= 2.0.0",
       "FluentValidation >= 11.2.1",
       "FluentValidation.AspNetCore >= 11.2.1",
@@ -9362,8 +9382,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalR.csproj": {
-              "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalR.csproj"
+            "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalRforChats.csproj": {
+              "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalRforChats.csproj"
             }
           }
         }

@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BotServer.SignalR\BotServer.SignalR.csproj" />
+    <ProjectReference Include="..\BotServer.SignalR\BotServer.SignalRforChats.csproj" />
   </ItemGroup>
 
 </Project>

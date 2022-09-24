@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "BotServer/1.0.0": {
         "dependencies": {
-          "BotServer.SignalR": "1.0.0",
+          "BotServer.SignalRforChats": "1.0.0",
           "EntityFrameworkCore.AutoFixture": "2.0.0",
           "FluentValidation": "11.2.1",
           "FluentValidation.AspNetCore": "11.2.1",
@@ -2035,7 +2035,7 @@
       },
       "BotServer.Features/1.0.0": {
         "dependencies": {
-          "Botserve.MigrationApp": "1.0.0",
+          "BotServer.SignalR_info": "1.0.0",
           "FluentValidation": "11.2.1",
           "Hangfire.AspNetCore": "1.7.31",
           "Hangfire.Core": "1.7.31",
@@ -2061,7 +2061,7 @@
           "BotServer.Services.dll": {}
         }
       },
-      "BotServer.SignalR/1.0.0": {
+      "BotServer.SignalRforChats/1.0.0": {
         "dependencies": {
           "BotServer.Services": "1.0.0",
           "MediatR": "10.0.1",
@@ -2069,7 +2069,17 @@
           "Microsoft.AspNetCore.SignalR.Core": "1.1.0"
         },
         "runtime": {
-          "BotServer.SignalR.dll": {}
+          "BotServer.SignalRforChats.dll": {}
+        }
+      },
+      "BotServer.SignalR_info/1.0.0": {
+        "dependencies": {
+          "Botserve.MigrationApp": "1.0.0",
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
+          "Microsoft.AspNetCore.SignalR.Core": "1.1.0"
+        },
+        "runtime": {
+          "BotServer.SignalR_info.dll": {}
         }
       }
     }
@@ -3503,7 +3513,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "BotServer.SignalR/1.0.0": {
+    "BotServer.SignalRforChats/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BotServer.SignalR_info/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

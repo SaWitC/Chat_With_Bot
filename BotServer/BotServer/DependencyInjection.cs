@@ -47,7 +47,7 @@ namespace BotServer
                         // если запрос направлен хабу
                         var path = context.HttpContext.Request.Path;
                         if (!string.IsNullOrEmpty(accessToken) &&
-                            (path.StartsWithSegments("/toastr")))
+                            (path.StartsWithSegments("/toastr")|| path.StartsWithSegments("/notify")))
                         {
                             // получаем токен из строки запроса
                             context.Token = accessToken;

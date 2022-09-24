@@ -15,7 +15,7 @@ namespace BotServer.Features.Features.Commands.Remind.CreateRemind
 
             RuleFor(x=>x.RemindAtTime).Custom((x, context) =>
             {
-                if (x>DateTime.Now.AddMinutes(5))
+                if (x>DateTime.Now.AddMinutes(1))
                 {
                     context.AddFailure($"incorrect date");
                 }

@@ -39,31 +39,32 @@ namespace BotServer.Controllers
             
         }
 
-        [HttpPost("test")]
-        //[Authorize(AuthenticationSchemes = "Bearer")]
-        public async Task<IActionResult> test()
-        {
-            //var user = await _usermanager.FindByIdAsync(UserId.ToString());
-            //VkApi vkApi = new VkApi();
-            //vkApi.Authorize(new ApiAuthParams()
-            //{
-            //    AccessToken = _configuration["VkConfig:Token"]
-            //    //ApplicationId = ulong.Parse(_configuration["VkConfig:AppId"])
-            //});
-            //await vkApi.Messages.SendAsync(new MessagesSendParams()
-            //{
-            //    UserId = 404055010,
-            //    Message = "You loged in",
-            //    RandomId = Environment.TickCount
-            //});
+        //[HttpPost("test")]
+        ////[Authorize(AuthenticationSchemes = "Bearer")]
+        //public async Task<IActionResult> test()
+        //{
+        //    //var user = await _usermanager.FindByIdAsync(UserId.ToString());
+        //    //VkApi vkApi = new VkApi();
+        //    //vkApi.Authorize(new ApiAuthParams()
+        //    //{
+        //    //    AccessToken = _configuration["VkConfig:Token"]
+        //    //    //ApplicationId = ulong.Parse(_configuration["VkConfig:AppId"])
+        //    //});
+        //    //await vkApi.Messages.SendAsync(new MessagesSendParams()
+        //    //{
+        //    //    UserId = 404055010,
+        //    //    Message = "You loged in",
+        //    //    RandomId = Environment.TickCount
+        //    //});
 
 
 
-            var resp = gggg();
-
-            var user = resp as User;
-            return Ok(new { user,resp });
-        }
+        //    var resp = gggg();
+        //    var Us = typeof(User);
+            
+        //    //var user = ;
+        //    return Ok(new { user,resp });
+        //}
 
         private object gggg()
         {

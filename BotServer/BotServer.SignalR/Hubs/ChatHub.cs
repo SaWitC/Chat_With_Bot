@@ -14,7 +14,7 @@ using BotServer.Application.HubsAbstraction;
 namespace BotServer.SignalR.Hubs
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
-    public class ChatHub : Hub,IChatHub
+    public class ChatHub : Hub
     {
         
         private readonly IMediator _mediatr;
@@ -23,31 +23,7 @@ namespace BotServer.SignalR.Hubs
         private readonly IBaseRepository _baseRepository;
         private readonly IHubRepository _hubRepository;
 
-        public override async Task OnConnectedAsync()
-        {
-            HubConnections hubConnection = new HubConnections();
-            hubConnection.AvtorId = Id.ToString();
-            hubConnection.id = Guid.NewGuid().ToString();
-            hubConnection.HubConnection = Context.ConnectionId;
-
-            hubConnection.IsClosed = false;
-            await _baseRepository.Create<HubConnections>(hubConnection);
-            await _baseRepository.SaveChangesAsync();
-            await base.OnConnectedAsync();
-        }
-        public override async Task OnDisconnectedAsync(Exception? exception)
-        {
-            var connection =await _hubRepository.GetByHubConnection(Context.ConnectionId);
-            if (connection != null)
-            {
-                var res =_hubRepository.CloseConnectionById(connection.id);
-                if(res != null)
-                {
-                    await _baseRepository.SaveChangesAsync();
-                }
-            }
-            await base.OnDisconnectedAsync(exception);
-        }
+     
         public ChatHub(IEnumerable<ICommandHandler> commandHandlers,
             IMediator mediator,
             IHttpContextAccessor accessor,
@@ -110,11 +86,6 @@ namespace BotServer.SignalR.Hubs
 
             //BackgroundJob.Schedule(() => SendToVk(user, model), delay);
 
-        }
-
-        public async Task SendMessage(string ChatId, string message)
-        {
-            await Clients.Client(ChatId).SendAsync("askServerResponse", message);
         }
     }
 }

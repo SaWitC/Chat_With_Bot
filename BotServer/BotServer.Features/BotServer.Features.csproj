@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Botserve.MigrationApp\Botserve.MigrationApp.csproj" />
+    <ProjectReference Include="..\BotServer.SignalR_info\BotServer.SignalR_info.csproj" />
   </ItemGroup>
 
 </Project>

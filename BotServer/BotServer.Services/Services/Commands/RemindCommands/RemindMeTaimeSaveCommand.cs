@@ -37,7 +37,7 @@ namespace BotServer.Services.Services.Commands.RemindCommands
                 return $"❗❗❗write remind message '{date} message'❗❗❗";
             }
 
-            if (DateTime.Now.AddMinutes(6) < date)
+            if (DateTime.Now.AddMinutes(1) < date)
             {
                 var createRemindCommand = new CreateRemindCommand();
                 createRemindCommand.RemindMessage = remndMessage;
@@ -48,7 +48,7 @@ namespace BotServer.Services.Services.Commands.RemindCommands
             }
             else
             {
-                return "incorrect Date or time (correct time = curent time + 6 and more minutes )";
+                return "incorrect Date or time (correct time = curent time + 1 and more minutes )";
             }
         }
     }

@@ -1,6 +1,7 @@
 
 
 using BotServer.SignalR.Hubs;
+using BotServer.SignalR_info.Hubs;
 using FluentValidation;
 using Hangfire;
 using Microsoft.OpenApi.Models;
@@ -98,7 +99,10 @@ app.UseHangfireDashboard("/dashboard");
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
+
+    endpoints.MapHub<HubForNotify>("/notify");
     endpoints.MapHub<ChatHub>("/toastr");
+    
 });
 
 app.Run();

@@ -16,7 +16,6 @@ namespace BotServer.SignalR
         
         public static void AddSignalR(IServiceCollection Services)
         {
-            Services.AddScoped<IChatHub, ChatHub>();
             //serviceCollection.AddSignalRCore();
         }
     }

@@ -131,8 +131,6 @@ C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotSe
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.Domain.dll
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.Features.dll
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.Services.dll
-C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.SignalR.dll
-C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.SignalR.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\Botserve.MigrationApp.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.Application.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.Data.pdb
@@ -148,3 +146,8 @@ C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\obj\Debug\net6.0\refin
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\obj\Debug\net6.0\BotServer.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\obj\Debug\net6.0\BotServer.genruntimeconfig.cache
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\obj\Debug\net6.0\ref\BotServer.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.SignalRforChats.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.SignalR_info.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.SignalRforChats.pdb
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.SignalR_info.pdb
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\obj\Debug\net6.0\BotServer.MvcApplicationPartsAssemblyInfo.cs
