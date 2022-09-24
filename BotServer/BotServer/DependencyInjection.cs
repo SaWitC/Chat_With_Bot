@@ -3,9 +3,11 @@ using BotServer.Data.Data;
 using BotServer.Data.Repositories;
 using BotServer.Domain.ConfigModels;
 using BotServer.Domain.Models;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace BotServer
 {
@@ -13,6 +15,52 @@ namespace BotServer
     {
         public static void AddBotServer(IServiceCollection Services,IConfiguration configuration)
         {
+            Services.AddControllers().AddNewtonsoftJson(); ;
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            Services.AddEndpointsApiExplorer();
+
+
+            Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+            Services.AddSwaggerGen(c =>
+            {
+                c.EnableAnnotations();
+                c.SwaggerDoc("BotServer", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "ToDo API",
+                    Description = "A simple example ASP.NET Core Web API",
+                    TermsOfService = new Uri("https://example.com/terms"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Shayne Boyer",
+                        Email = string.Empty,
+                        Url = new Uri("https://twitter.com/spboyer"),
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "Use under LICX",
+                        Url = new Uri("https://example.com/license"),
+                    }
+                });
+            });
+
+            Services.AddCors(options =>
+            {
+                options.AddPolicy("MyAllowSpecificOrigins",
+                builder =>
+                {
+        // builder.WithOrigins("http://example.com");
+                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+                });
+            });
+            Services.AddSignalR(opt =>
+            {
+                opt.EnableDetailedErrors = true;
+            });
+
+
+
+
             var authoptions = configuration.GetSection("auth");
             Services.Configure<AuthOptions>(authoptions);
 

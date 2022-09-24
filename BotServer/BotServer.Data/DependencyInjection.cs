@@ -17,14 +17,19 @@ namespace BotServer.Data
         public static void AddData(IServiceCollection Services,IConfiguration configuration)
         {
 
-            Services.AddScoped<IChatRepository, ChatRepository>();
-            Services.AddScoped<IBaseRepository, BaseRepository>();
-            Services.AddScoped<IAccountRepository, AccountRepository>();
-            Services.AddScoped<IMessageRepository, MessageRepository>();
-            Services.AddScoped<IRemindRepository, RemindRepository>();
-            Services.AddScoped<IHubRepository, HubRepository>();
+            //Services.AddScoped<IChatRepository, ChatRepository>();
+            //Services.AddScoped<IBaseRepository, BaseRepository>();
+            //Services.AddScoped<IAccountRepository, AccountRepository>();
+            //Services.AddScoped<IMessageRepository, MessageRepository>();
+            //Services.AddScoped<IRemindRepository, RemindRepository>();
+            //Services.AddScoped<IHubRepository, HubRepository>();
 
-
+            Services.Scan(scan => scan
+                .FromAssemblyOf<startupData>()
+                    .AddClasses(classes => classes.Where(t => t.Name.EndsWith("Repository", StringComparison.OrdinalIgnoreCase)))
+                    .AsImplementedInterfaces()
+                    .WithTransientLifetime()
+                );
 
         }
     }

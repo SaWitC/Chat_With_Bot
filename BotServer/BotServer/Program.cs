@@ -1,5 +1,3 @@
-
-
 using BotServer.SignalR.Hubs;
 using BotServer.SignalR_info.Hubs;
 using FluentValidation;
@@ -8,51 +6,7 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-builder.Services.AddControllers().AddNewtonsoftJson(); ;
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-
-
-builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
-builder.Services.AddSwaggerGen(c =>
-{
-    c.EnableAnnotations();
-    c.SwaggerDoc("BotServer", new Microsoft.OpenApi.Models.OpenApiInfo
-    {
-        Version = "v1",
-        Title = "ToDo API",
-        Description = "A simple example ASP.NET Core Web API",
-        TermsOfService = new Uri("https://example.com/terms"),
-        Contact = new OpenApiContact
-        {
-            Name = "Shayne Boyer",
-            Email = string.Empty,
-            Url = new Uri("https://twitter.com/spboyer"),
-        },
-        License = new OpenApiLicense
-        {
-            Name = "Use under LICX",
-            Url = new Uri("https://example.com/license"),
-        }
-    });
-});
-
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("MyAllowSpecificOrigins",
-    builder =>
-    {
-        // builder.WithOrigins("http://example.com");
-        builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
-    });
-});
-builder.Services.AddSignalR(opt =>
-{
-    opt.EnableDetailedErrors = true;
-});
-
+// Add services to the container
 
 Botserve.MigrationApp.DependencyInjection.AddMigraion(builder.Services,builder.Configuration);
 BotServer.Data.DependencyInjection.AddData(builder.Services,builder.Configuration);
@@ -64,8 +18,6 @@ builder.Configuration.AddJsonFile("settings.json");
 var app = builder.Build();
 
 await BotServer.SetSampleData.SetData(app);
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -91,10 +43,6 @@ app.UseAuthorization();
 app.MapControllers();
 app.UseHangfireDashboard("/dashboard");
 
-//app.UseSignalR(routes =>
-//{
-//    routes.MapHub<ChatHub>("/chatHub");
-//});
 
 app.UseEndpoints(endpoints =>
 {

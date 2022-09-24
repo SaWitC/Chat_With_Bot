@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Data
 {
-    public class startup
+    public class startupData
     {
     }
 }
