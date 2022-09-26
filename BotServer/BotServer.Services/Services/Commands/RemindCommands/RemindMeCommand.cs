@@ -1,4 +1,5 @@
 ﻿using BotServer.Application.Services.Commands;
+using BotServer.Data.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Services.Services.Commands.RemindCommands
 {
+    [Service]
     public class RemindMeCommand : ICommandHandler
     {
         //private readonly string[] commands = new string[] { "remind" };

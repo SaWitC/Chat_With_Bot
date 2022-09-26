@@ -16,6 +16,7 @@ using BotServer.Services.CustomHTTPClients.Wiki;
 using BotServer.Services.Services.Commands.RemindCommands;
 using VkNet.Abstractions;
 using VkNet;
+using BotServer.Data.Attributes;
 
 namespace BotServer.Services
 {
@@ -32,7 +33,7 @@ namespace BotServer.Services
 
             Services.Scan(scan => scan
                 .FromAssemblyOf<startupServices>()
-                    .AddClasses(classes => classes.Where(t => t.Name.EndsWith("Command", StringComparison.OrdinalIgnoreCase)))
+                    .AddClasses(classes => classes.WithAttribute(typeof(ServiceAttribute)))
                     .AsImplementedInterfaces()
                     .WithTransientLifetime()
                 );

@@ -1,5 +1,6 @@
 ﻿using BotServer.Application.CustomHTTPClients;
 using BotServer.Application.Services.Commands;
+using BotServer.Data.Attributes;
 using BotServer.Services.CustomHTTPClients.Weather;
 using Microsoft.Extensions.Configuration;
 using OpenWeatherAPI;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Services.Services.Commands.WeatherCommands
 {
+    [Service]
     public class GetCurrentWeatherCommand : ICommandHandler
     {
         private readonly IWeatherHttpClient _weatherHttpClient;

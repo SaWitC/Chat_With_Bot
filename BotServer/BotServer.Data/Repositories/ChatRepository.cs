@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BotServer.Application.Repositories;
+using BotServer.Data.Attributes;
 using BotServer.Data.Data;
 using BotServer.Domain.Models;
 
 namespace BotServer.Data.Repositories
 {
+    [Service]
     public class ChatRepository: IChatRepository
     {
         private readonly AppDbContext _appDbContext;

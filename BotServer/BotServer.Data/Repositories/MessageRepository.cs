@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using BotServer.Application.Repositories;
+using BotServer.Data.Attributes;
 using BotServer.Data.Data;
 using BotServer.Domain.Models.Short;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Data.Repositories
 {
+    [Service]
     public class MessageRepository : IMessageRepository
     {
         private readonly AppDbContext _appDbContext;

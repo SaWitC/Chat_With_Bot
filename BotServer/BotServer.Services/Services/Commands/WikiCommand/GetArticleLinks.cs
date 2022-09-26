@@ -1,5 +1,6 @@
 ﻿using BotServer.Application.CustomHTTPClients;
 using BotServer.Application.Services.Commands;
+using BotServer.Data.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Services.Services.Commands.WikiCommand
 {
+    [Service]
     public class GetArticleLinks : ICommandHandler
     {
         private readonly IWikiHttpClient _wikiHttpClient;

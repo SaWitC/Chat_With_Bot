@@ -7,9 +7,11 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using BotServer.Features.Features.Commands.Remind.CreateRemind;
 using MediatR;
+using BotServer.Data.Attributes;
 
 namespace BotServer.Services.Services.Commands.RemindCommands
 {
+    [Service]
     public class RemindMeTaimeSaveCommand : ICommandHandler
     {
         private readonly IMediator _mediatr;

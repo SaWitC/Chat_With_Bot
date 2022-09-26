@@ -8,9 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper.QueryableExtensions;
 using AutoMapper;
+using BotServer.Data.Attributes;
 
 namespace BotServer.Data.Repositories
 {
+    [Service]
     public class SelectRepository:ISelectRepository
     {
         private readonly AppDbContext _appDbContext;

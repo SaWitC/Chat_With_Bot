@@ -1,4 +1,5 @@
 ﻿using BotServer.Application.Repositories;
+using BotServer.Data.Attributes;
 using BotServer.Data.Data;
 using BotServer.Domain.ConfigModels;
 using BotServer.Domain.Models;
@@ -15,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Data.Repositories
 {
+    [Service]
     public class AccountRepository:IAccountRepository
     {
 

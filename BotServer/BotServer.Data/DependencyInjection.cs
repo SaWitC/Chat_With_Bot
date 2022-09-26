@@ -1,4 +1,5 @@
 ﻿using BotServer.Application.Repositories;
+using BotServer.Data.Attributes;
 using BotServer.Data.Data;
 using BotServer.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,7 @@ namespace BotServer.Data
 
             Services.Scan(scan => scan
                 .FromAssemblyOf<startupData>()
-                    .AddClasses(classes => classes.Where(t => t.Name.EndsWith("Repository", StringComparison.OrdinalIgnoreCase)))
+                    .AddClasses(classes => classes.WithAttribute(typeof(ServiceAttribute)))
                     .AsImplementedInterfaces()
                     .WithTransientLifetime()
                 );

@@ -1,4 +1,5 @@
 ﻿using BotServer.Application.Repositories;
+using BotServer.Data.Attributes;
 using BotServer.Data.Data;
 using BotServer.Domain.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Data.Repositories
 {
+    [Service]
     public class BaseRepository : IBaseRepository
     {
         private readonly AppDbContext _appDbContext;

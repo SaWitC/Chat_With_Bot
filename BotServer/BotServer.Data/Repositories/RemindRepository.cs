@@ -1,4 +1,5 @@
 ﻿using BotServer.Application.Repositories;
+using BotServer.Data.Attributes;
 using BotServer.Data.Data;
 using BotServer.Domain.Models;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Data.Repositories
 {
+    [Service]
     public class RemindRepository : IRemindRepository
     {
         private readonly AppDbContext _context;
