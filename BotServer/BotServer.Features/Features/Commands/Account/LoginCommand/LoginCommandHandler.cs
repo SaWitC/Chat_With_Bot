@@ -1,7 +1,9 @@
 ﻿using BotServer.Application.Repositories;
 using BotServer.Domain.Models;
+using Hangfire.Logging;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +16,14 @@ namespace BotServer.Features.Features.Account.LoginCommand
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly ILogger<LoginCommandHandler> _logger;
         private readonly IAccountRepository _accountRepository;
-        public LoginCommandHandler(UserManager<User> userManager, SignInManager<User> signInManager, IAccountRepository accountRepository)
+        public LoginCommandHandler(UserManager<User> userManager,
+            SignInManager<User> signInManager,
+            IAccountRepository accountRepository,
+            ILogger<LoginCommandHandler> logger)
         {
+            _logger = logger;
             _userManager = userManager;
             _signInManager = signInManager;
             _accountRepository = accountRepository;
@@ -30,14 +37,15 @@ namespace BotServer.Features.Features.Account.LoginCommand
                 if (result.Succeeded)
                 {
                     var token = await _accountRepository.GenerateJwtToken(user);
-                    //_logger.LogInformation($"Loged {JsonSerializer.Serialize(user)}");
+                    _logger.LogInformation($"loged in User:{{UserId ={user.Id}, UserName ={user.UserName}}}");
 
                     return token;
                     //return Ok(res);
                 }
                 if (result.IsNotAllowed)
                 {
-
+                    
+                    _logger.LogInformation($"login error UserName:{request.UserName}");
                 }
             }
 

@@ -34,7 +34,7 @@ namespace BotServer.Features
 
             //Services.AddHangfire(c=>c.UseSqlServerStorage);
             
-           // Services.AddValidatorsFromAssembly(typeof(startup).Assembly);
+            //Services.AddValidatorsFromAssembly(typeof(startupFeatures).Assembly);
             Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             Services.AddScoped<ISelectRepository,SelectRepository>();
 

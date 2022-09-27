@@ -3,6 +3,7 @@ using BotServer.Data.Data;
 using BotServer.Data.Repositories;
 using BotServer.Domain.ConfigModels;
 using BotServer.Domain.Models;
+using BotServer.Features;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -20,7 +21,7 @@ namespace BotServer
             Services.AddEndpointsApiExplorer();
 
 
-            Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
+            Services.AddValidatorsFromAssembly(typeof(startupFeatures).Assembly);
             Services.AddSwaggerGen(c =>
             {
                 c.EnableAnnotations();

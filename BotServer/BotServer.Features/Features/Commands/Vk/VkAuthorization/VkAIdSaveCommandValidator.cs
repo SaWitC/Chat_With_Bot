@@ -9,7 +9,7 @@ namespace BotServer.Features.Features.Commands.Vk.VkAuthorization
 {
     public class VkAIdSaveCommandValidator:AbstractValidator<VkAIdSaveCommand>
     {
-        VkAIdSaveCommandValidator()
+        public VkAIdSaveCommandValidator()
         {
             RuleFor(x => x.Email).EmailAddress().NotEmpty();
 

@@ -151,3 +151,7 @@ C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotSe
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.SignalRforChats.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.SignalR_info.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\obj\Debug\net6.0\BotServer.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\nlog.config
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\NLog.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\NLog.Extensions.Logging.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\NLog.Web.AspNetCore.dll

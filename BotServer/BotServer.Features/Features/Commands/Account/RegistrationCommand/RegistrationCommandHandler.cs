@@ -1,6 +1,7 @@
 ﻿using BotServer.Domain.Models;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,14 @@ namespace BotServer.Features.Features.Account.RegistrationCommand
     {
         private readonly SignInManager<User> _signinManager;
         private readonly UserManager<User> _userManager;
+        private readonly ILogger<RegistrationCommandHandler> _logger;
 
-        public RegistrationCommandHandler(SignInManager<User> signinManager, UserManager<User> userManager)
+        public RegistrationCommandHandler(
+            ILogger<RegistrationCommandHandler> logger,
+            SignInManager<User> signinManager,
+            UserManager<User> userManager)
         {
+            _logger = logger;
             _signinManager = signinManager;
             _userManager = userManager;
         }
@@ -27,7 +33,8 @@ namespace BotServer.Features.Features.Account.RegistrationCommand
             if (result.Succeeded)
             {
                 var res = await _userManager.AddToRoleAsync(user, "user");
-                if (res.Succeeded)                  
+                if (res.Succeeded)
+                    _logger.LogInformation($"registered new user {request.UserName}");
                     return true;
             }
             return false;

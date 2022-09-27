@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BotServer.Features
 {
-    public class startup
+    public class startupFeatures
     {
     }
 }

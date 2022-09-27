@@ -14,6 +14,7 @@ using VkNet.Model;
 using BotServer.Application.HubsAbstraction;
 using Microsoft.AspNetCore.SignalR;
 using BotServer.SignalR_info.Hubs;
+using Microsoft.Extensions.Logging;
 
 namespace BotServer.Features.BackgroundJobs.Remind
 {
@@ -22,17 +23,20 @@ namespace BotServer.Features.BackgroundJobs.Remind
         private readonly UserManager<BotServer.Domain.Models.User> _userManager;
         private readonly IHubRepository _hubRepository;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<BGJobRemind> _logger;
         private readonly IHubContext<HubForNotify> _notifyHub;
 
         public BGJobRemind(UserManager<BotServer.Domain.Models.User> userManager,
             IHubRepository hubRepository,
             IConfiguration configuration,
-            IHubContext<HubForNotify> chatHub
+            IHubContext<HubForNotify> chatHub,
+            ILogger<BGJobRemind> logger
             )
         {
             _notifyHub = chatHub;
             _userManager = userManager;
             _hubRepository= hubRepository;
+            _logger = logger;
             _configuration= configuration;
         }
         public async Task<bool> SetBgJobRemind(RemindModel remind)

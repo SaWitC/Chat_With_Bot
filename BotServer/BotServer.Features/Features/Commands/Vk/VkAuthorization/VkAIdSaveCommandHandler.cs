@@ -17,19 +17,17 @@ namespace BotServer.Features.Features.Commands.Vk.VkAuthorization
 {
     public class VkAIdSaveCommandHandler : IRequestHandler<VkAIdSaveCommand, long?>
     {
-        private readonly IBaseRepository _baseRepository;
         private readonly UserManager<BotServer.Domain.Models.User> _userManager;
         private readonly IAccountRepository _accountRepository;
         private readonly IConfiguration _configuration;
 
 
-        public VkAIdSaveCommandHandler(IBaseRepository baseRepository,
+        public VkAIdSaveCommandHandler(
             UserManager<BotServer.Domain.Models.User> userManager,
             IAccountRepository accountRepository,
             IConfiguration configuration,
             IVkApi vkApi)
         {
-            _baseRepository = baseRepository;
             _userManager = userManager;
             _accountRepository = accountRepository;
             _configuration = configuration;

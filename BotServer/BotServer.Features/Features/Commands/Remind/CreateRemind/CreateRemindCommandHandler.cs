@@ -6,6 +6,7 @@ using Hangfire;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,15 +23,19 @@ namespace BotServer.Features.Features.Commands.Remind.CreateRemind
         private readonly IHttpContextAccessor _accesor;
         private readonly UserManager<User> _userManager;
         private readonly IBGJobRemind _bGJobRemind;
+        private readonly ILogger<CreateRemindCommandHandler> _logger;
 
 
-        public CreateRemindCommandHandler(IBaseRepository baseRepostory,
+        public CreateRemindCommandHandler(
+            ILogger<CreateRemindCommandHandler> logger,
+            IBaseRepository baseRepostory,
             IMapper mapper,
             IHttpContextAccessor accesor,
             UserManager<User> userManager,
             IBGJobRemind bGJobRemind
             )
         {
+            _logger = logger;
             _userManager = userManager;
             _baseRepostory = baseRepostory;
             _mapper = mapper;

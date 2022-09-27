@@ -9,7 +9,7 @@ namespace BotServer.Features.Features.Account.LoginCommand
 {
     public class LoginCommandValidator:AbstractValidator<LoginCommand>
     {
-        LoginCommandValidator()
+        public LoginCommandValidator()
         {
             RuleFor(x => x.Password)
                 .NotEmpty()
