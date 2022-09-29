@@ -1,10 +1,5 @@
 ﻿using AutoMapper;
 using BotServer.Data.MapperProfiles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace BotServer.Features.Tests.Commands.Chat.UpdateChatCommand
@@ -12,7 +7,7 @@ namespace BotServer.Features.Tests.Commands.Chat.UpdateChatCommand
     public class BaseFixture : IDisposable
     {
         public BaseFixture()
-        {     
+        {
             if (_mapper == null)
             {
                 var mappingConfig = new MapperConfiguration(mc =>

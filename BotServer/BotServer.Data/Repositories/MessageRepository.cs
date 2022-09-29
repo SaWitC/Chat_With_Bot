@@ -4,11 +4,6 @@ using BotServer.Application.Repositories;
 using BotServer.Data.Attributes;
 using BotServer.Data.Data;
 using BotServer.Domain.Models.Short;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Data.Repositories
 {

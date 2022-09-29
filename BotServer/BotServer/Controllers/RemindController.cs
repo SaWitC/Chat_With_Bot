@@ -22,7 +22,7 @@ namespace BotServer.Controllers
             _Mediator = mediator;
         }
 
-        
+
         [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpGet("GetActualAndExpired")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]

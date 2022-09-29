@@ -1,14 +1,7 @@
 ﻿using AutoFixture;
 using BotServer.Application.CustomHTTPClients;
-using BotServer.Services.CustomHTTPClients.Wiki;
 using BotServer.Services.Services.Commands;
-using Castle.Core.Configuration;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static BotServer.Domain.HttResponseModels.WikiModels;
 
 namespace BotServer.Services.Tests.Services.Commands.WikiCommands

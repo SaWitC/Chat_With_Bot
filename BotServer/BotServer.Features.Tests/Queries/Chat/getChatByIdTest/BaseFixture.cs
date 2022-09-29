@@ -6,12 +6,6 @@ using BotServer.Domain.Models;
 using BotServer.Domain.Models.Short;
 using MediatR;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace BotServer.Features.Tests.Queries.Chat.getChatByIdTest
 {
@@ -23,10 +17,10 @@ namespace BotServer.Features.Tests.Queries.Chat.getChatByIdTest
         public Mock<ISelectRepository> SelectRepository { get; private set; }
         public Mock<IMediator> Mediator { get; private set; }
         public Fixture Fixture { get; private set; } = new Fixture();
-        public static List<T> GenerateEllements<T,Customisation>(Fixture Fixture,int count) 
-            where Customisation :class, ICustomization,new()
+        public static List<T> GenerateEllements<T, Customisation>(Fixture Fixture, int count)
+            where Customisation : class, ICustomization, new()
         {
-            var res =Fixture.Customize(new Customisation()).Build<T>().CreateMany(count).ToList();
+            var res = Fixture.Customize(new Customisation()).Build<T>().CreateMany(count).ToList();
             return res;
         }
 
@@ -48,12 +42,12 @@ namespace BotServer.Features.Tests.Queries.Chat.getChatByIdTest
         }
         public void Dispose()
         {
-            
+
         }
 
         public virtual Mock<IBaseRepository> GetMockOfBaseRepository()
         {
-            var mock =new Mock<IBaseRepository>();
+            var mock = new Mock<IBaseRepository>();
             var chatModel = Fixture.Build<ChatModel>().Without(o => o.Messages).With(o => o.id, "1").Create();
             mock.Setup(a => a.GetByid<ChatModel>("1")).Returns(async () => (chatModel));
 

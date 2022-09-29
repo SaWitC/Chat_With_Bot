@@ -25,7 +25,7 @@ namespace BotServer.Controllers
 
         public Guid UserId => Guid.Parse(HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value);
 
-        public AccountController(/*SignInManager<User> signInManager,UserManager<User> userManager,*/IBaseRepository baseRepository,IMediator mediator)
+        public AccountController(/*SignInManager<User> signInManager,UserManager<User> userManager,*/IBaseRepository baseRepository, IMediator mediator)
         {
             //_signinManager = signInManager;
             //_userManager = userManager;
@@ -38,7 +38,7 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "Register new user", OperationId = "Register")]
         public async Task<IActionResult> Register(RegistrationCommand registrationCommand)
         {
-          
+
             var res = await _mediatr.Send(registrationCommand);
             return Ok(res);
         }
@@ -57,7 +57,7 @@ namespace BotServer.Controllers
         }
 
         [HttpGet("GetPersonalData")]
-        [Authorize(AuthenticationSchemes ="Bearer")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "Get personal data", OperationId = "GetPersonalData")]
         public async Task<IActionResult> GetPersonalData()
@@ -69,7 +69,7 @@ namespace BotServer.Controllers
         }
 
         [HttpPost("Update")]
-        [Authorize(AuthenticationSchemes ="Bearer")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "Update personal data", OperationId = "UpdatePersonalData")]
         public async Task<IActionResult> UpdatePersonalData(UpdatePersonalDataDTO dto)
@@ -81,7 +81,7 @@ namespace BotServer.Controllers
             return Ok(res);
         }
 
-       
+
 
     }
 }

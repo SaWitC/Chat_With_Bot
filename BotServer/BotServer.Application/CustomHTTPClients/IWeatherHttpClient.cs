@@ -1,11 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenWeatherAPI;
-using static BotServer.Domain.HttResponseModels.WeatherModels;
+﻿using static BotServer.Domain.HttResponseModels.WeatherModels;
 
 namespace BotServer.Application.CustomHTTPClients
 {

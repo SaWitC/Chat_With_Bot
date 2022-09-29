@@ -155,3 +155,10 @@ C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\nlog.
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\NLog.dll
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\NLog.Extensions.Logging.dll
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\NLog.Web.AspNetCore.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\MassTransit.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\MassTransit.Abstractions.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\MassTransit.RabbitMqTransport.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\System.Text.Json.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.Comunications.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer\bin\Debug\net6.0\BotServer.Comunications.pdb

@@ -1,12 +1,5 @@
-﻿using BotServer.Features.Features.Commands.Messages.SendMessage;
-//using BotServer.SignalR.Hubs;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
+﻿//using BotServer.SignalR.Hubs;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SignalR;
-using Swashbuckle.AspNetCore.Annotations;
-using Swashbuckle.Swagger;
-using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

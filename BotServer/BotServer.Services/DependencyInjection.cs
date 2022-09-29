@@ -1,30 +1,17 @@
 ﻿using BotServer.Application.CustomHTTPClients;
-using BotServer.Application.Services.Commands;
-using BotServer.Services.CustomHTTPClients.Weather;
-using BotServer.Services.Services.Commands.HelloCommands;
-using BotServer.Services.Services.Commands.WeatherCommands;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Http;
-using Microsoft.Extensions.Configuration;
-using BotServer.Services.Services.Commands.WikiCommand;
-using BotServer.Services.CustomHTTPClients.Wiki;
-using BotServer.Services.Services.Commands.RemindCommands;
-using VkNet.Abstractions;
-using VkNet;
 using BotServer.Data.Attributes;
+using BotServer.Services.CustomHTTPClients.Weather;
+using BotServer.Services.CustomHTTPClients.Wiki;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BotServer.Services
 {
     public class DependencyInjection
     {
-        public static void AddServices(IServiceCollection Services,IConfiguration configuration)
+        public static void AddServices(IServiceCollection Services, IConfiguration configuration)
         {
-            
+
             //Services.AddScoped<ICommandHandler, GetCurrentWeatherCommand>();
             //Services.AddScoped<ICommandHandler, HelloCommand>();
             //Services.AddScoped<ICommandHandler, GetArticleLinks>();

@@ -2,11 +2,6 @@
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Features.Features.Account.RegistrationCommand
 {
@@ -35,7 +30,7 @@ namespace BotServer.Features.Features.Account.RegistrationCommand
                 var res = await _userManager.AddToRoleAsync(user, "user");
                 if (res.Succeeded)
                     _logger.LogInformation($"registered new user {request.UserName}");
-                    return true;
+                return true;
             }
             return false;
         }

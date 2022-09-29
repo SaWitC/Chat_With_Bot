@@ -17,3 +17,5 @@ C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Data\obj\Debug\net6.0\
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Data\obj\Debug\net6.0\BotServer.Data.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Data\obj\Debug\net6.0\BotServer.Data.genruntimeconfig.cache
 C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Data\obj\Debug\net6.0\ref\BotServer.Data.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Data\bin\Debug\net6.0\BotServer.Comunications.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\BotServer.Data\bin\Debug\net6.0\BotServer.Comunications.pdb

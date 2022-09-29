@@ -1,0 +1,88 @@
+services:
+  consumer:
+    build:
+      context: C:\Users\USER\Downloads\MassTransitRabitmq\ServerApp
+      dockerfile: consumer/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: Consumer
+      target: base
+    container_name: Consumer
+    depends_on:
+      rabbitmq:
+        condition: service_started
+    entrypoint: tail -f /dev/null
+    environment:
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages;/root/.nuget/fallbackpackages2
+    image: consumer:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath
+        /root/.nuget/fallbackpackages2  "/app/bin/Debug/net6.0/Consumer.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    tty: true
+    volumes:
+    - C:\Users\USER\Downloads\MassTransitRabitmq\ServerApp\consumer:/app:rw
+    - C:\Users\USER\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages:/root/.nuget/fallbackpackages:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages2:ro
+    - C:\Users\USER\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\USER\Downloads\MassTransitRabitmq\ServerApp:/src:rw
+  rabbitmq:
+    hostname: my-rabbit
+    image: rabbitmq:3-management
+    ports:
+    - published: 5672
+      target: 5672
+    - published: 15672
+      target: 15672
+    volumes:
+    - C:\Users\USER\Downloads\MassTransitRabitmq\ServerApp\rabbitmq\etc\definitions.json:/etc/rabbitmq/definitions.json:rw
+    - C:\Users\USER\Downloads\MassTransitRabitmq\ServerApp\rabbitmq\etc\rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:rw
+    - C:\Users\USER\Downloads\MassTransitRabitmq\ServerApp\rabbitmq\data:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit:rw
+    - C:\Users\USER\Downloads\MassTransitRabitmq\ServerApp\rabbitmq\logs:/var/log/rabbitmq/log:rw
+  serverapp:
+    build:
+      context: C:\Users\USER\Downloads\MassTransitRabitmq\ServerApp
+      dockerfile: ServerApp/Dockerfile
+      labels:
+        com.microsoft.created-by: visual-studio
+        com.microsoft.visual-studio.project-name: ServerApp
+      target: base
+    container_name: ServerApp
+    depends_on:
+      rabbitmq:
+        condition: service_started
+    entrypoint: tail -f /dev/null
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: '1'
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages;/root/.nuget/fallbackpackages2
+    image: serverapp:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages --additionalProbingPath
+        /root/.nuget/fallbackpackages2  "/app/bin/Debug/net6.0/ServerApp.dll"'
+      com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
+        dotnet); then kill $$PID; fi"
+      com.microsoft.visualstudio.debuggee.program: dotnet
+      com.microsoft.visualstudio.debuggee.workingdirectory: /app
+    ports:
+    - target: 80
+    - target: 443
+    tty: true
+    volumes:
+    - C:\Users\USER\Downloads\MassTransitRabitmq\ServerApp\ServerApp:/app:rw
+    - C:\Users\USER\vsdbg\vs2017u5:/remote_debugger:rw
+    - C:\Users\USER\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\USER\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+    - C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages:/root/.nuget/fallbackpackages:ro
+    - C:\Program Files\dotnet\sdk\NuGetFallbackFolder:/root/.nuget/fallbackpackages2:ro
+    - C:\Users\USER\.nuget\packages:/root/.nuget/packages:ro
+    - C:\Users\USER\Downloads\MassTransitRabitmq\ServerApp:/src:rw
+version: '3.4'

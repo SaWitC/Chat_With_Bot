@@ -2,17 +2,11 @@
 using BotServer.Application.Repositories;
 using BotServer.Domain.Models;
 using BotServer.Features.BackgroundJobs.Remind;
-using Hangfire;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Features.Features.Commands.Remind.CreateRemind
 {
@@ -45,9 +39,10 @@ namespace BotServer.Features.Features.Commands.Remind.CreateRemind
 
         public async Task<RemindModel> Handle(CreateRemindCommand request, CancellationToken cancellationToken)
         {
-            
-            var avtorId =_accesor.HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value;
-            if (avtorId != null) {
+
+            var avtorId = _accesor.HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            if (avtorId != null)
+            {
                 var user = await _userManager.FindByIdAsync(avtorId);
                 RemindModel model = _mapper.Map<RemindModel>(request);
 
@@ -59,9 +54,10 @@ namespace BotServer.Features.Features.Commands.Remind.CreateRemind
                 //var delay = DateTime.Now - request.RemindAtTime;
 
                 var res = await _baseRepostory.Create(model);
-                if (res != null) {
+                if (res != null)
+                {
                     var DleayedTasSetResponse = await _bGJobRemind.SetBgJobRemind(res);
-                     await _baseRepostory.SaveChangesAsync();
+                    await _baseRepostory.SaveChangesAsync();
                 }
                 return res;
             }
@@ -70,7 +66,7 @@ namespace BotServer.Features.Features.Commands.Remind.CreateRemind
 
         //private static Action SendToVk(User user, RemindModel remind)
         //{
-            
+
         //}
     }
 }

@@ -25,7 +25,7 @@
 //        public async Task<MessageModel> Handle(WriteResponseFromServer request, CancellationToken cancellationToken)
 //        {
 //            var entity = new MessageModel();
-            
+
 //            foreach (var x in _commandHandlers)
 //            {
 //                if (x.CanProcess(new Command(request.MessageFromUser)))

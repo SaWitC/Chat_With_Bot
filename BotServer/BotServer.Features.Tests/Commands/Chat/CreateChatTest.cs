@@ -1,24 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BotServer.Features;
-using NUnit;
-using BotServer.Features.Features.Commands.Chat.CreateChatCommand;
-using Moq;
-using MediatR;
-using BotServer.Application.Repositories;
-using Microsoft.AspNetCore.Http;
+﻿using AutoFixture;
 using AutoMapper;
-using Xunit;
-using AutoFixture;
-using BotServer.Data.Data;
-using Microsoft.EntityFrameworkCore;
-using BotServer.Domain.Models;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
+using BotServer.Application.Repositories;
 using BotServer.Data.MapperProfiles;
+using BotServer.Domain.Models;
+using BotServer.Features.Features.Commands.Chat.CreateChatCommand;
+using MediatR;
+using Microsoft.AspNetCore.Http;
+using Moq;
 using System.Security.Claims;
+using Xunit;
 
 namespace BotServer.Features.Tests.Commands.Chat
 {
@@ -46,7 +36,7 @@ namespace BotServer.Features.Tests.Commands.Chat
 
         [Fact]
         //[Theory("fisrt")]
-        
+
         public async Task CreateChat()
         {
             //arrange

@@ -1,14 +1,8 @@
 ﻿using BotServer.Application.Repositories;
 using BotServer.Domain.Models;
-using Hangfire.Logging;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Features.Features.Account.LoginCommand
 {
@@ -44,7 +38,7 @@ namespace BotServer.Features.Features.Account.LoginCommand
                 }
                 if (result.IsNotAllowed)
                 {
-                    
+
                     _logger.LogInformation($"login error UserName:{request.UserName}");
                 }
             }

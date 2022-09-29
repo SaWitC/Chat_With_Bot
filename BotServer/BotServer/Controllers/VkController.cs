@@ -1,9 +1,7 @@
 ﻿using BotServer.Domain.Models;
-using BotServer.Domain.Models.VkModels;
 using BotServer.Features.Features.Commands.Vk.VkAuthorization;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -26,7 +24,7 @@ namespace BotServer.Controllers
         private readonly UserManager<BotServer.Domain.Models.User> _usermanager;
         //private readonly IVkApi _vkApi;
         private readonly IMediator _mediator;
-        public Guid UserId => Guid.Parse(HttpContext.User.Claims.Single(x=>x.Type == ClaimTypes.NameIdentifier).Value);
+        public Guid UserId => Guid.Parse(HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value);
         public VkController(IConfiguration configuration,
            // IVkApi vkApi,
            UserManager<BotServer.Domain.Models.User> userManager,
@@ -35,8 +33,8 @@ namespace BotServer.Controllers
             this._configuration = configuration;
             //_vkApi = vkApi; 
             _mediator = mediator;
-            _usermanager= userManager;
-            
+            _usermanager = userManager;
+
         }
 
         //[HttpPost("test")]
@@ -61,7 +59,7 @@ namespace BotServer.Controllers
 
         //    var resp = gggg();
         //    var Us = typeof(User);
-            
+
         //    //var user = ;
         //    return Ok(new { user,resp });
         //}
@@ -102,17 +100,17 @@ namespace BotServer.Controllers
         //    return Ok();
         //}
         [HttpPost]
-        [Authorize(AuthenticationSchemes ="Bearer")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "SaveVkId", OperationId = "Try conect to Vk")]
-        public async Task<IActionResult> ConectToVk(string Email,string Password)
+        public async Task<IActionResult> ConectToVk(string Email, string Password)
         {
             VkAIdSaveCommand vkAIdSaveCommand = new VkAIdSaveCommand();
-            vkAIdSaveCommand.Email=Email;
-            vkAIdSaveCommand.Password=Password;
+            vkAIdSaveCommand.Email = Email;
+            vkAIdSaveCommand.Password = Password;
             vkAIdSaveCommand.UserId = UserId.ToString();
 
-            var res =await _mediator.Send(vkAIdSaveCommand);
+            var res = await _mediator.Send(vkAIdSaveCommand);
             return Ok(res);
         }
 

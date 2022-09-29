@@ -1,13 +1,8 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Features.Features.Account.LoginCommand
 {
-    public class LoginCommandValidator:AbstractValidator<LoginCommand>
+    public class LoginCommandValidator : AbstractValidator<LoginCommand>
     {
         public LoginCommandValidator()
         {

@@ -1,20 +1,17 @@
-﻿using BotServer.Application.Repositories;
-using BotServer.Data.Data;
-using BotServer.Data.Repositories;
+﻿using BotServer.Data.Data;
 using BotServer.Domain.ConfigModels;
 using BotServer.Domain.Models;
 using BotServer.Features;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 namespace BotServer
 {
     public class DependencyInjection
     {
-        public static void AddBotServer(IServiceCollection Services,IConfiguration configuration)
+        public static void AddBotServer(IServiceCollection Services, IConfiguration configuration)
         {
             Services.AddControllers().AddNewtonsoftJson(); ;
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -50,7 +47,7 @@ namespace BotServer
                 options.AddPolicy("MyAllowSpecificOrigins",
                 builder =>
                 {
-        // builder.WithOrigins("http://example.com");
+                    // builder.WithOrigins("http://example.com");
                     builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
                 });
             });
@@ -96,7 +93,7 @@ namespace BotServer
                         // если запрос направлен хабу
                         var path = context.HttpContext.Request.Path;
                         if (!string.IsNullOrEmpty(accessToken) &&
-                            (path.StartsWithSegments("/toastr")|| path.StartsWithSegments("/notify")))
+                            (path.StartsWithSegments("/toastr") || path.StartsWithSegments("/notify")))
                         {
                             // получаем токен из строки запроса
                             context.Token = accessToken;

@@ -3,12 +3,6 @@ using BotServer.Data.Attributes;
 using BotServer.Data.Data;
 using BotServer.Domain.Models.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Data.Repositories
 {
@@ -73,15 +67,15 @@ namespace BotServer.Data.Repositories
             return null;
         }
 
-        public async Task<TKind> Create<TParent,TKind>(string ParentId, TKind model) where TKind : class ,IEntity, IHasParent where TParent:class,IEntity
+        public async Task<TKind> Create<TParent, TKind>(string ParentId, TKind model) where TKind : class, IEntity, IHasParent where TParent : class, IEntity
         {
-            if (!string.IsNullOrEmpty(ParentId)&&!string.IsNullOrEmpty(model.id))
+            if (!string.IsNullOrEmpty(ParentId) && !string.IsNullOrEmpty(model.id))
             {
                 var parent = await _appDbContext.Set<TParent>().FirstOrDefaultAsync(o => o.id == ParentId);
                 if (parent != null)
                 {
                     model.ParentId = ParentId;
-                    var res= await _appDbContext.Set<TKind>().AddAsync(model);
+                    var res = await _appDbContext.Set<TKind>().AddAsync(model);
                     return res.Entity;
                 }
                 throw new Exception("Parent not found in db");
@@ -89,13 +83,13 @@ namespace BotServer.Data.Repositories
             throw new ArgumentException("model.id i null or ParentId is null it is not cool");
         }
 
-        public async Task<T> FictiveRemove<T>(string Id) where T:class,IFictiveRemove,IEntity
+        public async Task<T> FictiveRemove<T>(string Id) where T : class, IFictiveRemove, IEntity
         {
             var oldVersionModel = await _appDbContext.Set<T>().FirstOrDefaultAsync(x => x.id == Id);
             if (oldVersionModel != null)
             {
                 oldVersionModel.IsDeleted = true;
-                var res =_appDbContext.Set<T>().Update(oldVersionModel).Entity;
+                var res = _appDbContext.Set<T>().Update(oldVersionModel).Entity;
                 return res;
             }
             return null;

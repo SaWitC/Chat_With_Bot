@@ -1,11 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BotServer.Application.Repositories
+﻿namespace BotServer.Application.Repositories
 {
     public interface IChatRepository
     {
@@ -18,6 +11,6 @@ namespace BotServer.Application.Repositories
 
         //public Task<T> GetById<T>(string id) where T : class, IEntity;
 
-        public IEnumerable<ChatModel> GetPageByAvtorId(string avtorId, int page = 0, int size=5);
+        public IEnumerable<ChatModel> GetPageByAvtorId(string avtorId, int page = 0, int size = 5);
     }
 }

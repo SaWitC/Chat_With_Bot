@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "8rbXz+0sF64k7xtsMgWRN5QCD5LIU6FshMW2FrzRMOzBn5c42kKMKpSZvFyyN1J2c/odCuTwcBwCmDrT3eFQgg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\USER\\Downloads\\MassTransitRabitmq\\ServerApp\\Consumer\\Consumer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
+  ],
+  "logs": []
+}

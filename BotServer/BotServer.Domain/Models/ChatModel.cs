@@ -1,13 +1,8 @@
 ﻿using BotServer.Domain.Models.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Domain.Models
 {
-    public class ChatModel : IEntity,IHasTitle, IHasCreated
+    public class ChatModel : IEntity, IHasTitle, IHasCreated
     {
         public string id { get; set; }
 
@@ -20,6 +15,6 @@ namespace BotServer.Domain.Models
 
 
         //public string botId { get; set; }
-        
+
     }
 }

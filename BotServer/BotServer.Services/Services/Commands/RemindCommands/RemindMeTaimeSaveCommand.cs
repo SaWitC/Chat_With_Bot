@@ -1,13 +1,8 @@
 ﻿using BotServer.Application.Services.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using BotServer.Data.Attributes;
 using BotServer.Features.Features.Commands.Remind.CreateRemind;
 using MediatR;
-using BotServer.Data.Attributes;
+using System.Text.RegularExpressions;
 
 namespace BotServer.Services.Services.Commands.RemindCommands
 {
@@ -31,7 +26,7 @@ namespace BotServer.Services.Services.Commands.RemindCommands
         {
 
             Match match = Regex.Match(command.CommandString.ToLower(), @"[0-9]{4}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}[-| |:|.]*[0-9]{2}");
-                
+
             DateTime date = DateTime.Parse(match.Groups[0].Value);
             var remndMessage = command.CommandString.Replace(match.Groups[0].Value, "");
             if (string.IsNullOrEmpty(remndMessage))

@@ -1,21 +1,12 @@
-﻿using BotServer.Application.Repositories;
-using BotServer.Data.Attributes;
-using BotServer.Data.Data;
-using BotServer.Data.Repositories;
-using Microsoft.EntityFrameworkCore;
+﻿using BotServer.Data.Attributes;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Data
 {
     public class DependencyInjection
     {
-        public static void AddData(IServiceCollection Services,IConfiguration configuration)
+        public static void AddData(IServiceCollection Services, IConfiguration configuration)
         {
 
             //Services.AddScoped<IChatRepository, ChatRepository>();

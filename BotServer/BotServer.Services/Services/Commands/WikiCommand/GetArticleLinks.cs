@@ -1,12 +1,7 @@
 ﻿using BotServer.Application.CustomHTTPClients;
 using BotServer.Application.Services.Commands;
 using BotServer.Data.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace BotServer.Services.Services.Commands.WikiCommand
 {
@@ -16,7 +11,7 @@ namespace BotServer.Services.Services.Commands.WikiCommand
         private readonly IWikiHttpClient _wikiHttpClient;
         public GetArticleLinks(IWikiHttpClient wikiHttpClient)
         {
-            _wikiHttpClient= wikiHttpClient;
+            _wikiHttpClient = wikiHttpClient;
         }
         public bool CanProcess(ICommand command)
         {
@@ -38,7 +33,7 @@ namespace BotServer.Services.Services.Commands.WikiCommand
                 string resp = $"i gona found:";
                 foreach (var x in respmodel.query.pages)
                 {
-                    resp += $"</br><a href={wikiDomain+x.title}>{x.title}</a>";
+                    resp += $"</br><a href={wikiDomain + x.title}>{x.title}</a>";
                 }
                 return resp;
             }

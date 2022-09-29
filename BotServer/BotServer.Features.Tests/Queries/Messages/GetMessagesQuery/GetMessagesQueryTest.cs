@@ -1,14 +1,8 @@
-﻿using BotServer.Application.Repositories;
+﻿using AutoFixture;
+using BotServer.Application.Repositories;
 using BotServer.Domain.Models;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BotServer.Features.Features.Queries.Messages.GetMessagesQuery;
-using AutoFixture;
-using System.ComponentModel.DataAnnotations;
+using Moq;
 using Xunit;
 
 namespace BotServer.Features.Tests.Queries.Messages.GetMessagesQuery
@@ -21,10 +15,10 @@ namespace BotServer.Features.Tests.Queries.Messages.GetMessagesQuery
         {
             //arrange
             Fixture fixture = new Fixture();
-            var message = fixture.Build<MessageModel>().With(x=>x.ParentId,"1").Without(x=>x.chat).Create();
+            var message = fixture.Build<MessageModel>().With(x => x.ParentId, "1").Without(x => x.chat).Create();
             IEnumerable<MessageModel> messages = new List<MessageModel>()
             {
-                message 
+                message
             };
 
             var SelectRepoMock = new Mock<ISelectRepository>();
@@ -37,7 +31,7 @@ namespace BotServer.Features.Tests.Queries.Messages.GetMessagesQuery
 
             GetMessagesQueryHandler messagesQueryHandler = new GetMessagesQueryHandler(SelectRepoMock.Object);
             //act
-            var res =await messagesQueryHandler.Handle(getMessagesQuery, new CancellationToken());
+            var res = await messagesQueryHandler.Handle(getMessagesQuery, new CancellationToken());
 
             //assert
 

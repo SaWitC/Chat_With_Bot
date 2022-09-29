@@ -1,28 +1,20 @@
 ﻿using BotServer.Application.CustomHTTPClients;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OpenWeatherMap;
-using System.Threading.Tasks;
-using OpenWeatherAPI;
-using static BotServer.Domain.HttResponseModels.WeatherModels;
 using System.Net.Http.Headers;
-using Microsoft.AspNetCore.Http;
+using static BotServer.Domain.HttResponseModels.WeatherModels;
 
 namespace BotServer.Services.CustomHTTPClients.Weather
 {
-    public class WeatherHttpClient:IWeatherHttpClient
+    public class WeatherHttpClient : IWeatherHttpClient
     {
 
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _configuration;
-        public WeatherHttpClient(HttpClient httpClient,IConfiguration configuration)
+        public WeatherHttpClient(HttpClient httpClient, IConfiguration configuration)
         {
             _httpClient = httpClient;
             _httpClient.BaseAddress = new Uri("https://api.openweathermap.org");
-            _httpClient.Timeout = new TimeSpan(0,0,10);
+            _httpClient.Timeout = new TimeSpan(0, 0, 10);
             _httpClient.DefaultRequestHeaders.Clear();
             _configuration = configuration;
         }
@@ -37,7 +29,7 @@ namespace BotServer.Services.CustomHTTPClients.Weather
 
             Rootobject rootobject = new Rootobject();
 
-            using (var response =await _httpClient.SendAsync(request))
+            using (var response = await _httpClient.SendAsync(request))
             {
                 if (response.IsSuccessStatusCode)
                 {

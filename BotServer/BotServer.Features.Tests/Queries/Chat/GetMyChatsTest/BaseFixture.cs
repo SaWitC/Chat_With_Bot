@@ -3,14 +3,8 @@ using AutoMapper;
 using BotServer.Application.Repositories;
 using BotServer.Data.MapperProfiles;
 using BotServer.Domain.Models;
-using BotServer.Domain.Models.Short;
 using MediatR;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Features.Tests.Queries.Chat.GetMyShatsTest
 {
@@ -51,7 +45,7 @@ namespace BotServer.Features.Tests.Queries.Chat.GetMyShatsTest
         {
             var mock = new Mock<IChatRepository>();
             var chats = Fixture.Build<ChatModel>().Without(o => o.Messages).With(o => o.avtorId, "1").CreateMany(5);
-            mock.Setup(a => a.GetPageByAvtorId("1",0,5)).Returns(() => (chats));
+            mock.Setup(a => a.GetPageByAvtorId("1", 0, 5)).Returns(() => (chats));
 
             return mock;
         }

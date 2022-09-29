@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "VkServer.Application/1.0.0": {
+        "dependencies": {
+          "VkServer.Domain": "1.0.0"
+        },
+        "runtime": {
+          "VkServer.Application.dll": {}
+        }
+      },
+      "VkServer.Domain/1.0.0": {
+        "runtime": {
+          "VkServer.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VkServer.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "VkServer.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,8 +1,6 @@
 using BotServer.SignalR.Hubs;
 using BotServer.SignalR_info.Hubs;
-using FluentValidation;
 using Hangfire;
-using Microsoft.OpenApi.Models;
 using NLog;
 using NLog.Web;
 
@@ -21,13 +19,13 @@ try
     BotServer.Services.DependencyInjection.AddServices(builder.Services, builder.Configuration);
     BotServer.Features.DependensyInjection.AddFeatures(builder.Services, builder.Configuration);
     BotServer.DependencyInjection.AddBotServer(builder.Services, builder.Configuration);
+    BotServer.Comunications.DependencyInjection.ConfigureServices(builder.Services,builder.Configuration);
 
     builder.Configuration.AddJsonFile("settings.json");
 
-
     // added nlog
     builder.Logging.ClearProviders();
-    builder.Host.UseNLog();
+    builder.Host.UseNLog(); 
 
     var app = builder.Build();
 

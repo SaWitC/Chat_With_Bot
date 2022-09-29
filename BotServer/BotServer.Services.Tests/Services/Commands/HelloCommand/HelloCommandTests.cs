@@ -1,19 +1,13 @@
 ﻿using BotServer.Services.Services.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BotServer.Services.Services.Commands.HelloCommands;
 
 namespace BotServer.Services.Tests.Services.Commands.HelloCommand
 {
     public class HelloCommandTests
     {
-        [TestCase("hello",true)]
+        [TestCase("hello", true)]
         [TestCase("HeLlO", true)]
         [TestCase("bye", false)]
-        public async Task MustReturn_message_hello_people(string message,bool isCorrect)
+        public async Task MustReturn_message_hello_people(string message, bool isCorrect)
         {
             //arrange
             Command command = new Command(message);
@@ -21,10 +15,10 @@ namespace BotServer.Services.Tests.Services.Commands.HelloCommand
             var respMessage = "";
 
             //act
-            var canProcess =helloCommand.CanProcess(command);
+            var canProcess = helloCommand.CanProcess(command);
             if (canProcess)
             {
-                respMessage =await helloCommand.ProcessCommand(command);
+                respMessage = await helloCommand.ProcessCommand(command);
             }
             //assert
             if (isCorrect)

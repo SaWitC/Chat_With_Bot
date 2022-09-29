@@ -1,14 +1,7 @@
 ﻿using AutoMapper;
 using BotServer.Application.Repositories;
-using BotServer.Application.Services.Commands;
 using BotServer.Domain.Models;
 using MediatR;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Features.Features.Commands.Messages.SendMessage
 {
@@ -18,7 +11,7 @@ namespace BotServer.Features.Features.Commands.Messages.SendMessage
         private readonly IMapper _mapper;
         //private readonly IEnumerable<ICommandHandler> _commandHandlers;
 
-        public SendMessageCommandHandler(IBaseRepository baseRepository,IMapper mapper/*,IEnumerable<ICommandHandler> commandHandlers*/)
+        public SendMessageCommandHandler(IBaseRepository baseRepository, IMapper mapper/*,IEnumerable<ICommandHandler> commandHandlers*/)
         {
             //_commandHandlers = commandHandlers;
             _baseRepository = baseRepository;

@@ -1,14 +1,7 @@
 ﻿using BotServer.Application.CustomHTTPClients;
 using BotServer.Application.Services.Commands;
 using BotServer.Data.Attributes;
-using BotServer.Services.CustomHTTPClients.Weather;
 using Microsoft.Extensions.Configuration;
-using OpenWeatherAPI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Services.Services.Commands.WeatherCommands
 {
@@ -16,9 +9,9 @@ namespace BotServer.Services.Services.Commands.WeatherCommands
     public class GetCurrentWeatherCommand : ICommandHandler
     {
         private readonly IWeatherHttpClient _weatherHttpClient;
-        private readonly string[] location = new string[] {"Беларусь","Витебск","Москва","Питер" };
+        private readonly string[] location = new string[] { "Беларусь", "Витебск", "Москва", "Питер" };
         private readonly IConfiguration _configuration;
-        public GetCurrentWeatherCommand(IWeatherHttpClient weatherHttpClient,IConfiguration configuration)
+        public GetCurrentWeatherCommand(IWeatherHttpClient weatherHttpClient, IConfiguration configuration)
         {
             _weatherHttpClient = weatherHttpClient;
             _configuration = configuration;
@@ -52,7 +45,7 @@ namespace BotServer.Services.Services.Commands.WeatherCommands
             }
 
             return "Sory but I can't found any weather";
-            
+
 
 
 

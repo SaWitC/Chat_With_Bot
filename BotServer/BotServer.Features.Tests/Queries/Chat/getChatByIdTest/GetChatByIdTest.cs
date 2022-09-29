@@ -1,18 +1,4 @@
-﻿using AutoFixture;
-using AutoMapper;
-using BotServer.Application.Repositories;
-using BotServer.Data.MapperProfiles;
-using BotServer.Domain.Models;
-using BotServer.Domain.Models.Short;
-using BotServer.Features.Features.Queries.Chat.GetChatById;
-using BotServer.Features.Features.Queries.Chat.GetMyChats;
-using MediatR;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BotServer.Features.Features.Queries.Chat.GetChatById;
 using Xunit;
 
 namespace BotServer.Features.Tests.Queries.Chat.getChatByIdTest
@@ -41,20 +27,20 @@ namespace BotServer.Features.Tests.Queries.Chat.getChatByIdTest
 
             GetChatByIdQuery createChatCommand = new GetChatByIdQuery();
             createChatCommand.id = id;
-            
+
             GetChatByIdQueryHandler handler = new GetChatByIdQueryHandler(
-                baseRepository:Basefixture.BaseRepository.Object,
+                baseRepository: Basefixture.BaseRepository.Object,
                 selectRepository: Basefixture.SelectRepository.Object,
                 messageRepository: Basefixture.MessageRepository.Object,
                 mapper: Basefixture.Mapper);
             //Act
             var res = await handler.Handle(createChatCommand, new System.Threading.CancellationToken());
-            
+
             //Assert
 
             Assert.NotNull(res);
-            Assert.NotEqual(0,res.Page);
-            Assert.NotEqual(0,res.Messages.Count());
+            Assert.NotEqual(0, res.Page);
+            Assert.NotEqual(0, res.Messages.Count());
         }
 
         [Fact]

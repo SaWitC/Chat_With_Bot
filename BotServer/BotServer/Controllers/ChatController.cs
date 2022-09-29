@@ -6,7 +6,6 @@ using BotServer.Features.Features.Queries.Chat.GetMyChats;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SignalR;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.Swagger;
 using System.Security.Claims;
@@ -28,7 +27,7 @@ namespace BotServer.Controllers
         public ChatController(IMediator mediatr /*, IHubContext<ChatHub> hub*/)
         {
             _mediatr = mediatr;
-          //  _hubContext = hub;
+            //  _hubContext = hub;
         }
 
         // POST api/<ChatController>
@@ -38,14 +37,14 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "Create new chat", OperationId = "CreateChat")]
         public async Task<IActionResult> CreateChat(CreateChatCommand createChatCommand)
         {
-            
-            var res =await _mediatr.Send(createChatCommand);
+
+            var res = await _mediatr.Send(createChatCommand);
             return Ok(res);
         }
         [HttpGet("getMy/{page}")]
-        [Authorize (AuthenticationSchemes ="Bearer")]
-        [SwaggerResponse(StatusCodes.Status200OK,Type =typeof(Response))]
-        [SwaggerOperation(summary:"get my chates",OperationId = "GetMyChats")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
+        [SwaggerOperation(summary: "get my chates", OperationId = "GetMyChats")]
         public async Task<IActionResult> GetMyChats(int page)
         {
             GetMyChatsQuery query = new GetMyChatsQuery();
@@ -63,7 +62,7 @@ namespace BotServer.Controllers
             var query = new GetChatByIdQuery();
             query.id = id;
             //getChatById.id
-            var res =await _mediatr.Send(query);
+            var res = await _mediatr.Send(query);
             return Ok(res);
         }
 

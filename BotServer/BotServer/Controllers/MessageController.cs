@@ -1,10 +1,8 @@
-﻿using BotServer.Features.Features.Commands.Messages.SendMessage;
-using BotServer.Features.Features.Queries.Messages.GetMessagesQuery;
+﻿using BotServer.Features.Features.Queries.Messages.GetMessagesQuery;
 //using BotServer.SignalR.Hubs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SignalR;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.Swagger;
 using System.Security.Claims;
@@ -28,7 +26,7 @@ namespace BotServer.Controllers
             //_hubContext = hubContext;
         }
         // GET api/<MessageController>/5
-        [Authorize(AuthenticationSchemes ="Bearer")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpGet("{page}&{chatid}")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "get messages", OperationId = "GetMessages")]
@@ -41,7 +39,7 @@ namespace BotServer.Controllers
             return Ok(res);
         }
 
-       
+
         // PUT api/<MessageController>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)

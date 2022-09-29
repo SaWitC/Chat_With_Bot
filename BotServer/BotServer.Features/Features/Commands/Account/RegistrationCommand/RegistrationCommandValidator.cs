@@ -1,13 +1,8 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Features.Features.Account.RegistrationCommand
 {
-    public class RegistrationCommandValidator:AbstractValidator<RegistrationCommand>
+    public class RegistrationCommandValidator : AbstractValidator<RegistrationCommand>
     {
         public RegistrationCommandValidator()
         {
@@ -29,7 +24,7 @@ namespace BotServer.Features.Features.Account.RegistrationCommand
             RuleFor(x => x.ConfirmPass)
                .NotEmpty()
                .Equal(x => x.Password);
- 
+
 
             RuleFor(x => x.UserName)
                .NotEmpty()

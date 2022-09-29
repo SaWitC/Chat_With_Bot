@@ -1,20 +1,10 @@
-﻿using AutoFixture;
-using BotServer.Application.Repositories;
-using BotServer.Domain.Models;
+﻿using BotServer.Domain.Models;
 using BotServer.Features.Features.Queries.Chat.GetMyChats;
-using MediatR;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit;
 using Xunit;
 
 namespace BotServer.Features.Tests.Queries.Chat.GetMyShatsTest
 {
-    public class GetMyChat:IClassFixture<BaseFixture>
+    public class GetMyChat : IClassFixture<BaseFixture>
     {
         private readonly BaseFixture baseFixture;
         //[SetUp]
@@ -36,14 +26,14 @@ namespace BotServer.Features.Tests.Queries.Chat.GetMyShatsTest
             //Act
             var res = await handler.Handle(createChatCommand, new System.Threading.CancellationToken());
             //Assert
-            
+
             Assert.NotNull(res);
-            Assert.Equal<int>(5,res.Count());
+            Assert.Equal<int>(5, res.Count());
         }
 
         [Fact]
         public async Task must_return_EmptyList()
-        {        
+        {
             //arrange       
             GetMyChatsQuery createChatCommand = new GetMyChatsQuery();
             createChatCommand.AvtorId = "2";
@@ -52,7 +42,7 @@ namespace BotServer.Features.Tests.Queries.Chat.GetMyShatsTest
             var res = await handler.Handle(createChatCommand, new System.Threading.CancellationToken());
             //Assert
 
-            Assert.Equal(new List<ChatModel>(),res);
+            Assert.Equal(new List<ChatModel>(), res);
         }
     }
 }

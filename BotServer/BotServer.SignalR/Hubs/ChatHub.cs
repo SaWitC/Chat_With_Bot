@@ -1,29 +1,27 @@
-﻿using BotServer.Application.Services.Commands;
-using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.SignalR;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Http;
-//using BotServer.Services.Services.Commands;
+﻿//using BotServer.Services.Services.Commands;
 using BotServer.Application.Repositories;
-using BotServer.Domain.Models;
+using BotServer.Application.Services.Commands;
 using BotServer.Features.Features.Commands.Messages.SendMessage;
 using BotServer.Services.Services.Commands;
-using BotServer.Application.HubsAbstraction;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.SignalR;
+using System.Security.Claims;
 
 namespace BotServer.SignalR.Hubs
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
     public class ChatHub : Hub
     {
-        
+
         private readonly IMediator _mediatr;
         private readonly IEnumerable<ICommandHandler> _commandHandlers;
         private readonly IHttpContextAccessor _accesor;
         private readonly IBaseRepository _baseRepository;
         private readonly IHubRepository _hubRepository;
 
-     
+
         public ChatHub(IEnumerable<ICommandHandler> commandHandlers,
             IMediator mediator,
             IHttpContextAccessor accessor,
@@ -38,9 +36,9 @@ namespace BotServer.SignalR.Hubs
         }
 
         public Guid Id => Guid.Parse(_accesor.HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
-        public async Task AskServer(string someTextFromClient,string chatId)
+        public async Task AskServer(string someTextFromClient, string chatId)
         {
-            string tempString ="";
+            string tempString = "";
             if (string.IsNullOrEmpty(someTextFromClient))
             {
                 await Clients.Client(this.Context.ConnectionId).SendAsync("askServerResponse", "incorrect message (empty)");
@@ -59,7 +57,7 @@ namespace BotServer.SignalR.Hubs
                     break;
                 }
             }
-                    //user quest
+            //user quest
             SendMessageCommand sendMessageCommand = new SendMessageCommand();
             SendMessageDTO messageDTO = new();
             sendMessageCommand.SendMessageDTO = messageDTO;

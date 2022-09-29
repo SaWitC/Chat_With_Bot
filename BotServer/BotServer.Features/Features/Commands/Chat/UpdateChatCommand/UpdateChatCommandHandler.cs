@@ -2,11 +2,6 @@
 using BotServer.Application.Repositories;
 using BotServer.Domain.Models;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BotServer.Features.Features.Commands.Chat.UpdateChatCommand
 {
@@ -15,7 +10,7 @@ namespace BotServer.Features.Features.Commands.Chat.UpdateChatCommand
         private readonly IMapper _mapper;
         private readonly IBaseRepository _baseRepository;
 
-        public UpdateChatCommandHandler(IMapper mapper,IBaseRepository baseRepository)
+        public UpdateChatCommandHandler(IMapper mapper, IBaseRepository baseRepository)
         {
             _mapper = mapper;
             _baseRepository = baseRepository;
@@ -25,7 +20,7 @@ namespace BotServer.Features.Features.Commands.Chat.UpdateChatCommand
         {
             var model = _mapper.Map<ChatModel>(request);
 
-            var res =await _baseRepository.Update<ChatModel>(model,request.oldModelId);
+            var res = await _baseRepository.Update<ChatModel>(model, request.oldModelId);
             await _baseRepository.SaveChangesAsync();
 
             return res;

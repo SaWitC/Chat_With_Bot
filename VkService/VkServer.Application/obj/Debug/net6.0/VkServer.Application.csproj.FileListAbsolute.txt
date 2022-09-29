@@ -1,0 +1,15 @@
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\obj\Debug\net6.0\VkServer.Application.csproj.AssemblyReference.cache
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\obj\Debug\net6.0\VkServer.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\obj\Debug\net6.0\VkServer.Application.AssemblyInfoInputs.cache
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\obj\Debug\net6.0\VkServer.Application.AssemblyInfo.cs
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\obj\Debug\net6.0\VkServer.Application.csproj.CoreCompileInputs.cache
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\bin\Debug\net6.0\VkServer.Application.deps.json
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\bin\Debug\net6.0\VkServer.Application.dll
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\bin\Debug\net6.0\VkServer.Application.pdb
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\bin\Debug\net6.0\VkServer.Domain.dll
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\bin\Debug\net6.0\VkServer.Domain.pdb
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\obj\Debug\net6.0\VkServer.Application.csproj.CopyComplete
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\obj\Debug\net6.0\VkServer.Application.dll
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\obj\Debug\net6.0\refint\VkServer.Application.dll
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\obj\Debug\net6.0\VkServer.Application.pdb
+C:\Users\USER\Downloads\MassTransitRabitmq\VkServer.Application\obj\Debug\net6.0\ref\VkServer.Application.dll
