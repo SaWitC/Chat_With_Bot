@@ -67,8 +67,8 @@ namespace BotServer.Features.BackgroundJobs.Remind
                     //    Message = remind.RemindMessage,
                     //    RandomId = Environment.TickCount
                     //});
-
-                    _publishEndpoint.Publish(new ComunicationMessage {Text=remind.RemindMessage });
+                    await _publishEndpoint.Publish<ComunicationMessage>(new ComunicationMessage { Text = remind.RemindMessage, VkId = user.VkId });
+                    //await _publishEndpoint.Publish(new ComunicationMessage {Text=remind.RemindMessage ,VkId=user.VkId});
                 }
 
                 var activeConnections = await _hubRepository.GetAllActivConnectionsByUser(user.Id);

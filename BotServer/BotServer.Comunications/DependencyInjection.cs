@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using MassTransit;
 using BotServer.Domain.ComuinicationModels;
+using ServerApp.Rabitmq;
 
 namespace BotServer.Comunications
 {
@@ -14,21 +15,19 @@ namespace BotServer.Comunications
     {
         public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            //var massTransitSection = configuration.GetSection("MassTransit");
+            var massTransitSection = configuration.GetSection("MassTransit");
             var url = configuration["MassTransit:Url"];
             var host = configuration["MassTransit:Host"];
             var userName = configuration["MassTransit:UserName"];
             var password = configuration["MassTransit:Password"];
-
-            //var host = massTransitSection.GetValue<string>("Host");
-            //var userName = massTransitSection.GetValue<string>("UserName");
-            //var password = massTransitSection.GetValue<string>("Password");
-            if (string.IsNullOrEmpty(url)||
+            if (
+                string.IsNullOrEmpty(url) ||
                 string.IsNullOrEmpty(host) ||
                 string.IsNullOrEmpty(userName) ||
-                string.IsNullOrEmpty(password))
+                string.IsNullOrEmpty(password)
+                )
             {
-                throw new ArgumentNullException("can't get value from MassTransit section ");
+                throw new ArgumentNullException("Section 'mass-transit' configuration settings are not found in appSettings.json");
             }
 
             services.AddMassTransit(x =>
@@ -48,32 +47,17 @@ namespace BotServer.Comunications
                         //cfg.UseHealthCheck(context);
                         cfg.ConfigureEndpoints(bf, SnakeCaseEndpointNameFormatter.Instance);
 
-                        //cfg.ReceiveEndpoint("MyQueue"e =>
+                        //cfg.ReceiveEndpoint("MyQueue", e =>
                         //{
-                        //    e.Consumer<My>
-                        //})
+                        //    //Task.Delay(5000);
+                        //    e.Consumer<MyCustomConsumer>();
+                        //});
                     });
                     return bus;
                 });
-                //x.SetSnakeCaseEndpointNameFormatter();
 
-                //x.UsingRabbitMq((context, cfg) =>
-                //{
-                //    cfg.Host($"rabbitmq://{url}/{host}", configurator =>
-                //    {
-                //        configurator.Username(userName);
-                //        configurator.Password(password);
-                //    });
-
-                //    cfg.ClearMessageDeserializers();
-                //    cfg.UseRawJsonSerializer();
-                //    //cfg.UseHealthCheck(context);
-                //    cfg.ConfigureEndpoints(context, SnakeCaseEndpointNameFormatter.Instance);
-                //});
-                
             });
 
-            //services.AddMassTransit();
             services.AddMassTransitHostedService();
         }
     }

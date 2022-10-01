@@ -9,5 +9,7 @@ namespace BotServer.Domain.ComuinicationModels
     public class ComunicationMessage
     {
         public string Text { get; set; }
+
+        public long? VkId { get; set; }
     }
 }

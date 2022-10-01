@@ -1,5 +1,7 @@
-﻿using BotServer.Domain.Models;
+﻿using BotServer.Domain.ComuinicationModels;
+using BotServer.Domain.Models;
 using BotServer.Features.Features.Commands.Vk.VkAuthorization;
+using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -24,17 +26,19 @@ namespace BotServer.Controllers
         private readonly UserManager<BotServer.Domain.Models.User> _usermanager;
         //private readonly IVkApi _vkApi;
         private readonly IMediator _mediator;
+        private readonly IPublishEndpoint _publishEndpoint;
         public Guid UserId => Guid.Parse(HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value);
         public VkController(IConfiguration configuration,
            // IVkApi vkApi,
            UserManager<BotServer.Domain.Models.User> userManager,
-            IMediator mediator)
+            IMediator mediator,
+            IPublishEndpoint publishEndpoint)
         {
             this._configuration = configuration;
             //_vkApi = vkApi; 
             _mediator = mediator;
             _usermanager = userManager;
-
+            _publishEndpoint = publishEndpoint; 
         }
 
         //[HttpPost("test")]
@@ -66,6 +70,7 @@ namespace BotServer.Controllers
 
         private object gggg()
         {
+            
             return new User();
         }
 
@@ -99,19 +104,29 @@ namespace BotServer.Controllers
         //    //return Ok(_configuration["VkConfig:Token"]);
         //    return Ok();
         //}
-        [HttpPost]
-        [Authorize(AuthenticationSchemes = "Bearer")]
-        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
-        [SwaggerOperation(summary: "SaveVkId", OperationId = "Try conect to Vk")]
-        public async Task<IActionResult> ConectToVk(string Email, string Password)
-        {
-            VkAIdSaveCommand vkAIdSaveCommand = new VkAIdSaveCommand();
-            vkAIdSaveCommand.Email = Email;
-            vkAIdSaveCommand.Password = Password;
-            vkAIdSaveCommand.UserId = UserId.ToString();
+        //[HttpPost]
+        //[Authorize(AuthenticationSchemes = "Bearer")]
+        //[SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
+        //[SwaggerOperation(summary: "SaveVkId", OperationId = "Try conect to Vk")]
+        //public async Task<IActionResult> ConectToVk(string Email, string Password)
+        //{
+        //    VkAIdSaveCommand vkAIdSaveCommand = new VkAIdSaveCommand();
+        //    vkAIdSaveCommand.Email = Email;
+        //    vkAIdSaveCommand.Password = Password;
+        //    vkAIdSaveCommand.UserId = UserId.ToString();
 
-            var res = await _mediator.Send(vkAIdSaveCommand);
-            return Ok(res);
+        //    var res = await _mediator.Send(vkAIdSaveCommand);
+        //    return Ok(res);
+        //}
+        [Route("[action]/{message}")]
+        [HttpGet]
+        public async Task<IActionResult> SendMessage(string message)
+        {
+            //_mqService.SendMessage(message);
+
+            await _publishEndpoint.Publish<ComunicationMessage>(new ComunicationMessage { Text = message });
+
+            return Ok("Сообщение отправлено");
         }
 
     }

@@ -27,10 +27,37 @@ namespace VkServer.Comunication
 
             services.AddMassTransit(x =>
             {
-                x.AddBus(bf =>
-                {
-                    var bus = Bus.Factory.CreateUsingRabbitMq(cfg =>
+
+
+                //x.AddConsumer<MyCustomConsumer, MyCustomConsumerDiffenition>();
+                //x.UsingRabbitMq((ctx, cfg) =>
+                //{
+                //    cfg.Host($"rabbitmq://{url}/{host}", configurator =>
+                //    {
+                //        configurator.Username(userName);
+                //        configurator.Password(password);
+                //    });
+
+                //    cfg.ReceiveEndpoint("MyQueue", e =>
+                //    {
+                //        e.ConfigureConsumer<MyCustomConsumer>(ctx);
+                //    });
+
+                //    cfg.ClearMessageDeserializers();
+                //    cfg.UseRawJsonSerializer();
+                //    //cfg.ConfigureEndpoints(cfg);
+                //    //cfg.UseHealthCheck(context);
+                //    //cfg.ConfigureEndpoints(bf, SnakeCaseEndpointNameFormatter.Instance);
+
+                //});
+
+
+                //x.AddBus(bf =>
+                //{
+                    x.UsingRabbitMq((ctx,cfg) =>
                     {
+                        
+
                         cfg.Host($"rabbitmq://{url}/{host}", configurator =>
                         {
                             configurator.Username(userName);
@@ -39,18 +66,29 @@ namespace VkServer.Comunication
 
                         cfg.ClearMessageDeserializers();
                         cfg.UseRawJsonSerializer();
+                        ///cfg.ConfigureEndpoints(cfg);
                         //cfg.UseHealthCheck(context);
-                        cfg.ConfigureEndpoints(bf, SnakeCaseEndpointNameFormatter.Instance);
+                        //cfg.ConfigureEndpoints(bf, SnakeCaseEndpointNameFormatter.Instance);
 
-                        cfg.ReceiveEndpoint("MyQueue", e =>
+                        //cfg.ReceiveEndpoint("MyQueue", e =>
+                        //{
+                        //    //Task.Delay(5000);
+                        //    e.Consumer<MyCustomConsumer>();
+                        //});
+
+                        cfg.ReceiveEndpoint("MyQueue",e =>
                         {
-                            e.Consumer<MyCustomConsumer>();
+                            //Task.Delay(5000);
+                            e.ConfigureConsumer<MyCustomConsumer>(ctx);
                         });
-                    });
-                    return bus;
-                });
 
+                    });
+                x.AddConsumer<MyCustomConsumer>(typeof(MyCustomConsumerDiffenition));
+                //return bus;
             });
+                
+
+            //});
            
             services.AddMassTransitHostedService();
 

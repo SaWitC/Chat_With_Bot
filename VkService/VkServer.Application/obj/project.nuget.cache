@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fXzjlHwLWLf41lp41mkpkoT5LWCGBQnT61bX5x8ng64uTGIcGAzItuyGo1ot2i46FUA9fwO3eS9rj8F5JLlaqw==",
+  "dgSpecHash": "AA6ESn8mdF7CDACMMWpwZUqW4iBvynJOtvs7HtlImqfQPzqRi4KRfkMgN18uKIWdm2Mws81vT06GQo7Xy4ZCnA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Downloads\\MassTransitRabitmq\\VkServer.Application\\VkServer.Application.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\VkService\\VkServer.Application\\VkServer.Application.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

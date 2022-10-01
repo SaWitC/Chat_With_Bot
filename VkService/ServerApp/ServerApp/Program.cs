@@ -1,5 +1,6 @@
 using MassTransit;
 using ServerApp.Rabitmq;
+using VkNet.Enums.SafetyEnums;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +12,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 VkServer.Comunication.DependencyInjection.ConfigureServices(builder.Services,builder.Configuration);
+//builder.Services.AddMassTransitHostedService();
+builder.Configuration.AddJsonFile("settings.json");
 
 var app = builder.Build();
 
