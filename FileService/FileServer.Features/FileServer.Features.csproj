@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FileServer.Services\FileServer.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Commands\FilesOfConcretUser\UploadFileCommand\" />
+    <Folder Include="Features\Commands\FilesOfConcretUser\RemoveFileCommand\" />
+    <Folder Include="Features\Queries\FilesOfConcretUser\GetFileByTitle\" />
+    <Folder Include="Features\Queries\FilesOfConcretUser\GetFileByExtension\" />
+    <Folder Include="Features\Queries\FilesOfConcretUser\GetAllFiles\" />
+    <Folder Include="Features\Queries\FilesOfConcretUser\" />
+  </ItemGroup>
+
+</Project>

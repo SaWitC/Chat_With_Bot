@@ -22,3 +22,15 @@ C:\Users\USER\Downloads\Chat_With_Bot\VkService\VkServer.Domain\obj\Debug\net6.0
 C:\Users\USER\Downloads\Chat_With_Bot\VkService\VkServer.Domain\obj\Debug\net6.0\refint\VkServer.Domain.dll
 C:\Users\USER\Downloads\Chat_With_Bot\VkService\VkServer.Domain\obj\Debug\net6.0\VkServer.Domain.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\VkService\VkServer.Domain\obj\Debug\net6.0\ref\VkServer.Domain.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\bin\Debug\net6.0\VkServer.Domain.deps.json
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\bin\Debug\net6.0\VkServer.Domain.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\bin\Debug\net6.0\VkServer.Domain.pdb
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\obj\Debug\net6.0\VkServer.Domain.csproj.AssemblyReference.cache
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\obj\Debug\net6.0\VkServer.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\obj\Debug\net6.0\VkServer.Domain.AssemblyInfoInputs.cache
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\obj\Debug\net6.0\VkServer.Domain.AssemblyInfo.cs
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\obj\Debug\net6.0\VkServer.Domain.csproj.CoreCompileInputs.cache
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\obj\Debug\net6.0\VkServer.Domain.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\obj\Debug\net6.0\refint\VkServer.Domain.dll
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\obj\Debug\net6.0\VkServer.Domain.pdb
+C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkService\VkServer.Domain\obj\Debug\net6.0\ref\VkServer.Domain.dll

@@ -1062,6 +1062,7 @@
       "BotServer.SignalR_info/1.0.0": {
         "dependencies": {
           "Botserve.MigrationApp": "1.0.0",
+          "Hangfire.Core": "1.7.31",
           "Microsoft.AspNetCore.Http.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.SignalR.Core": "1.1.0"
         },

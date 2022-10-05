@@ -17,20 +17,50 @@ namespace BotServer.Data.Repositories
 
         public async Task<IEnumerable<RemindModel>> GetActualAndExpiredRemindsByAvtorId(string AvtorId)
         {
-            return await _context.Reminds
+            if (!string.IsNullOrEmpty(AvtorId))
+            {
+                return await _context.Reminds
                 .Where(x => x.AvtorId == AvtorId)
                 .Where(x => x.IsDeleted == false)
                 .Where(x => x.RemindAtTime < DateTime.Now.AddHours(1))
                 .ToListAsync();
+            }
+            else
+            {
+                throw new ArgumentException("AvtorId can not be null");
+            }
         }
 
         public async Task<IEnumerable<RemindModel>> GetActualRemindsByAvtorId(string AvtorId)
         {
-            return await _context.Reminds
+            if (!string.IsNullOrEmpty(AvtorId))
+            {
+                return await _context.Reminds
                 .Where(x => x.AvtorId == AvtorId)
                 .Where(x => x.IsDeleted == false)
                 .Where(x => x.RemindAtTime < DateTime.Now.AddHours(1))
                 .ToListAsync();
+            }
+            else
+            {
+                throw new ArgumentException("AvtorId can not be null");
+            }
+        }
+
+        public async Task<IEnumerable<RemindModel>> GetExpiredRemindsbyAvorId(string AvtorId)
+        {
+            if (!string.IsNullOrEmpty(AvtorId))
+            {
+                return await _context.Reminds
+                   .Where(x => x.AvtorId == AvtorId)
+                   .Where(x => x.IsDeleted == false)
+                   .Where(x => x.RemindAtTime < DateTime.Now)
+                   .ToListAsync();
+            }
+            else
+            {
+                throw new ArgumentException("AvtorId can not be null");
+            }
         }
     }
 }

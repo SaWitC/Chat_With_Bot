@@ -29,5 +29,16 @@ namespace ServerApp.Controllers
 
             return Ok("Сообщение отправлено");
         }
+
+        [Route("[action]/{message}")]
+        [HttpGet]
+        public async Task<IActionResult> test()
+        {
+            //_mqService.SendMessage(message);
+
+            //await _publishEndpoint.Publish<IMessage>(new MessageModel { Text = message });
+
+            return Ok("done");
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BotServer.Application.Repositories;
+using BotServer.Data.Repositories;
 using BotServer.Domain.ComuinicationModels;
 using BotServer.Domain.Models;
 using BotServer.SignalR_info.Hubs;
@@ -22,21 +23,27 @@ namespace BotServer.Features.BackgroundJobs.Remind
         private readonly ILogger<BGJobRemind> _logger;
         private readonly IHubContext<HubForNotify> _notifyHub;
         private readonly IPublishEndpoint _publishEndpoint;
+        private readonly IBaseRepository _baseRepository;
+        private readonly IRemindRepository _remindRepository;
 
         public BGJobRemind(UserManager<BotServer.Domain.Models.User> userManager,
             IHubRepository hubRepository,
             IConfiguration configuration,
             IHubContext<HubForNotify> chatHub,
             ILogger<BGJobRemind> logger,
-            IPublishEndpoint publishEndpoint
+            IPublishEndpoint publishEndpoint,
+            IBaseRepository baseRepository,
+            IRemindRepository remindRepository
             )
         {
+            _remindRepository = remindRepository;
             _publishEndpoint = publishEndpoint;
             _notifyHub = chatHub;
             _userManager = userManager;
             _hubRepository = hubRepository;
             _logger = logger;
             _configuration = configuration;
+            _baseRepository = baseRepository;
         }
         public async Task<bool> SetBgJobRemind(RemindModel remind)
         {
@@ -72,6 +79,12 @@ namespace BotServer.Features.BackgroundJobs.Remind
                 }
 
                 var activeConnections = await _hubRepository.GetAllActivConnectionsByUser(user.Id);
+                if (activeConnections.Count() > 0)
+                {
+                    remind.IsDeleted = true;
+                    await _baseRepository.FictiveRemove<RemindModel>(remind.id);
+                    await _baseRepository.SaveChangesAsync();
+                }
 
                 foreach (var x in activeConnections)
                 {
@@ -79,5 +92,25 @@ namespace BotServer.Features.BackgroundJobs.Remind
                 }
             }
         }
+
+        //public async Task SendOld(string connectionId, string userId)
+        //{
+        //    var expiredReminds = await _remindRepository.GetExpiredRemindsbyAvorId(userId);
+        //    foreach (var x in expiredReminds)
+        //    {
+        //        try
+        //        {
+        //            await _notifyHub.Clients.Client(connectionId).SendAsync("Notify", x.RemindMessage);
+        //            await _baseRepository.FictiveRemove<RemindModel>(x.id);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            await _baseRepository.SaveChangesAsync();
+        //            _logger.LogError($"the message send exception {ex.Message}");
+        //        }
+        //    }
+        //    await _baseRepository.SaveChangesAsync();
+        //    await _notifyHub.Clients.Client(connectionId).SendAsync("Notify", "tur");
+        //}
     }
 }

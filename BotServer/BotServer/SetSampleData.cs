@@ -16,6 +16,10 @@ namespace BotServer
                     var services = scope.ServiceProvider;
 
                     var context = services.GetRequiredService<AppDbContext>();
+                    if (context.Database.IsSqlServer())
+                    {
+                        context.Database.Migrate();
+                    }
 
                     if (context.Database.IsSqlServer())
                     {
