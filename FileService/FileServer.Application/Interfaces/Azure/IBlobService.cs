@@ -1,4 +1,6 @@
 ﻿using Azure.Storage.Blobs.Models;
+using FileServer.Domain.Models.Azure;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +11,10 @@ namespace FileServer.Application.Interfaces.Azure
 {
     public interface IBlobService
     {
-        public Task<BlobInfo> GetBlobAsync(string blobName);
-        public Task<IEnumerable<string>> GetBlobsAsync();
-        public Task UploadFileBlobAsync(string filePath,string fileName);
+        public Task<IEnumerable<string>> GetAllBlobByUserIdAsync(string userId);
+        public Task<AzureFileResponseModel> GetBlobByUserIdByTitle(string blobName, string userId);
+        public Task<AzureFileResponseModel> GetBlobByUserIdByExtension(string extension, string userId);
+        public Task UploadFileBlobAsync(string userId, IFormFile file);
         public Task RemoveFileAsync(string blobName);
     }
 }

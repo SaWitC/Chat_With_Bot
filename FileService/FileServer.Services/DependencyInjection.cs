@@ -14,7 +14,7 @@ namespace FileServer.Services
     {
         public static void AddServices(IConfiguration configurations ,IServiceCollection Services)
         {
-            Services.AddSingleton<IBlobService, BlobService>();
+            Services.AddScoped<IBlobService, BlobOfUsersService>();
         }
     }
 }

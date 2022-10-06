@@ -1,35 +1,11 @@
 version: '3.4'
 
 services:
-
-
-  #rabbitmq:
-  #  image: rabbitmq
-  #  command: rabbitmq-server
-  #  hostname: local-rabbitmq
-  #  ports:
-  #      - 5672:5672
-  #      - 15672:15672
-  #  environment:
-  #    RABBITMQ_DEFAULT_USER: "guest"
-  #    RABBITMQ_DEFAULT_PASS: "guest"
-  #  #expose:
-  #  #  - 5672
-  #  #  - 15672
-  #  healthcheck:
-  #    test: [ "CMD", "nc", "-z", "localhost", "5672" ]
-  #    interval: 5s
-  #    timeout: 15s
-  #    retries: 1
-
-  #rabitmq
   rabbitmq:
     image: masstransit/rabbitmq
     container_name: rabbitmq
     restart: always
     hostname: local-rabbitmq
-    #networks:
-    #    - my-network
     ports:
         - 5672:5672
         - 15672:15672
@@ -42,7 +18,6 @@ services:
       timeout: 15s
       retries: 1
 
-      # database
   db:
     restart: always
     image: "mcr.microsoft.com/mssql/server:2017-latest"
@@ -51,7 +26,7 @@ services:
       - SA_PASSWORD=1Secure*Password1
     ports:
       - 1433:1433
-      # botserver
+
   botserver:
     image: ${DOCKER_REGISTRY-}botserver
     restart: always
@@ -62,7 +37,6 @@ services:
       - db
       - rabbitmq
 
-      # serverapp
   serverapp:
     image: ${DOCKER_REGISTRY-}vkserviceapplication
     restart: always
@@ -71,13 +45,3 @@ services:
       dockerfile: VkServiceApplication/Dockerfile
     depends_on:
       - rabbitmq
-    networks:
-      - my-network
-
-      #C:\Users\USER\Downloads\Chat_With_Bot\BotServer\VkServiceApplication\Dockerfile
-
-
-networks:
-  my-network:
-    #internal: true
-    #driver: overlay

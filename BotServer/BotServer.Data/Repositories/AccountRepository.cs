@@ -44,7 +44,7 @@ namespace BotServer.Data.Repositories
 
             var token = new JwtSecurityToken(
                 authParams.Issuer,
-                authParams.Audience,
+                authParams.Audience[0],
                 claims,
                 expires: DateTime.Now.AddSeconds(authParams.TokenLifeTime),
                 signingCredentials: creditails

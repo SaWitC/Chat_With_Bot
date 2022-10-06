@@ -82,7 +82,9 @@ namespace BotServer
 
                     IssuerSigningKey = AuthOptionsForVlidation.GetSymetricSecurityKey(),
                     ValidIssuer = AuthOptionsForVlidation.Issuer,
-                    ValidAudience = AuthOptionsForVlidation.Audience
+                    //ValidAudience = AuthOptionsForVlidation.Audience
+
+                    ValidAudiences = AuthOptionsForVlidation.Audience,
                 };
                 o.Events = new JwtBearerEvents
                 {

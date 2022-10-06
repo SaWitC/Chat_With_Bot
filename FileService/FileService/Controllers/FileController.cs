@@ -1,75 +1,71 @@
-﻿using FileServer.Application.Interfaces.Azure;
+﻿using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using FileServer.Application.Interfaces.Azure;
+using FileServer.Features.Features.Commands.FilesOfConcretUser.UploadFileCommand;
+using FileServer.Features.Features.Queries.FilesOfConcretUser.GetAllFiles;
+using FileServer.Features.Features.Queries.FilesOfConcretUser.GetFileByTitle;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using System.Reflection.Metadata;
+using System.Security.Claims;
 
 namespace FileService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/File")]
     [ApiController]
     public class FileController : ControllerBase
     {
-        private readonly IBlobService _lobService;
-        public FileController(IBlobService blobService)
+        private readonly BlobServiceClient _blobServiceClient;
+        private readonly IMediator _mediatr;
+        public FileController(IMediator mediator, BlobServiceClient blobServiceClient)
         {
-            _lobService = blobService;
+            _mediatr = mediator;
+            _blobServiceClient = blobServiceClient;
         }
-
-        [HttpGet("Blob")]
-        [Authorize(AuthenticationSchemes ="Bearer")]
-        public async Task<IActionResult> GetBlobAsync()
-        {
-            //try
-            //{
-            //    var file = Request.Form.Files[0];
-
-
-            //    if (file.FileName.Count(o => o == '.') == 1 && (Path.GetExtension(file.FileName) == ".gltf" || Path.GetExtension(file.FileName) == ".glb"))
-            //    {
-            //        //UploadFileCommand uploadFileCommand = new UploadFileCommand();
-            //        //uploadFileCommand.file = file;
-            //        //uploadFileCommand.id = id;
-            //        //var res = await mediator.Send(uploadFileCommand);
-
-            //        //if (res)
-            //        //    return Ok();
-            //        //else
-            //        //    return StatusCode(500, $"server exception");
-            //    }
-            //    //return BadRequest();
-            //    return BadRequest(new { err = "Incorrect file name or extension" });
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    return StatusCode(500, $"server exception {ex.Message}");
-            //}
-
-
-            //await _lobService.UploadFileBlobAsync("111","myfile");
-
-            return Ok();
-        }
+        public string UserId => HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
 
         [HttpGet("Blobs")]
-        public async Task<IActionResult> GetBlobsAsync(string blobName)
+        //[Authorize(AuthenticationSchemes ="Bearer")]
+        public async Task<IActionResult> GetBlobAsync()
         {
-            return Ok();
+            GetAllFilesQuery getAllFilesQuery = new();
+            getAllFilesQuery.UserId = UserId;
+
+            var res =await _mediatr.Send(getAllFilesQuery);
+
+            return Ok(res);
+        }
+
+        [HttpGet("Blob/{blobName}")]
+        //[Authorize(AuthenticationSchemes = "Bearer")]
+        public async Task<IActionResult> GetBlobAsync(string blobName)
+        {
+                GetFileByTitleQuery query = new GetFileByTitleQuery();
+                query.FileTitle = blobName;
+                //query.UserId = UserId;
+                var res = await _mediatr.Send(query);
+                return File(res.Filestream, res.ContentType, res.FileName);
         }
 
         [HttpPost("Blob")]
+        //[Authorize(AuthenticationSchemes = "Bearer")]
+
         public async Task<IActionResult> UploadFileAsync()
         {
+            UploadFileCommand command = new();
+            var file = Request.Form.Files[0];
+            command.file = file;
+            await _mediatr.Send(command);
+
             return Ok();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> GetAllFiles(string blobName)
-        //{
-        //    return Ok();
-        //}
-
         [HttpDelete("Blob")]
+        //[Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> RemoveFileAsync()
         {
             return Ok();
