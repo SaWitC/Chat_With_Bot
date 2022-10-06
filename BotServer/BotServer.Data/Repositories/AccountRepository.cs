@@ -41,11 +41,18 @@ namespace BotServer.Data.Repositories
             {
                 claims.Add(new Claim("role", VARIABLE));
             }
+            foreach(var x in authParams.AllAudience)
+            {
+                claims.Add(new Claim("aud", x));
+            }
+
+            //var tt = JwtSecurityToken();
 
             var token = new JwtSecurityToken(
                 authParams.Issuer,
-                authParams.Audience[0],
-                claims,
+                //audience: authParams.Audience[0],
+                
+                claims:claims,
                 expires: DateTime.Now.AddSeconds(authParams.TokenLifeTime),
                 signingCredentials: creditails
             );

@@ -47,6 +47,7 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "get my chates", OperationId = "GetMyChats")]
         public async Task<IActionResult> GetMyChats(int page)
         {
+            //var x = Request.Headers.ToList();
             GetMyChatsQuery query = new GetMyChatsQuery();
             query.AvtorId = Id.ToString();
             query.Page = page;

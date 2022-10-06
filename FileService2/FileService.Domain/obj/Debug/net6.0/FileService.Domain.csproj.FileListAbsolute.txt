@@ -1,0 +1,12 @@
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\bin\Debug\net6.0\FileService.Domain.deps.json
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\bin\Debug\net6.0\FileService.Domain.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\bin\Debug\net6.0\FileService.Domain.pdb
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\obj\Debug\net6.0\FileService.Domain.csproj.AssemblyReference.cache
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\obj\Debug\net6.0\FileService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\obj\Debug\net6.0\FileService.Domain.AssemblyInfoInputs.cache
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\obj\Debug\net6.0\FileService.Domain.AssemblyInfo.cs
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\obj\Debug\net6.0\FileService.Domain.csproj.CoreCompileInputs.cache
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\obj\Debug\net6.0\FileService.Domain.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\obj\Debug\net6.0\refint\FileService.Domain.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\obj\Debug\net6.0\FileService.Domain.pdb
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService.Domain\obj\Debug\net6.0\ref\FileService.Domain.dll

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "TIzZ2aBWxXIWZ6AyfSlmgQQHjNMl+rGD/fK6g/hiUPzHz986ADkJ2tWm/Yckc2yA4O1EZAg+1b2QUxsM0Eoo+w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Domain\\FileService.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.identitymodel.logging\\6.10.0\\microsoft.identitymodel.logging.6.10.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.10.0\\microsoft.identitymodel.tokens.6.10.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
