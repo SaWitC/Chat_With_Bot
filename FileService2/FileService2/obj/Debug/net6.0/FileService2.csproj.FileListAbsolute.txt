@@ -81,3 +81,11 @@ C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\obj\Debug\net6.0
 C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\obj\Debug\net6.0\FileService2.pdb
 C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\obj\Debug\net6.0\FileService2.genruntimeconfig.cache
 C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\obj\Debug\net6.0\ref\FileService2.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\bin\Debug\net6.0\Humanizer.dll
+C:\Users\USER\Downloads\Chat_With_Bot\FileService2\FileService2\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll

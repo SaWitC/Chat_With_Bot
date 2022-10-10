@@ -6,6 +6,6 @@ namespace FileServer.Features.Features.Commands.FilesOfConcretUser.RemoveFileCom
     {
         public string UserId { get; set; }
 
-        public string BlobName { get; set; }
+        public string FileTitle { get; set; }
     }
 }

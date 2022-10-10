@@ -1,10 +1,13 @@
-﻿using Azure.Storage.Blobs;
+﻿using Azure;
+using Azure.Storage.Blobs;
+using FileServer.Features.Features.Commands.FilesOfConcretUser.RemoveFileCommand;
 using FileServer.Features.Features.Commands.FilesOfConcretUser.UploadFileCommand;
 using FileServer.Features.Features.Queries.FilesOfConcretUser.GetAllFiles;
 using FileServer.Features.Features.Queries.FilesOfConcretUser.GetFileByTitle;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Security.Claims;
 
 namespace FileService.Controllers
@@ -23,8 +26,10 @@ namespace FileService.Controllers
         public string UserId => HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value;
 
         [HttpGet("Blobs")]
-        [Authorize(AuthenticationSchemes = "Bearer")]
-        public async Task<IActionResult> GetBlobAsync()
+        [Authorize]
+        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
+        [SwaggerOperation(summary: "get all files", OperationId = "GetAllFiles")]
+        public async Task<IActionResult> GetBlobsAsync()
         {
             GetAllFilesQuery getAllFilesQuery = new();
             getAllFilesQuery.UserId = UserId;
@@ -35,8 +40,9 @@ namespace FileService.Controllers
         }
 
         [HttpGet("Blob/{blobName}")]
-        //[Authorize(AuthenticationSchemes = "Bearer")]
         [Authorize]
+        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
+        [SwaggerOperation(summary: "Get the file by blobName", OperationId = "GetFile")]
         public async Task<IActionResult> GetBlobAsync(string blobName)
         {
             var x = Request.Headers.ToList();
@@ -48,23 +54,42 @@ namespace FileService.Controllers
         }
 
         [HttpPost("Blob")]
-        [Authorize(AuthenticationSchemes = "Bearer")]
+        [Authorize]
+        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
+        [SwaggerOperation(summary: "Upload the file", OperationId = "UploadFile")]
 
         public async Task<IActionResult> UploadFileAsync()
         {
-            UploadFileCommand command = new();
-            var file = Request.Form.Files[0];
-            command.file = file;
-            await _mediatr.Send(command);
+            try
+            {
+                UploadFileCommand command = new();
+                var file = Request.Form.Files[0];
+                command.file = file;
+                command.UserId = UserId;
+                await _mediatr.Send(command);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
 
             return Ok();
         }
 
         [HttpDelete("Blob")]
-        [Authorize(AuthenticationSchemes = "Bearer")]
-        public async Task<IActionResult> RemoveFileAsync()
+        [Authorize]
+        [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
+        [SwaggerOperation(summary: "Remove the file", OperationId = "RemoveFile")]
+        public async Task<IActionResult> RemoveFileAsync(string blobName)
         {
-            return Ok();
+            RemoveFileCommand command = new RemoveFileCommand();
+            command.FileTitle = blobName;
+            command.UserId = UserId;
+            var res = await _mediatr.Send(command);
+            if (res)
+                return Ok();
+            else
+                return StatusCode(500,"File remove exception");
         }
     }
 }

@@ -10,6 +10,6 @@ namespace FileServer.Application.Interfaces.Azure
         public Task<AzureFileResponseModel> GetBlobByUserIdByTitle(string blobName, string userId);
         public Task<AzureFileResponseModel> GetBlobByUserIdByExtension(string extension, string userId);
         public Task UploadFileBlobAsync(string userId, IFormFile file);
-        public Task RemoveFileAsync(string blobName);
+        public Task<bool> RemoveFileAsync(string blobName);
     }
 }

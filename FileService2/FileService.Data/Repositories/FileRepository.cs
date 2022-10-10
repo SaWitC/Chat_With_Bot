@@ -63,13 +63,18 @@ namespace FileServer.Data.Repositories
         {
             if (fileModel != null)
             {
-                await _context.Files.AddAsync(fileModel);
+                return await _context.Files.AddAsync(fileModel);
             }
-            throw new Exception("Incorrect file");
+            throw new Exception(" file can no be null");
         }
         public async Task<int> SaveChangesAsync()
         {
             return await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<FileModel>> GetAllFilesByuserIdAsync(string userId)
+        {
+            return await _context.Files.Where(o => o.UserId == userId).ToListAsync();
         }
     }
 }

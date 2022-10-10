@@ -1,10 +1,11 @@
 ﻿using FileServer.Application.Interfaces.Azure;
 using FileServer.Application.Interfaces.Repositories;
+using FileServer.Domain.Models.File;
 using MediatR;
 
 namespace FileServer.Features.Features.Queries.FilesOfConcretUser.GetAllFiles
 {
-    public class GetAllFilesQueryHandler : IRequestHandler<GetAllFilesQuery, string>
+    public class GetAllFilesQueryHandler : IRequestHandler<GetAllFilesQuery, IEnumerable<FileModel>>
     {
         private readonly IBlobService _lobService;
         private readonly IFileRepository _fileRepository;
@@ -15,19 +16,9 @@ namespace FileServer.Features.Features.Queries.FilesOfConcretUser.GetAllFiles
             _lobService = lobService;
         }
 
-        public async Task<string> Handle(GetAllFilesQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<FileModel>> Handle(GetAllFilesQuery request, CancellationToken cancellationToken)
         {
-
-            var titles = await _fileRepository.GetAllFilesTitlesByuserIdAsync(request.UserId);
-
-            //var res = await _lobService.GetAllBlobByUserIdAsync(request.UserId);
-
-            string result = "";
-
-            foreach (var item in titles)
-            {
-                result += "\n" + item;
-            }
+            var result = await _fileRepository.GetAllFilesByuserIdAsync(request.UserId);
             return result;
         }
     }

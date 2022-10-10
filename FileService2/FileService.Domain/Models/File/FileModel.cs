@@ -10,6 +10,7 @@ namespace FileServer.Domain.Models.File
         public string UserId { get; set; }
         public string BlobName { get; set; }
         public DateTime Created { get; set; }
+        public string FileType { get; set; }
 
     }
 }

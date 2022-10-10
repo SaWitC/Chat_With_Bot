@@ -25,6 +25,7 @@ namespace FileServer.Features.Features.Commands.FilesOfConcretUser.UploadFileCom
             FileModel fileModel = new FileModel();
             fileModel.Created = DateTime.Now;
             fileModel.FileTitle = request.file.FileName;
+            fileModel.FileType = request.file.ContentType;
             fileModel.UserId = request.UserId;
             fileModel.BlobName = _configuration["Azure:blobsofusers"];
             await _fileRepository.SaveNewFileAsync(fileModel);

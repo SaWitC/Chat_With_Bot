@@ -53,7 +53,7 @@ namespace FileServer.Services.Services.Azure
 
                 if (await container.ExistsAsync())
                 {
-                    CloudBlob file = container.GetBlobReference(blobName);
+                    CloudBlob file = container.GetBlobReference(userId+"/"+blobName);
 
                     if (await file.ExistsAsync())
                     {
@@ -79,9 +79,15 @@ namespace FileServer.Services.Services.Azure
             //return null;
         }
 
-        public async Task RemoveFileAsync(string blobName)
+        public async Task<bool> RemoveFileAsync(string blobName)
         {
-            throw new NotImplementedException();
+            var containerClient = _blobService.GetBlobContainerClient(_configuration["Azure:blobsofusers"]);
+
+            var res = containerClient.DeleteBlobAsync(blobName);
+
+            if (res.IsCompleted)
+                return true;
+            return false;
         }
 
         public async Task UploadFileBlobAsync(string UserId, IFormFile file)
@@ -92,7 +98,14 @@ namespace FileServer.Services.Services.Azure
 
                 using (var fs = file.OpenReadStream())
                 {
-                    await containerClient.UploadBlobAsync($"{UserId}/{file.FileName}", fs);
+                    try
+                    {
+                        await containerClient.UploadBlobAsync($"{UserId}/{file.FileName}", fs);
+                    }
+                    catch(Exception ex)
+                    {
+                        throw ex;
+                    }
                     Console.WriteLine("Upladed");
                 }
             }

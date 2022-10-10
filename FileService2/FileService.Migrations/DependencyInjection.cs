@@ -13,7 +13,7 @@ namespace FileServer.Migrations
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             Services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlServer(connectionString, opt => opt.MigrationsAssembly("FileServer.Migrations"));
+                options.UseSqlServer(connectionString, opt => opt.MigrationsAssembly("FileService.Migrations"));
             });
         }
     }

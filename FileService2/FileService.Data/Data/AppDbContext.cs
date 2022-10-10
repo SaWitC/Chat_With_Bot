@@ -1,4 +1,5 @@
 ﻿using FileServer.Domain.Models.File;
+using FileService.Data.DataConfigurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace FileServer.Data.Data
@@ -11,5 +12,10 @@ namespace FileServer.Data.Data
         }
 
         public DbSet<FileModel> Files { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new FileModelConfiguration());
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
