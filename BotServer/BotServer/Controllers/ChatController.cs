@@ -1,4 +1,5 @@
-﻿using BotServer.Features.Features.Commands.Chat.CreateChatCommand;
+﻿using BotServer.Application.DataServices;
+using BotServer.Features.Features.Commands.Chat.CreateChatCommand;
 using BotServer.Features.Features.Commands.Chat.DeleteChatCommand;
 using BotServer.Features.Features.Queries.Chat.GetChatById;
 using BotServer.Features.Features.Queries.Chat.GetMyChats;
@@ -18,26 +19,21 @@ namespace BotServer.Controllers
     [ApiController]
     public class ChatController : ControllerBase
     {
-
-        public Guid Id => Guid.Parse(User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
-
+        private readonly IHttpContextService _httpContextService;
         private readonly IMediator _mediatr;
-        //private readonly IHubContext<ChatHub> _hubContext;
 
-        public ChatController(IMediator mediatr /*, IHubContext<ChatHub> hub*/)
+        public ChatController(IMediator mediatr, IHttpContextService httpContextService)
         {
             _mediatr = mediatr;
-            //  _hubContext = hub;
+            _httpContextService = httpContextService;
         }
 
-        // POST api/<ChatController>
         [HttpPost]
         [Authorize(AuthenticationSchemes = "Bearer")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "Create new chat", OperationId = "CreateChat")]
         public async Task<IActionResult> CreateChat(CreateChatCommand createChatCommand)
         {
-
             var res = await _mediatr.Send(createChatCommand);
             return Ok(res);
         }
@@ -47,9 +43,8 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "get my chates", OperationId = "GetMyChats")]
         public async Task<IActionResult> GetMyChats(int page)
         {
-            //var x = Request.Headers.ToList();
             GetMyChatsQuery query = new GetMyChatsQuery();
-            query.AvtorId = Id.ToString();
+            query.AvtorId = _httpContextService.GetCurentUserId();
             query.Page = page;
             var res = await _mediatr.Send(query);
             return Ok(res);
@@ -62,8 +57,8 @@ namespace BotServer.Controllers
         {
             var query = new GetChatByIdQuery();
             query.id = id;
-            //getChatById.id
             var res = await _mediatr.Send(query);
+
             return Ok(res);
         }
 

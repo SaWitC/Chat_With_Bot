@@ -36,15 +36,6 @@ namespace BotServer.Services.CustomHTTPClients.Weather
                     return await response.Content.ReadAsAsync<Rootobject>();
                 }
             }
-
-
-            // var openWeatherAPI = new OpenWeatherAPI.OpenWeatherApiClient(token);
-            // Use async version wherever possible
-            //var query = await openWeatherAPI.QueryAsync($"city/{location}");
-
-            // or non-async version if needed for legacy code
-            //var query = openWeatherAPI.Query($"city/{location}");
-
             return null;
         }
     }

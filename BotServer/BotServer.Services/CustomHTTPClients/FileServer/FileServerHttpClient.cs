@@ -22,7 +22,6 @@ namespace BotServer.Services.CustomHTTPClients.FileServer
         private readonly IConfiguration _configuration;
         private readonly IHttpContextService _httpContextService;
 
-        //private readonly string userId =
         private string _fileServerDomain = "";
         private string _fileServerBlobController = "";
         private string _fileServerBlobsController = "";

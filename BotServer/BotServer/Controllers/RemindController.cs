@@ -1,4 +1,5 @@
 ﻿
+using BotServer.Application.DataServices;
 using BotServer.Features.Features.Commands.Remind.DeleteReminder;
 using BotServer.Features.Features.Queries.Reminds.getActualAndExpiredReminds;
 using MediatR;
@@ -14,11 +15,11 @@ namespace BotServer.Controllers
     [ApiController]
     public class RemindController : ControllerBase
     {
-        public Guid UserId => Guid.Parse(HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
-
+        private readonly IHttpContextService _httpContextService;
         private readonly IMediator _Mediator;
-        public RemindController(IMediator mediator)
+        public RemindController(IMediator mediator,IHttpContextService httpContextService)
         {
+            _httpContextService = httpContextService;
             _Mediator = mediator;
         }
 
@@ -29,10 +30,10 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "get reminds", OperationId = "GetActualAndExpiredReminds")]
         public async Task<IActionResult> GetActualAndExpiredReminds()
         {
-            if (!string.IsNullOrEmpty(UserId.ToString()))
+            if (!string.IsNullOrEmpty(_httpContextService.GetCurentUserId()))
             {
                 var query = new GetActualAndExpiredRemindsQuery();
-                query.AvtorId = UserId.ToString();
+                query.AvtorId = _httpContextService.GetCurentUserId();
                 var res = await _Mediator.Send(query);
                 return Ok(res);
             }
@@ -43,13 +44,13 @@ namespace BotServer.Controllers
         [HttpGet("RemoveReminder")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "Remove reminder", OperationId = "RemoveReminder")]
-        public async Task<IActionResult> RemoveReminder(string Id)
+        public async Task<IActionResult> RemoveReminder(string id)
         {
-            if (!string.IsNullOrEmpty(Id.ToString()))
+            if (!string.IsNullOrEmpty(id.ToString()))
             {
                 var command = new RemoveRemindCommand();
-                command.ReminderId = Id.ToString();
-                command.AvtorId = UserId.ToString();
+                command.ReminderId = id.ToString();
+                command.AvtorId = _httpContextService.GetCurentUserId();
                 var res = await _Mediator.Send(command);
                 return Ok(res);
             }

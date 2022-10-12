@@ -76,16 +76,13 @@ namespace FileServer.Services.Services.Azure
             {
                 throw new Exception("Error opening storage");
             }
-            //return null;
         }
 
         public async Task<bool> RemoveFileAsync(string blobName)
         {
             var containerClient = _blobService.GetBlobContainerClient(_configuration["Azure:blobsofusers"]);
-
-            var res = containerClient.DeleteBlobAsync(blobName);
-
-            if (res.IsCompleted)
+            var res =await containerClient.DeleteBlobIfExistsAsync(blobName);
+            if (res.Value)
                 return true;
             return false;
         }

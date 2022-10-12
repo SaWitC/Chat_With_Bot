@@ -17,19 +17,12 @@ namespace BotServer.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
-        //private readonly SignInManager<User> _signinManager;
-        //private readonly UserManager<User> _userManager;
-        private readonly IBaseRepository _baseRepository;
-        //private readonly ILogger<AccountController> _logger;
         private readonly IMediator _mediatr;
 
         public Guid UserId => Guid.Parse(HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value);
 
-        public AccountController(/*SignInManager<User> signInManager,UserManager<User> userManager,*/IBaseRepository baseRepository, IMediator mediator)
+        public AccountController( IMediator mediator)
         {
-            //_signinManager = signInManager;
-            //_userManager = userManager;
-            _baseRepository = baseRepository;
             _mediatr = mediator;
         }
 
@@ -38,7 +31,6 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "Register new user", OperationId = "Register")]
         public async Task<IActionResult> Register(RegistrationCommand registrationCommand)
         {
-
             var res = await _mediatr.Send(registrationCommand);
             return Ok(res);
         }
@@ -48,10 +40,6 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "Login in sustem", OperationId = "Login")]
         public async Task<IActionResult> Login(LoginCommand registrationCommand)
         {
-
-            //var headers = Request.Headers.ToList();
-
-
             var res = await _mediatr.Send(registrationCommand);
             return Ok(res);
         }
@@ -80,8 +68,5 @@ namespace BotServer.Controllers
             var res = await _mediatr.Send(command);
             return Ok(res);
         }
-
-
-
     }
 }

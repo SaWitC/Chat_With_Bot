@@ -44,14 +44,7 @@ namespace BotServer.Comunications
 
                         cfg.ClearMessageDeserializers();
                         cfg.UseRawJsonSerializer();
-                        //cfg.UseHealthCheck(context);
                         cfg.ConfigureEndpoints(bf, SnakeCaseEndpointNameFormatter.Instance);
-
-                        //cfg.ReceiveEndpoint("MyQueue", e =>
-                        //{
-                        //    //Task.Delay(5000);
-                        //    e.Consumer<MyCustomConsumer>();
-                        //});
                     });
                     return bus;
                 });

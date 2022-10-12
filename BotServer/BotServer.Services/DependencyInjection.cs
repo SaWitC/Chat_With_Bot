@@ -2,6 +2,7 @@
 using BotServer.Data.Attributes;
 using BotServer.Services.CustomHTTPClients.Weather;
 using BotServer.Services.CustomHTTPClients.Wiki;
+using BotServer.Services.SwaggerComplettedRealisation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,25 +10,20 @@ namespace BotServer.Services
 {
     public class DependencyInjection
     {
-        public static void AddServices(IServiceCollection Services, IConfiguration configuration)
+        public static void AddServices(IServiceCollection services, IConfiguration configuration)
         {
-
-            //Services.AddScoped<ICommandHandler, GetCurrentWeatherCommand>();
-            //Services.AddScoped<ICommandHandler, HelloCommand>();
-            //Services.AddScoped<ICommandHandler, GetArticleLinks>();
-            //Services.AddScoped<ICommandHandler, RemindMeCommand>();
-            //Services.AddScoped<ICommandHandler, RemindMeTaimeSaveCommand>();
-
-            Services.Scan(scan => scan
+            services.Scan(scan => scan
                 .FromAssemblyOf<startupServices>()
                     .AddClasses(classes => classes.WithAttribute(typeof(ServiceAttribute)))
                     .AsImplementedInterfaces()
                     .WithTransientLifetime()
                 );
 
+            services.AddTransient<CustomClient>();
 
-            Services.AddHttpClient<WeatherHttpClient>("WeatherHttpClient");
-            Services.AddTransient<IWeatherHttpClient>(o =>
+
+            services.AddHttpClient<WeatherHttpClient>("WeatherHttpClient");
+            services.AddTransient<IWeatherHttpClient>(o =>
             {
                 var clientFactory = o.GetRequiredService<IHttpClientFactory>();
                 var httpClient = clientFactory.CreateClient("WeatherHttpClient");
@@ -35,14 +31,17 @@ namespace BotServer.Services
                 return new WeatherHttpClient(httpClient, configuration);
             });
 
-            Services.AddHttpClient<WikiHttpClient>("WikiHttpClient");
-            Services.AddTransient<IWikiHttpClient>(o =>
+            services.AddHttpClient<WikiHttpClient>("WikiHttpClient");
+            services.AddTransient<IWikiHttpClient>(o =>
             {
                 var clientFactory = o.GetRequiredService<IHttpClientFactory>();
                 var httpClient = clientFactory.CreateClient("WikiHttpClient");
 
                 return new WikiHttpClient(httpClient, configuration);
             });
+
+            services.AddHttpContextAccessor();
+
         }
     }
 }

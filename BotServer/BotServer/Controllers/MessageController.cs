@@ -1,4 +1,5 @@
-﻿using BotServer.Features.Features.Queries.Messages.GetMessagesQuery;
+﻿using BotServer.Application.DataServices;
+using BotServer.Features.Features.Queries.Messages.GetMessagesQuery;
 //using BotServer.SignalR.Hubs;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -15,18 +16,17 @@ namespace BotServer.Controllers
     [ApiController]
     public class MessageController : ControllerBase
     {
-        public Guid Id => Guid.Parse(User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
+        private readonly IHttpContextService _httpContextService;
 
         private readonly IMediator _mediatr;
-        //private readonly IHubContext<ChatHub> _hubContext;
 
-        public MessageController(IMediator mediator/*,IHubContext<ChatHub> hubContext*/)
+        public MessageController(IMediator mediator,IHttpContextService httpContextService)
         {
+            _httpContextService = httpContextService;
             _mediatr = mediator;
-            //_hubContext = hubContext;
         }
-        // GET api/<MessageController>/5
-        [Authorize(AuthenticationSchemes = "Bearer")]
+
+        [Authorize]
         [HttpGet("{page}&{chatid}")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "get messages", OperationId = "GetMessages")]
@@ -37,19 +37,6 @@ namespace BotServer.Controllers
             query.page = page;
             var res = await _mediatr.Send(query);
             return Ok(res);
-        }
-
-
-        // PUT api/<MessageController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<MessageController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

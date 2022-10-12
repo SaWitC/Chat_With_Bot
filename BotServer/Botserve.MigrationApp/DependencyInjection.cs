@@ -7,10 +7,10 @@ namespace Botserve.MigrationApp
 {
     public class DependencyInjection
     {
-        public static void AddMigraion(IServiceCollection Services, IConfiguration configuration)
+        public static void AddMigraion(IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
-            Services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(connectionString, opt => opt.MigrationsAssembly("Botserve.MigrationApp"));
             });

@@ -63,6 +63,14 @@
           }
         }
       },
+      "FluentValidation/11.2.2": {
+        "runtime": {
+          "lib/net6.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.2.2.0"
+          }
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {
@@ -1450,7 +1458,8 @@
       },
       "FileService.Features/1.0.0": {
         "dependencies": {
-          "FileService.Services": "1.0.0"
+          "FileService.Services": "1.0.0",
+          "FluentValidation": "11.2.2"
         },
         "runtime": {
           "FileService.Features.dll": {}
@@ -1505,6 +1514,13 @@
       "sha512": "sha512-Ms0XsZ/D9Pcudfbqj+rWeCkhx/ITEq8isY0jkor9JFmDAEHsItFa2XrWkzP3vmJU6EsXQrk4snH63HkW/Jksvg==",
       "path": "azure.storage.common/12.12.0",
       "hashPath": "azure.storage.common.12.12.0.nupkg.sha512"
+    },
+    "FluentValidation/11.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5QEte2BUZZF6Sezeekr7Zu1THfgpxU7pmuL2SjIrajuGMah+pxPGiRiLtw+x/tSUSSVmcv9LrUe41lKu4l0n4A==",
+      "path": "fluentvalidation/11.2.2",
+      "hashPath": "fluentvalidation.11.2.2.nupkg.sha512"
     },
     "Humanizer.Core/2.8.26": {
       "type": "package",

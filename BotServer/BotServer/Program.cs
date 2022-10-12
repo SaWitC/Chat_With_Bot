@@ -21,6 +21,7 @@ try
     BotServer.DependencyInjection.AddBotServer(builder.Services, builder.Configuration);
     BotServer.Comunications.DependencyInjection.ConfigureServices(builder.Services,builder.Configuration);
 
+
     builder.Configuration.AddJsonFile("settings.json");
 
     // added nlog

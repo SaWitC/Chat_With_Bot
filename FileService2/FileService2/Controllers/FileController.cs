@@ -77,7 +77,7 @@ namespace FileService.Controllers
         }
 
         [HttpDelete("Blob")]
-        [Authorize]
+       // [Authorize]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "Remove the file", OperationId = "RemoveFile")]
         public async Task<IActionResult> RemoveFileAsync(string blobName)

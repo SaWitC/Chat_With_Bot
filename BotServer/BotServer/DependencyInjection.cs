@@ -11,15 +11,15 @@ namespace BotServer
 {
     public class DependencyInjection
     {
-        public static void AddBotServer(IServiceCollection Services, IConfiguration configuration)
+        public static void AddBotServer(IServiceCollection services, IConfiguration configuration)
         {
-            Services.AddControllers().AddNewtonsoftJson(); ;
+            services.AddControllers().AddNewtonsoftJson(); ;
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            Services.AddEndpointsApiExplorer();
+            services.AddEndpointsApiExplorer();
 
 
-            Services.AddValidatorsFromAssembly(typeof(startupFeatures).Assembly);
-            Services.AddSwaggerGen(c =>
+            services.AddValidatorsFromAssembly(typeof(startupFeatures).Assembly);
+            services.AddSwaggerGen(c =>
             {
                 c.EnableAnnotations();
                 c.SwaggerDoc("BotServer", new Microsoft.OpenApi.Models.OpenApiInfo
@@ -42,7 +42,7 @@ namespace BotServer
                 });
             });
 
-            Services.AddCors(options =>
+            services.AddCors(options =>
             {
                 options.AddPolicy("MyAllowSpecificOrigins",
                 builder =>
@@ -51,7 +51,7 @@ namespace BotServer
                     builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
                 });
             });
-            Services.AddSignalR(opt =>
+            services.AddSignalR(opt =>
             {
                 opt.EnableDetailedErrors = true;
             });
@@ -60,17 +60,17 @@ namespace BotServer
 
 
             var authoptions = configuration.GetSection("auth");
-            Services.Configure<AuthOptions>(authoptions);
+            services.Configure<AuthOptions>(authoptions);
 
-            // Services.AddAutoMapper(typeof(BotServer.Features.startup));
+            // services.AddAutoMapper(typeof(BotServer.Features.startup));
 
 
             var AuthOptionsForVlidation = configuration.GetSection("auth").Get<AuthOptions>();
 
-            Services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>();
 
-            Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(o =>
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(o =>
             {
                 o.RequireHttpsMetadata = true;
                 o.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters

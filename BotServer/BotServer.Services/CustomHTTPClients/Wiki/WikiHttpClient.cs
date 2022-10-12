@@ -43,7 +43,6 @@ namespace BotServer.Services.CustomHTTPClients.Wiki
             string substr = Regex.Replace(ResponseText, @"""[0-9]*"":{", "{").Replace(@"""pages"":{{", @"""pages"":[{").Replace(@"}}}}", @"}]}}");
 
             return JsonConvert.DeserializeObject<WikiModels.Rootobject>(substr);
-            //return rootobject;
         }
     }
 }
