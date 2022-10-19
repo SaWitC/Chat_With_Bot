@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "IsGI/PezX8OknSkOHNkLHddIqND0Ywm8ZFku37/A24Jbb929RxLowzWzGe60ADcVN1CvQzwNfH4URWZusSELSA==",
+  "dgSpecHash": "MzzsQ0EDxBpnWGSLYjvoPooxRMbdf1q2G1iHOXw0RbjG2YG/Bqo9y7RHNgdaZHyb2gCO8wIchc0QVaV9ZVPimA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Features\\BotServer.Features.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\ardalis.specification\\6.1.0\\ardalis.specification.6.1.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\ardalis.specification.entityframeworkcore\\6.1.0\\ardalis.specification.entityframeworkcore.6.1.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\fluentvalidation\\11.2.1\\fluentvalidation.11.2.1.nupkg.sha512",

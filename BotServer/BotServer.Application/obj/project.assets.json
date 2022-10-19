@@ -2,6 +2,37 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Ardalis.Specification/6.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Ardalis.Specification.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Ardalis.Specification.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Ardalis.Specification.EntityFrameworkCore/6.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Ardalis.Specification": "6.1.0",
+          "Microsoft.EntityFrameworkCore": "6.0.6",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.6"
+        },
+        "compile": {
+          "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -1368,6 +1399,42 @@
     }
   },
   "libraries": {
+    "Ardalis.Specification/6.1.0": {
+      "sha512": "3+DIYrDWwqXMSki3v+kjP8MhKcCoUHLGp6Lhz1+rwjMTHKe8pYUEJWjOxsS5umyL+IIzvaVZUZmwXCs7rGHy4Q==",
+      "type": "package",
+      "path": "ardalis.specification/6.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ardalis.specification.6.1.0.nupkg.sha512",
+        "ardalis.specification.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/Ardalis.Specification.dll",
+        "lib/netstandard2.0/Ardalis.Specification.pdb",
+        "lib/netstandard2.0/Ardalis.Specification.xml"
+      ]
+    },
+    "Ardalis.Specification.EntityFrameworkCore/6.1.0": {
+      "sha512": "/d67ScQWCZaUiNqWoBo3vThRuhKou5hW2XGt6a5ibRp62n7vXd+W8c2Votj52ooaxusitE476uCNJAGt3r0CdA==",
+      "type": "package",
+      "path": "ardalis.specification.entityframeworkcore/6.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ardalis.specification.entityframeworkcore.6.1.0.nupkg.sha512",
+        "ardalis.specification.entityframeworkcore.nuspec",
+        "icon.png",
+        "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.dll",
+        "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.pdb",
+        "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.xml",
+        "lib/netstandard2.0/Ardalis.Specification.EntityFrameworkCore.dll",
+        "lib/netstandard2.0/Ardalis.Specification.EntityFrameworkCore.pdb",
+        "lib/netstandard2.0/Ardalis.Specification.EntityFrameworkCore.xml",
+        "lib/netstandard2.1/Ardalis.Specification.EntityFrameworkCore.dll",
+        "lib/netstandard2.1/Ardalis.Specification.EntityFrameworkCore.pdb",
+        "lib/netstandard2.1/Ardalis.Specification.EntityFrameworkCore.xml"
+      ]
+    },
     "Microsoft.AspNetCore.Authentication.Abstractions/2.2.0": {
       "sha512": "VloMLDJMf3n/9ic5lCBOa42IBYJgyB1JhzLsL68Zqg+2bEPWfGBj/xCJy/LrKTArN0coOcZp3wyVTZlx0y9pHQ==",
       "type": "package",
@@ -4148,6 +4215,8 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Ardalis.Specification >= 6.1.0",
+      "Ardalis.Specification.EntityFrameworkCore >= 6.1.0",
       "BotServer.Domain >= 1.0.0",
       "Microsoft.AspNetCore.Http.Features >= 5.0.17",
       "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
@@ -4163,11 +4232,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
       "projectName": "BotServer.Application",
-      "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
+      "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\obj\\",
+      "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -4190,8 +4259,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj": {
-              "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj"
+            "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj": {
+              "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj"
             }
           }
         }
@@ -4206,6 +4275,14 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Ardalis.Specification": {
+            "target": "Package",
+            "version": "[6.1.0, )"
+          },
+          "Ardalis.Specification.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.1.0, )"
+          },
           "Microsoft.AspNetCore.Http.Features": {
             "target": "Package",
             "version": "[5.0.17, )"

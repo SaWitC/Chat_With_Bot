@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "10kyLho+qnAqFsj9N/dSs8HASB7+NJDlUP4kJIlVnR9eiMFSy7BRUIY4/eyUg2WJCcR7cjji2mntjVZNfEgnQw==",
+  "dgSpecHash": "D1CevN3y5/a9e+b5ohV0aSS64habGKFAOGxhVMcrBLBWiU0et48HbnBb7EDgdHjGgw5QOZrYAjvkdSHYeAjJlg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\ardalis.specification\\6.1.0\\ardalis.specification.6.1.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\ardalis.specification.entityframeworkcore\\6.1.0\\ardalis.specification.entityframeworkcore.6.1.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",

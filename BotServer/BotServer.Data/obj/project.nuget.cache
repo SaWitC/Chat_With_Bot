@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "tglBGIztMMqe7pDJkdVFceFubZZ2ZPq3/8ecRdYMscpDmG4FtGwyBs9HCfHgXOWvPWfWmhnMt1ErOFEE18DxtA==",
+  "dgSpecHash": "w2iNsYGCvgxnbmZB5k8Z5Yi7eM8ebQbEh9cSM852yj4dOlrT4Pjb3m+g2igrQtMYY1BSqsrRmUXGrCwdlOCQNA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Data\\BotServer.Data.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Data\\BotServer.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\USER\\.nuget\\packages\\ardalis.specification\\6.1.0\\ardalis.specification.6.1.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\ardalis.specification.entityframeworkcore\\6.1.0\\ardalis.specification.entityframeworkcore.6.1.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

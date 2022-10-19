@@ -1094,11 +1094,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
       "projectName": "BotServer.Domain",
-      "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
+      "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\obj\\",
+      "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

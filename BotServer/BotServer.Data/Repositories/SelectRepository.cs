@@ -1,7 +1,10 @@
-﻿using AutoMapper;
+﻿using Ardalis.Specification.EntityFrameworkCore;
+using AutoMapper;
 using BotServer.Application.Repositories;
 using BotServer.Data.Attributes;
 using BotServer.Data.Data;
+using BotServer.Data.Specifications;
+using BotServer.Domain.Models;
 using BotServer.Domain.Models.Interfaces;
 
 namespace BotServer.Data.Repositories
@@ -32,16 +35,25 @@ namespace BotServer.Data.Repositories
 
         public IEnumerable<T> SelectByCreatedTime<T>(int page = 0, int size = 5, bool DESC = false) where T : class, IHasCreated, IEntity
         {
+            var specification = new GetPageSpecification<T>(page, size);
+
             if (DESC)
-                return _appDbContext.Set<T>().OrderByDescending(x => x.Created).Skip(page * size).Take(size);
-            return _appDbContext.Set<T>().OrderBy(x => x.Created).Skip(page * size).Take(size);
+                return SpecificationEvaluator.Default.GetQuery(_appDbContext.Set<T>().OrderByDescending(x => x.Created), specification);
+            //return _appDbContext.Set<T>().OrderByDescending(x => x.Created).Skip(page * size).Take(size);
+            return SpecificationEvaluator.Default.GetQuery(_appDbContext.Set<T>().OrderBy(x => x.Created), specification);
+            //return _appDbContext.Set<T>().OrderBy(x => x.Created).Skip(page * size).Take(size);
         }
 
         public IEnumerable<TKind> SelectWithSortByTimeByParentId<TParents, TKind>(string parentId, int page = 0, int size = 5, bool DESC = false) where TKind : class, IHasCreated, IHasParent, IEntity where TParents : class, IEntity
         {
+            var specification = new GetPageSpecification<TKind>(page, size);
+
             if (DESC)
-                return _appDbContext.Set<TKind>().Where(x => x.ParentId == parentId).OrderByDescending(x => x.Created).Skip(page * size).Take(size);
-            return _appDbContext.Set<TKind>().Where(x => x.ParentId == parentId).OrderBy(x => x.Created).Skip(page * size).Take(size);
+                return SpecificationEvaluator.Default.GetQuery(_appDbContext.Set<TKind>().Where(x => x.ParentId == parentId).OrderByDescending(x => x.Created),specification);
+                //return _appDbContext.Set<TKind>().Where(x => x.ParentId == parentId).OrderByDescending(x => x.Created).Skip(page * size).Take(size);
+            //return _appDbContext.Set<TKind>().Where(x => x.ParentId == parentId).OrderBy(x => x.Created).Skip(page * size).Take(size);
+            return SpecificationEvaluator.Default.GetQuery(_appDbContext.Set<TKind>().Where(x => x.ParentId == parentId).OrderBy(x => x.Created), specification);
+
         }
 
 

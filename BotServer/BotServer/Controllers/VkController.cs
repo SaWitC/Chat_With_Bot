@@ -1,4 +1,6 @@
-﻿using BotServer.Domain.ComuinicationModels;
+﻿using BotServer.Application.Repositories;
+using BotServer.Data.Repositories;
+using BotServer.Domain.ComuinicationModels;
 using BotServer.Domain.Models;
 using BotServer.Features.Features.Commands.Vk.VkAuthorization;
 using BotServer.Services.SwaggerComplettedRealisation;
@@ -18,12 +20,14 @@ namespace BotServer.Controllers
     public class VkController : ControllerBase
     {
         private readonly CustomClient _customClient;
+        private readonly ChatRepository _chatRepository;
 
         public Guid UserId => Guid.Parse(HttpContext.User.Claims.Single(x => x.Type == ClaimTypes.NameIdentifier).Value);
         public VkController(IConfiguration configuration,
-            CustomClient customClient)
+            CustomClient customClient,
+            ChatRepository chatRepository)
         {
-
+            _chatRepository = chatRepository;
             _customClient = customClient;
         }
 
@@ -32,7 +36,8 @@ namespace BotServer.Controllers
         [HttpGet]
         public async Task<IActionResult> TestMethod(string message)
         {
-            var res = await _customClient.GetFileAsync(message);
+            // var res = await _customClient.GetFileAsync(message);
+            var res = _chatRepository.GetPageByAvtorId(avtorId:UserId.ToString(),0,5);
             return Ok(res);
         }
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "taoWQcbNVhu+yacoaRuXFiYOwpJHMkYit7wqzHTIf3JoSjUFc9vMUFhGyGnY3SYS2DtPOCeXcv5swbJISjREtw==",
+  "dgSpecHash": "R1/BL40P6lsy2DZNb+w7oDh3fOBzCwEZX3DjdWVM5vx6LdQfMguRUjoGBozteSw8oLLBe8e0PaWQaOVB8ggZ3g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.8\\microsoft.aspnetcore.cryptography.internal.6.0.8.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.8\\microsoft.aspnetcore.cryptography.keyderivation.6.0.8.nupkg.sha512",

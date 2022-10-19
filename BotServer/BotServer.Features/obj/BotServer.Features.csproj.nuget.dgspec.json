@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj": {}
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Features\\BotServer.Features.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Botserve.MigrationApp\\Botserve.MigrationApp.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\Botserve.MigrationApp\\Botserve.MigrationApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Botserve.MigrationApp\\Botserve.MigrationApp.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\Botserve.MigrationApp\\Botserve.MigrationApp.csproj",
         "projectName": "Botserve.MigrationApp",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Botserve.MigrationApp\\Botserve.MigrationApp.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\Botserve.MigrationApp\\Botserve.MigrationApp.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Botserve.MigrationApp\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\Botserve.MigrationApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -34,8 +34,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Data\\BotServer.Data.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Data\\BotServer.Data.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Data\\BotServer.Data.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Data\\BotServer.Data.csproj"
               }
             }
           }
@@ -75,14 +75,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Application\\BotServer.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
         "projectName": "BotServer.Application",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -105,8 +105,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj"
               }
             }
           }
@@ -121,6 +121,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Ardalis.Specification": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "Ardalis.Specification.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
             "Microsoft.AspNetCore.Http.Features": {
               "target": "Package",
               "version": "[5.0.17, )"
@@ -158,14 +166,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj",
         "projectName": "BotServer.Comunications",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Comunications\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Comunications\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -188,8 +196,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Application\\BotServer.Application.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Application\\BotServer.Application.csproj"
               }
             }
           }
@@ -241,14 +249,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Data\\BotServer.Data.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Data\\BotServer.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Data\\BotServer.Data.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Data\\BotServer.Data.csproj",
         "projectName": "BotServer.Data",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Data\\BotServer.Data.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Data\\BotServer.Data.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Data\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -271,8 +279,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj"
               }
             }
           }
@@ -287,6 +295,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Ardalis.Specification": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
+            "Ardalis.Specification.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
             "AutoMapper": {
               "target": "Package",
               "version": "[11.0.1, )"
@@ -352,14 +368,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
         "projectName": "BotServer.Domain",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Domain\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -427,14 +443,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Features\\BotServer.Features.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Features\\BotServer.Features.csproj",
         "projectName": "BotServer.Features",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Features\\BotServer.Features.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.Features\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Features\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -457,8 +473,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj"
               }
             }
           }
@@ -518,14 +534,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj",
         "projectName": "BotServer.SignalR_info",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR_info\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.SignalR_info\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -548,8 +564,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Botserve.MigrationApp\\Botserve.MigrationApp.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\Botserve.MigrationApp\\Botserve.MigrationApp.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\Botserve.MigrationApp\\Botserve.MigrationApp.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\Botserve.MigrationApp\\Botserve.MigrationApp.csproj"
               }
             }
           }

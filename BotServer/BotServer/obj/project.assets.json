@@ -2,6 +2,37 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Ardalis.Specification/6.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Ardalis.Specification.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Ardalis.Specification.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "Ardalis.Specification.EntityFrameworkCore/6.1.0": {
+        "type": "package",
+        "dependencies": {
+          "Ardalis.Specification": "6.1.0",
+          "Microsoft.EntityFrameworkCore": "6.0.6",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.6"
+        },
+        "compile": {
+          "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "AutoFixture/4.4.0": {
         "type": "package",
         "dependencies": {
@@ -3769,6 +3800,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Ardalis.Specification": "6.1.0",
+          "Ardalis.Specification.EntityFrameworkCore": "6.1.0",
           "BotServer.Domain": "1.0.0",
           "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
@@ -3803,6 +3836,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Ardalis.Specification": "6.1.0",
+          "Ardalis.Specification.EntityFrameworkCore": "6.1.0",
           "AutoMapper": "11.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "BotServer.Comunications": "1.0.0",
@@ -3908,6 +3943,42 @@
     }
   },
   "libraries": {
+    "Ardalis.Specification/6.1.0": {
+      "sha512": "3+DIYrDWwqXMSki3v+kjP8MhKcCoUHLGp6Lhz1+rwjMTHKe8pYUEJWjOxsS5umyL+IIzvaVZUZmwXCs7rGHy4Q==",
+      "type": "package",
+      "path": "ardalis.specification/6.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ardalis.specification.6.1.0.nupkg.sha512",
+        "ardalis.specification.nuspec",
+        "icon.png",
+        "lib/netstandard2.0/Ardalis.Specification.dll",
+        "lib/netstandard2.0/Ardalis.Specification.pdb",
+        "lib/netstandard2.0/Ardalis.Specification.xml"
+      ]
+    },
+    "Ardalis.Specification.EntityFrameworkCore/6.1.0": {
+      "sha512": "/d67ScQWCZaUiNqWoBo3vThRuhKou5hW2XGt6a5ibRp62n7vXd+W8c2Votj52ooaxusitE476uCNJAGt3r0CdA==",
+      "type": "package",
+      "path": "ardalis.specification.entityframeworkcore/6.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ardalis.specification.entityframeworkcore.6.1.0.nupkg.sha512",
+        "ardalis.specification.entityframeworkcore.nuspec",
+        "icon.png",
+        "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.dll",
+        "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.pdb",
+        "lib/net6.0/Ardalis.Specification.EntityFrameworkCore.xml",
+        "lib/netstandard2.0/Ardalis.Specification.EntityFrameworkCore.dll",
+        "lib/netstandard2.0/Ardalis.Specification.EntityFrameworkCore.pdb",
+        "lib/netstandard2.0/Ardalis.Specification.EntityFrameworkCore.xml",
+        "lib/netstandard2.1/Ardalis.Specification.EntityFrameworkCore.dll",
+        "lib/netstandard2.1/Ardalis.Specification.EntityFrameworkCore.pdb",
+        "lib/netstandard2.1/Ardalis.Specification.EntityFrameworkCore.xml"
+      ]
+    },
     "AutoFixture/4.4.0": {
       "sha512": "OwDQU/zJnt1uY4Bl46VqNLGoAYCxQoyYcY9oQZhIBds3sjK5scYqxAKHeFeWcco/0cvoepeqqFjnI3PPDTBJOg==",
       "type": "package",
@@ -10538,11 +10609,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer\\BotServer.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer\\BotServer.csproj",
       "projectName": "BotServer",
-      "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer\\BotServer.csproj",
+      "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer\\BotServer.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer\\obj\\",
+      "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -10565,8 +10636,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalRforChats.csproj": {
-              "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\BotServer\\BotServer.SignalR\\BotServer.SignalRforChats.csproj"
+            "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.SignalR\\BotServer.SignalRforChats.csproj": {
+              "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.SignalR\\BotServer.SignalRforChats.csproj"
             }
           }
         }

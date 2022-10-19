@@ -1,4 +1,6 @@
 ﻿using BotServer.Data.Attributes;
+using BotServer.Data.Repositories;
+using BotServer.Domain.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +16,10 @@ namespace BotServer.Data
                     .AsImplementedInterfaces()
                     .WithTransientLifetime()
                 );
+
+
+
+            services.AddScoped(typeof(ChatRepository));
 
         }
     }
