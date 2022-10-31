@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jUVtsPO9KZbQCNmHtBylwWEvb/y9PINXzhaLRliyQp+JTKeEYBx4QczDh6Wl1TQTxY0yfI3DTU3IdA63zvo4hw==",
+  "dgSpecHash": "OK5n9cKMBS/P8iBq2JVifp9zBxJUr6EfdB06zTHS5FMuu3b98PoHGM4HdSmbloOEeqYo9og535oo5S4XCsKzxg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Application\\FileService.Application.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Application\\FileService.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",

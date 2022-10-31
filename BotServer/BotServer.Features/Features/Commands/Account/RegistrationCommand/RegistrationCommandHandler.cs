@@ -7,17 +7,14 @@ namespace BotServer.Features.Features.Account.RegistrationCommand
 {
     public class RegistrationCommandHandler : IRequestHandler<RegistrationCommand, bool>
     {
-        private readonly SignInManager<User> _signinManager;
         private readonly UserManager<User> _userManager;
         private readonly ILogger<RegistrationCommandHandler> _logger;
 
         public RegistrationCommandHandler(
             ILogger<RegistrationCommandHandler> logger,
-            SignInManager<User> signinManager,
             UserManager<User> userManager)
         {
             _logger = logger;
-            _signinManager = signinManager;
             _userManager = userManager;
         }
 

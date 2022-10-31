@@ -16,14 +16,12 @@ namespace BotServer.Data.Repositories
             _appDbContext = appDbContext;
         }
 
-        public async Task SaveChangesAsync()
-        {
+        public async Task SaveChangesAsync()=>
             await _appDbContext.SaveChangesAsync();
-        }
 
         public async Task<T> Create<T>(T model) where T : class, IEntity
         {
-            var entity = await _appDbContext.Set<T>().AddAsync(model);
+            var entity =await _appDbContext.Set<T>().AddAsync(model);
             return entity.Entity;
         }
 
@@ -41,15 +39,12 @@ namespace BotServer.Data.Repositories
             return false;
         }
 
-        public async Task<IEnumerable<T>> GetAll<T>() where T : class, IEntity
-        {
-            return await _appDbContext.Set<T>().ToListAsync();
-        }
+        public async Task<IEnumerable<T>> GetAll<T>() where T : class, IEntity =>
+             await _appDbContext.Set<T>().ToListAsync();
 
-        public async Task<T> GetByid<T>(string id) where T : class, IEntity
-        {
-            return await _appDbContext.Set<T>().FirstOrDefaultAsync(o => o.id == id);
-        }
+        public async Task<T> GetByid<T>(string id) where T : class, IEntity=>
+            await _appDbContext.Set<T>().FirstOrDefaultAsync(o => o.id == id);
+        
 
         public async Task<T> Update<T>(T model, string id) where T : class, IEntity
         {

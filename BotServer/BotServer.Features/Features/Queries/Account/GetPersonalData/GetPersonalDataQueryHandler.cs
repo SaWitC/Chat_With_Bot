@@ -13,10 +13,8 @@ namespace BotServer.Features.Features.Queries.Account.GetPersonalData
             _userManager = userManager;
         }
 
-        public async Task<User> Handle(GetPersonalDataQuery request, CancellationToken cancellationToken)
-        {
-            var user = await _userManager.FindByIdAsync(request.UserId);
-            return user;
-        }
+        public async Task<User> Handle(GetPersonalDataQuery request, CancellationToken cancellationToken)=>
+           await _userManager.FindByIdAsync(request.UserId);
+        
     }
 }

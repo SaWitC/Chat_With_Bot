@@ -10,10 +10,9 @@ using System.Security.Claims;
 
 namespace BotServer.SignalR_info.Hubs
 {
-    [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize]
     public class HubForNotify : Hub, INotifyHub
     {
-
         private readonly IHttpContextAccessor _accesor;
         private readonly IBaseRepository _baseRepository;
         private readonly IHubRepository _hubRepository;
@@ -35,7 +34,7 @@ namespace BotServer.SignalR_info.Hubs
             _baseRepository = baseRepository;
         }
 
-        public Guid Id => Guid.Parse(_accesor.HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
+        public string Id => _accesor.HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value;
 
         public override async Task OnConnectedAsync()
         {
@@ -44,15 +43,10 @@ namespace BotServer.SignalR_info.Hubs
             hubConnection.id = Guid.NewGuid().ToString();
             hubConnection.HubConnection = Context.ConnectionId;
             
-
             hubConnection.IsClosed = false;
             await _baseRepository.Create<HubConnections>(hubConnection);
             await _baseRepository.SaveChangesAsync();
             await base.OnConnectedAsync();
-
-            //BackgroundJob.Schedule(() => SendOld(Context.ConnectionId,Id.ToString()),new TimeSpan(1000));
-
-
         }
         public override async Task OnDisconnectedAsync(Exception? exception)
         {

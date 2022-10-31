@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using MassTransit;
 using BotServer.Domain.ComuinicationModels;
-using ServerApp.Rabitmq;
 
 namespace BotServer.Comunications
 {

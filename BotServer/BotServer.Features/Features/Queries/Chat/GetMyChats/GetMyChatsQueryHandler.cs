@@ -13,10 +13,8 @@ namespace BotServer.Features.Features.Queries.Chat.GetMyChats
             _chatRepository = chatRepository;
         }
 
-        public async Task<IEnumerable<ChatModel>> Handle(GetMyChatsQuery request, CancellationToken cancellationToken)
-        {
-            var res = _chatRepository.GetPageByAvtorId(request.AvtorId, request.Page);
-            return res;
-        }
+        public async Task<IEnumerable<ChatModel>> Handle(GetMyChatsQuery request, CancellationToken cancellationToken)=>
+            _chatRepository.GetPageByAvtorId(request.AvtorId, request.Page);
+        
     }
 }

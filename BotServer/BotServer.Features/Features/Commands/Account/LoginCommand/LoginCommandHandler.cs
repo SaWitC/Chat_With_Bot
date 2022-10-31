@@ -34,17 +34,13 @@ namespace BotServer.Features.Features.Account.LoginCommand
                     _logger.LogInformation($"loged in User:{{UserId ={user.Id}, UserName ={user.UserName}}}");
 
                     return token;
-                    //return Ok(res);
                 }
                 if (result.IsNotAllowed)
                 {
-
                     _logger.LogInformation($"login error UserName:{request.UserName}");
                 }
             }
-
             return "";
-
         }
     }
 }

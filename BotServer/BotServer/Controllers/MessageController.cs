@@ -16,13 +16,9 @@ namespace BotServer.Controllers
     [ApiController]
     public class MessageController : ControllerBase
     {
-        private readonly IHttpContextService _httpContextService;
-
         private readonly IMediator _mediatr;
-
-        public MessageController(IMediator mediator,IHttpContextService httpContextService)
+        public MessageController(IMediator mediator)
         {
-            _httpContextService = httpContextService;
             _mediatr = mediator;
         }
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TIzZ2aBWxXIWZ6AyfSlmgQQHjNMl+rGD/fK6g/hiUPzHz986ADkJ2tWm/Yckc2yA4O1EZAg+1b2QUxsM0Eoo+w==",
+  "dgSpecHash": "xG/Q1okAuuHdPPiIFsSsZnYepGM2Z8fJfTXo0fQoeR01fzuvs8suF0Zr37gpIK3Qtm9nWUAMrDiPQaJMxqoOHg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Domain\\FileService.Domain.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Domain\\FileService.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\microsoft.identitymodel.logging\\6.10.0\\microsoft.identitymodel.logging.6.10.0.nupkg.sha512",

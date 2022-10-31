@@ -13,7 +13,7 @@ namespace BotServer.Services.SwaggerComplettedRealisation
     public class CustomClient : Client
     {
         private readonly IConfiguration _configuration;
-        private readonly HttpClient _httpClient;
+
         private readonly IHttpContextService _httpContextService;
         public CustomClient(HttpClient _httpClient, IConfiguration configuration, IHttpContextService httpContextService , string baseUrl = "") : base(baseUrl, _httpClient)
         {
@@ -23,11 +23,7 @@ namespace BotServer.Services.SwaggerComplettedRealisation
             {
                 base.BaseUrl = _configuration["FileServer:BaseUri"];
             }
-
             var headers = _httpContextService.GetRequestHeaders();
-            Console.WriteLine(headers);
-
-
         }
     }
 }

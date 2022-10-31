@@ -25,15 +25,12 @@ namespace BotServer.Data.Repositories
             }
             return null;
         }
+        public async Task<IEnumerable<HubConnections>> GetAllActivConnectionsByUser(string userId)=>
+             await _context.HubConnections.Where(x => x.AvtorId == userId).Where(x => x.IsClosed == false).ToListAsync();
+        
 
-        public async Task<IEnumerable<HubConnections>> GetAllActivConnectionsByUser(string userId)
-        {
-            return await _context.HubConnections.Where(x => x.AvtorId == userId).Where(x => x.IsClosed == false).ToListAsync();
-        }
-
-        public async Task<HubConnections> GetByHubConnection(string HubConnection)
-        {
-            return await _context.HubConnections.FirstOrDefaultAsync(x => x.HubConnection == HubConnection && x.IsClosed == false);
-        }
+        public async Task<HubConnections> GetByHubConnection(string HubConnection)=>
+            await _context.HubConnections.FirstOrDefaultAsync(x => x.HubConnection == HubConnection && x.IsClosed == false);
+        
     }
 }

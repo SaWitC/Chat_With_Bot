@@ -14,7 +14,6 @@ namespace BotServer.Data.Repositories
     [Service]
     public class AccountRepository : IAccountRepository
     {
-
         private readonly IOptions<AuthOptions> _options;
         private readonly UserManager<User> _userManager;
         private readonly AppDbContext _appDbContext;
@@ -46,12 +45,8 @@ namespace BotServer.Data.Repositories
                 claims.Add(new Claim("aud", x));
             }
 
-            //var tt = JwtSecurityToken();
-
             var token = new JwtSecurityToken(
                 authParams.Issuer,
-                //audience: authParams.Audience[0],
-                
                 claims:claims,
                 expires: DateTime.Now.AddSeconds(authParams.TokenLifeTime),
                 signingCredentials: creditails

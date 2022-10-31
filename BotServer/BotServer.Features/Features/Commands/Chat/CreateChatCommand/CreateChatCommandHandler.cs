@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BotServer.Application.DataServices;
 using BotServer.Application.Repositories;
 using BotServer.Domain.Models;
 using MediatR;
@@ -11,24 +12,24 @@ namespace BotServer.Features.Features.Commands.Chat.CreateChatCommand
     {
         private readonly IBaseRepository _baseRepository;
         private readonly IMapper _mapper;
-        private readonly IHttpContextAccessor _accesor;
+        private readonly IHttpContextService _httpContextService;
 
-        public CreateChatCommandHandler(IBaseRepository baseRepository, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public CreateChatCommandHandler(IBaseRepository baseRepository, IMapper mapper, IHttpContextService httpContextService)
         {
-            _accesor = httpContextAccessor;
+            _httpContextService = httpContextService;
             _baseRepository = baseRepository;
             _mapper = mapper;
         }
         public async Task<ChatModel> Handle(CreateChatCommand request, CancellationToken cancellationToken)
         {
-            var Id = Guid.Parse(_accesor.HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
+            var userId = _httpContextService.GetCurentUserId();
             var model = _mapper.Map<ChatModel>(request);
 
-            model.avtorId = Id.ToString();
+            model.avtorId = userId;
             model.id = Guid.NewGuid().ToString();
             model.Created = DateTime.Now;
 
-            var res = await _baseRepository.Create<ChatModel>(model);
+            var res = await _baseRepository.Create(model);
             await _baseRepository.SaveChangesAsync();
             return res;
         }

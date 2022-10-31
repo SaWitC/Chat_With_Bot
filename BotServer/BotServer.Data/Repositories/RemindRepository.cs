@@ -19,7 +19,7 @@ namespace BotServer.Data.Repositories
         {
             if (!string.IsNullOrEmpty(AvtorId))
             {
-                return await _context.Reminds
+                return await _context.Reminds.AsNoTracking()
                 .Where(x => x.AvtorId == AvtorId)
                 .Where(x => x.IsDeleted == false)
                 .Where(x => x.RemindAtTime < DateTime.Now.AddHours(1))
@@ -36,6 +36,7 @@ namespace BotServer.Data.Repositories
             if (!string.IsNullOrEmpty(AvtorId))
             {
                 return await _context.Reminds
+                .AsNoTracking()
                 .Where(x => x.AvtorId == AvtorId)
                 .Where(x => x.IsDeleted == false)
                 .Where(x => x.RemindAtTime < DateTime.Now.AddHours(1))
@@ -52,6 +53,7 @@ namespace BotServer.Data.Repositories
             if (!string.IsNullOrEmpty(AvtorId))
             {
                 return await _context.Reminds
+                   .AsNoTracking()
                    .Where(x => x.AvtorId == AvtorId)
                    .Where(x => x.IsDeleted == false)
                    .Where(x => x.RemindAtTime < DateTime.Now)

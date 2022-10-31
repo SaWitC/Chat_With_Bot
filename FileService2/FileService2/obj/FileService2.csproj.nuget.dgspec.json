@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService2\\FileService2.csproj": {}
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService2\\FileService2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Application\\FileService.Application.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Application\\FileService.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Application\\FileService.Application.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Application\\FileService.Application.csproj",
         "projectName": "FileService.Application",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Application\\FileService.Application.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Application\\FileService.Application.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Application\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -34,8 +34,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Domain\\FileService.Domain.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Domain\\FileService.Domain.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Domain\\FileService.Domain.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Domain\\FileService.Domain.csproj"
               }
             }
           }
@@ -91,14 +91,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Data\\FileService.Data.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Data\\FileService.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Data\\FileService.Data.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Data\\FileService.Data.csproj",
         "projectName": "FileService.Data",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Data\\FileService.Data.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Data\\FileService.Data.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Data\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -121,8 +121,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Application\\FileService.Application.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Application\\FileService.Application.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Application\\FileService.Application.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Application\\FileService.Application.csproj"
               }
             }
           }
@@ -182,14 +182,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Domain\\FileService.Domain.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Domain\\FileService.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Domain\\FileService.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Domain\\FileService.Domain.csproj",
         "projectName": "FileService.Domain",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Domain\\FileService.Domain.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Domain\\FileService.Domain.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Domain\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -249,14 +249,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Features\\FileService.Features.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Features\\FileService.Features.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Features\\FileService.Features.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Features\\FileService.Features.csproj",
         "projectName": "FileService.Features",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Features\\FileService.Features.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Features\\FileService.Features.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Features\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Features\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -279,8 +279,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Services\\FileService.Services.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Services\\FileService.Services.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Services\\FileService.Services.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Services\\FileService.Services.csproj"
               }
             }
           }
@@ -320,14 +320,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Migrations\\FileService.Migrations.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Migrations\\FileService.Migrations.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Migrations\\FileService.Migrations.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Migrations\\FileService.Migrations.csproj",
         "projectName": "FileService.Migrations",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Migrations\\FileService.Migrations.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Migrations\\FileService.Migrations.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Migrations\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Migrations\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -350,8 +350,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Data\\FileService.Data.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Data\\FileService.Data.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Data\\FileService.Data.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Data\\FileService.Data.csproj"
               }
             }
           }
@@ -415,14 +415,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Services\\FileService.Services.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Services\\FileService.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Services\\FileService.Services.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Services\\FileService.Services.csproj",
         "projectName": "FileService.Services",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Services\\FileService.Services.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Services\\FileService.Services.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Services\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Services\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -445,8 +445,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Migrations\\FileService.Migrations.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Migrations\\FileService.Migrations.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Migrations\\FileService.Migrations.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Migrations\\FileService.Migrations.csproj"
               }
             }
           }
@@ -486,14 +486,14 @@
         }
       }
     },
-    "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService2\\FileService2.csproj": {
+    "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService2\\FileService2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService2\\FileService2.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService2\\FileService2.csproj",
         "projectName": "FileService2",
-        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService2\\FileService2.csproj",
+        "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService2\\FileService2.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService2\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -516,8 +516,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Features\\FileService.Features.csproj": {
-                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot\\FileService2\\FileService.Features\\FileService.Features.csproj"
+              "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Features\\FileService.Features.csproj": {
+                "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\FileService2\\FileService.Features\\FileService.Features.csproj"
               }
             }
           }

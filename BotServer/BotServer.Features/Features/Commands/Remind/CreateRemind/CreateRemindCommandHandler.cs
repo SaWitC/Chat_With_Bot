@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BotServer.Application.DataServices;
 using BotServer.Application.Repositories;
 using BotServer.Domain.Models;
 using BotServer.Features.BackgroundJobs.Remind;
@@ -14,33 +15,28 @@ namespace BotServer.Features.Features.Commands.Remind.CreateRemind
     {
         private readonly IBaseRepository _baseRepostory;
         private readonly IMapper _mapper;
-        private readonly IHttpContextAccessor _accesor;
+        private readonly IHttpContextService _httpContextService;
         private readonly UserManager<User> _userManager;
         private readonly IBGJobRemind _bGJobRemind;
-        private readonly ILogger<CreateRemindCommandHandler> _logger;
-
-
         public CreateRemindCommandHandler(
-            ILogger<CreateRemindCommandHandler> logger,
             IBaseRepository baseRepostory,
             IMapper mapper,
-            IHttpContextAccessor accesor,
+            IHttpContextService httpContextService,
             UserManager<User> userManager,
             IBGJobRemind bGJobRemind
             )
         {
-            _logger = logger;
             _userManager = userManager;
             _baseRepostory = baseRepostory;
             _mapper = mapper;
-            _accesor = accesor;
+            _httpContextService = httpContextService;
             _bGJobRemind = bGJobRemind;
         }
 
         public async Task<RemindModel> Handle(CreateRemindCommand request, CancellationToken cancellationToken)
         {
 
-            var avtorId = _accesor.HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            var avtorId = _httpContextService.GetCurentUserId();
             if (avtorId != null)
             {
                 var user = await _userManager.FindByIdAsync(avtorId);
@@ -50,8 +46,6 @@ namespace BotServer.Features.Features.Commands.Remind.CreateRemind
                 model.AvtorId = avtorId;
                 model.IsDeleted = false;
                 model.Created = DateTime.Now;
-
-                //var delay = DateTime.Now - request.RemindAtTime;
 
                 var res = await _baseRepostory.Create(model);
                 if (res != null)
@@ -63,10 +57,5 @@ namespace BotServer.Features.Features.Commands.Remind.CreateRemind
             }
             return null;
         }
-
-        //private static Action SendToVk(User user, RemindModel remind)
-        //{
-
-        //}
     }
 }

@@ -2,6 +2,7 @@
 using BotServer.Application.Repositories;
 using BotServer.Domain.Models;
 using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace BotServer.Features.Features.Commands.Messages.SendMessage
 {
@@ -9,11 +10,11 @@ namespace BotServer.Features.Features.Commands.Messages.SendMessage
     {
         private readonly IBaseRepository _baseRepository;
         private readonly IMapper _mapper;
-        //private readonly IEnumerable<ICommandHandler> _commandHandlers;
+        private readonly ILogger<SendMessageCommandHandler> _logger;
 
-        public SendMessageCommandHandler(IBaseRepository baseRepository, IMapper mapper/*,IEnumerable<ICommandHandler> commandHandlers*/)
+        public SendMessageCommandHandler(IBaseRepository baseRepository, IMapper mapper,ILogger<SendMessageCommandHandler> logger)
         {
-            //_commandHandlers = commandHandlers;
+            _logger = logger;
             _baseRepository = baseRepository;
             _mapper = mapper;
         }
@@ -31,15 +32,14 @@ namespace BotServer.Features.Features.Commands.Messages.SendMessage
                     if (res != null)
                         await _baseRepository.SaveChangesAsync();
 
-
                     return res;
                 }
                 return null;
 
             }
-            catch
+            catch(Exception ex)
             {
-                //logg
+                _logger.LogError(ex.Message);
                 return null;
             }
         }

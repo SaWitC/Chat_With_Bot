@@ -35,7 +35,7 @@ namespace BotServer.SignalR.Hubs
             _baseRepository = baseRepository;
         }
 
-        public Guid Id => Guid.Parse(_accesor.HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value);
+        public string Id => _accesor.HttpContext.User.Claims.Single(c => c.Type == ClaimTypes.NameIdentifier).Value;
         public async Task AskServer(string someTextFromClient, string chatId)
         {
             string tempString = "";
@@ -81,9 +81,6 @@ namespace BotServer.SignalR.Hubs
             var botResp = await _mediatr.Send(sendMessageCommandFromServer);
 
             await Clients.Client(this.Context.ConnectionId).SendAsync("askServerResponse", botResp.text);
-
-            //BackgroundJob.Schedule(() => SendToVk(user, model), delay);
-
         }
     }
 }
