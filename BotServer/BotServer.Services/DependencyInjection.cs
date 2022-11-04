@@ -40,6 +40,8 @@ namespace BotServer.Services
                 return new WikiHttpClient(httpClient, configuration);
             });
 
+            services.AddSingleton<CustomBotRequestApiClient>();
+
             services.AddHttpContextAccessor();
 
         }

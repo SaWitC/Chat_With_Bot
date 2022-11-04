@@ -3,6 +3,7 @@ using BotServer.Application.Repositories;
 using BotServer.Application.Services.Commands;
 using BotServer.Features.Features.Commands.Messages.SendMessage;
 using BotServer.Services.Services.Commands;
+using BotServer.Services.SwaggerComplettedRealisation;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -20,14 +21,17 @@ namespace BotServer.SignalR.Hubs
         private readonly IHttpContextAccessor _accesor;
         private readonly IBaseRepository _baseRepository;
         private readonly IHubRepository _hubRepository;
+        private readonly CustomBotRequestApiClient _customBotRequestApiClient;
 
 
         public ChatHub(IEnumerable<ICommandHandler> commandHandlers,
             IMediator mediator,
             IHttpContextAccessor accessor,
             IHubRepository hubRepository,
+            CustomBotRequestApiClient customBotRequestApiClient,
             IBaseRepository baseRepository)
         {
+            _customBotRequestApiClient=customBotRequestApiClient;
             _commandHandlers = commandHandlers;
             _mediatr = mediator;
             _accesor = accessor;
@@ -71,6 +75,13 @@ namespace BotServer.SignalR.Hubs
             await Clients.Client(this.Context.ConnectionId).SendAsync("messageFromPeople", res.text);
 
             //server response
+
+            if (string.IsNullOrEmpty(tempString))
+            {
+                var resp = await _customBotRequestApiClient.GetRequestAsync(someTextFromClient);
+                tempString = resp;
+            }
+
             SendMessageCommand sendMessageCommandFromServer = new SendMessageCommand();
             SendMessageDTO BotMessageDTO = new();
             BotMessageDTO.text = tempString;
@@ -81,6 +92,8 @@ namespace BotServer.SignalR.Hubs
             var botResp = await _mediatr.Send(sendMessageCommandFromServer);
 
             await Clients.Client(this.Context.ConnectionId).SendAsync("askServerResponse", botResp.text);
+
+            
         }
     }
 }
