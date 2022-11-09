@@ -1,7 +1,11 @@
 ﻿using BotServer.Domain.Models;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
+using System.Net;
+using System.Web.Http;
+
 
 namespace BotServer.Features.Features.Account.RegistrationCommand
 {
@@ -29,6 +33,7 @@ namespace BotServer.Features.Features.Account.RegistrationCommand
                     _logger.LogInformation($"registered new user {request.UserName}");
                 return true;
             }
+            //throw new HttpResponseException(new HttpResponseMessage<string>(HttpStatusCode.BadRequest));
             return false;
         }
     }

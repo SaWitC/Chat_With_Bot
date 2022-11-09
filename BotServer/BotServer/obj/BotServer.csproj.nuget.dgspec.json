@@ -505,6 +505,10 @@
               "target": "Package",
               "version": "[1.7.31, )"
             },
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[4.0.20710, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -840,6 +844,10 @@
             "FluentValidation.AspNetCore": {
               "target": "Package",
               "version": "[11.2.1, )"
+            },
+            "Hellang.Middleware.ProblemDetails": {
+              "target": "Package",
+              "version": "[6.5.1, )"
             },
             "Microsoft.AspNet.WebApi.Client": {
               "target": "Package",

@@ -3,6 +3,7 @@ using BotServer.Domain.ConfigModels;
 using BotServer.Domain.Models;
 using BotServer.Features;
 using FluentValidation;
+using Hellang.Middleware.ProblemDetails;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.OpenApi.Models;
@@ -11,10 +12,17 @@ namespace BotServer
 {
     public class DependencyInjection
     {
-        public static void AddBotServer(IServiceCollection services, IConfiguration configuration)
+        public static void AddBotServer(IServiceCollection services, IConfiguration configuration,IWebHostEnvironment env)
         {
+            //problem details 
+            services.AddProblemDetails(o =>
+            {
+                o.IncludeExceptionDetails = (ctx, cfg) => env.IsDevelopment();
+                // o.MapStatusCode =StatusCodes.Status400BadRequest;
+                o.MapToStatusCode<Exception>(400);
+            });
+
             services.AddControllers().AddNewtonsoftJson(); ;
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
 
 
@@ -47,7 +55,6 @@ namespace BotServer
                 options.AddPolicy("MyAllowSpecificOrigins",
                 builder =>
                 {
-                    // builder.WithOrigins("http://example.com");
                     builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
                 });
             });
@@ -61,9 +68,6 @@ namespace BotServer
 
             var authoptions = configuration.GetSection("auth");
             services.Configure<AuthOptions>(authoptions);
-
-            // services.AddAutoMapper(typeof(BotServer.Features.startup));
-
 
             var AuthOptionsForVlidation = configuration.GetSection("auth").Get<AuthOptions>();
 
@@ -97,12 +101,12 @@ namespace BotServer
                     {
                         var accessToken = context.Request.Query["access_token"];
 
-                        // если запрос направлен хабу
+                        //is request to hub
                         var path = context.HttpContext.Request.Path;
                         if (!string.IsNullOrEmpty(accessToken) &&
                             (path.StartsWithSegments("/toastr") || path.StartsWithSegments("/notify")))
                         {
-                            // получаем токен из строки запроса
+                            //get token from the request
                             context.Token = accessToken;
                         }
                         return Task.CompletedTask;

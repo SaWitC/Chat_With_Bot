@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "tfgtQnIQeqO9ilqAgpGEMWnqv4ihiMEzDd2hiwH7XrZKtte6XdQxJ4/bogrO/wjrtUPe4TtsQUrJnghAYedwWg==",
+  "dgSpecHash": "g6/+d7DX6MMIkbHRfE0tFmDbWTMiVPUXTPmGLuTpb/HbcedAduxRI9rJLTmynRjBZZV0XjpMUhtYIK0adRdwcg==",
   "success": true,
   "projectFilePath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer\\BotServer.csproj",
   "expectedPackageFiles": [
@@ -17,6 +17,7 @@
     "C:\\Users\\USER\\.nuget\\packages\\hangfire.aspnetcore\\1.7.31\\hangfire.aspnetcore.1.7.31.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\hangfire.core\\1.7.31\\hangfire.core.1.7.31.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\hangfire.sqlserver\\1.7.31\\hangfire.sqlserver.1.7.31.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\hellang.middleware.problemdetails\\6.5.1\\hellang.middleware.problemdetails.6.5.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\htmlagilitypack\\1.11.45\\htmlagilitypack.1.11.45.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\masstransit\\8.0.6\\masstransit.8.0.6.nupkg.sha512",
@@ -182,6 +183,7 @@
     "C:\\Users\\USER\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.3.0\\system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\system.reflection.extensions\\4.3.0\\system.reflection.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\USER\\.nuget\\packages\\system.reflection.metadata\\5.0.0\\system.reflection.metadata.5.0.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\system.reflection.typeextensions\\4.3.0\\system.reflection.typeextensions.4.3.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\system.resources.resourcemanager\\4.3.0\\system.resources.resourcemanager.4.3.0.nupkg.sha512",
@@ -227,7 +229,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Версия обнаруженного пакета нарушает ограничение зависимости: Microsoft.AspNet.WebApi.Core 4.0.20710 требуется Microsoft.AspNet.WebApi.Client (>= 4.0.20710 && < 4.1.0), но в результате разрешения получена версия Microsoft.AspNet.WebApi.Client 5.2.9.",
+      "message": "Detected package version outside of dependency constraint: Microsoft.AspNet.WebApi.Core 4.0.20710 requires Microsoft.AspNet.WebApi.Client (>= 4.0.20710 && < 4.1.0) but version Microsoft.AspNet.WebApi.Client 5.2.9 was resolved.",
       "libraryId": "Microsoft.AspNet.WebApi.Client",
       "targetGraphs": [
         "net6.0"
@@ -237,7 +239,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.AspNet.WebApi.Core 4.0.20710\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 4.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         "net6.0"
@@ -247,7 +249,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Swashbuckle.Core 5.6.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Swashbuckle.Core 5.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Swashbuckle.Core",
       "targetGraphs": [
         "net6.0"

@@ -32,7 +32,10 @@ namespace BotServer.Controllers
             query.id = chatid;
             query.page = page;
             var res = await _mediatr.Send(query);
-            return Ok(res);
+            if (res.Count() > 0 && page > 0)
+                return Ok(res);
+            else
+                throw new Exception("there are no more messages ar messages can not be loaded");
         }
     }
 }

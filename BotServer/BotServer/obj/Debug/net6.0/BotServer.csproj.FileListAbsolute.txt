@@ -327,3 +327,4 @@ C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\obj\Debug\net6.0\BotS
 C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\obj\Debug\net6.0\ref\BotServer.dll
 C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\bin\Debug\net6.0\Ardalis.Specification.dll
 C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\bin\Debug\net6.0\Ardalis.Specification.EntityFrameworkCore.dll
+C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\bin\Debug\net6.0\Hellang.Middleware.ProblemDetails.dll

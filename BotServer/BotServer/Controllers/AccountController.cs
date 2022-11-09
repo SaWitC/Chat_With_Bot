@@ -1,5 +1,4 @@
-﻿
-using BotServer.Application.Repositories;
+﻿using BotServer.Application.Repositories;
 using BotServer.Features.Features.Account.LoginCommand;
 using BotServer.Features.Features.Account.RegistrationCommand;
 using BotServer.Features.Features.Commands.Account.UpdatePersonalDataCommand;
@@ -9,7 +8,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.Swagger;
+using System.Net;
 using System.Security.Claims;
+using VkNet.Utils;
 
 namespace BotServer.Controllers
 {
@@ -32,7 +33,11 @@ namespace BotServer.Controllers
         public async Task<IActionResult> Register(RegistrationCommand registrationCommand)
         {
             var res = await _mediatr.Send(registrationCommand);
-            return Ok(res);
+            if (res)
+                return Ok();
+            else
+                throw new Exception("this data is rejected❗❗❗");
+           
         }
 
         [HttpPost("Login")]
@@ -41,7 +46,10 @@ namespace BotServer.Controllers
         public async Task<IActionResult> Login(LoginCommand registrationCommand)
         {
             var res = await _mediatr.Send(registrationCommand);
-            return Ok(res);
+            if (!string.IsNullOrEmpty(res))
+                return Ok(res);
+            else
+                throw new Exception("Check entered data");
         }
 
         [HttpGet("GetPersonalData")]

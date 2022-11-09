@@ -9,7 +9,7 @@ namespace BotServer.Services.Services.Commands.WeatherCommands
     public class GetCurrentWeatherCommand : ICommandHandler
     {
         private readonly IWeatherHttpClient _weatherHttpClient;
-        private readonly string[] location = new string[] { "Беларусь", "Витебск", "Москва", "Питер" };
+        private readonly string[] location = new string[] {"Витебск", "Москва", "Питер","Минск","Minsk","Vitebsk","kazahstan" };
         private readonly IConfiguration _configuration;
         public GetCurrentWeatherCommand(IWeatherHttpClient weatherHttpClient, IConfiguration configuration)
         {

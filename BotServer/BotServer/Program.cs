@@ -1,6 +1,7 @@
 using BotServer.SignalR.Hubs;
 using BotServer.SignalR_info.Hubs;
 using Hangfire;
+using Hellang.Middleware.ProblemDetails;
 using NLog;
 using NLog.Web;
 
@@ -13,12 +14,12 @@ logger.Debug("init main");
 
 try
 {
-
+    
     Botserve.MigrationApp.DependencyInjection.AddMigraion(builder.Services, builder.Configuration);
     BotServer.Data.DependencyInjection.AddData(builder.Services, builder.Configuration);
     BotServer.Services.DependencyInjection.AddServices(builder.Services, builder.Configuration);
     BotServer.Features.DependensyInjection.AddFeatures(builder.Services, builder.Configuration);
-    BotServer.DependencyInjection.AddBotServer(builder.Services, builder.Configuration);
+    BotServer.DependencyInjection.AddBotServer(builder.Services, builder.Configuration,builder.Environment);
     BotServer.Comunications.DependencyInjection.ConfigureServices(builder.Services,builder.Configuration);
 
 
@@ -46,6 +47,7 @@ try
             //c.RoutePrefix = string.Empty;
         });
     }
+    app.UseProblemDetails();
     app.UseRouting();
     app.UseCors("MyAllowSpecificOrigins");
     app.UseHttpsRedirection();

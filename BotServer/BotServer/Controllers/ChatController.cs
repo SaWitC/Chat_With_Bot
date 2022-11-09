@@ -58,8 +58,10 @@ namespace BotServer.Controllers
             var query = new GetChatByIdQuery();
             query.id = id;
             var res = await _mediatr.Send(query);
-
-            return Ok(res);
+            if (res != null)
+                return Ok(res);
+            else
+                throw new Exception("it did not work; try again later");
         }
 
         // DELETE api/<ChatController>/5
@@ -71,8 +73,10 @@ namespace BotServer.Controllers
             var command = new DeleteChatCommand();
             command.id = id;
             var res = await _mediatr.Send(command);
-
-            return Ok(res);
+            if (res)
+                return Ok();
+            else
+                throw new Exception("it did not work; try again later");
         }
     }
 }

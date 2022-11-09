@@ -255,6 +255,25 @@
           }
         }
       },
+      "Hellang.Middleware.ProblemDetails/6.5.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Reflection.Metadata": "5.0.0"
+        },
+        "compile": {
+          "lib/net6.0/Hellang.Middleware.ProblemDetails.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Hellang.Middleware.ProblemDetails.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "HtmlAgilityPack/1.11.45": {
         "type": "package",
         "compile": {
@@ -3008,6 +3027,19 @@
           }
         }
       },
+      "System.Reflection.Metadata/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/System.Reflection.Metadata.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Reflection.Metadata.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.Reflection.Primitives/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3879,6 +3911,7 @@
           "Hangfire.AspNetCore": "1.7.31",
           "Hangfire.Core": "1.7.31",
           "Hangfire.SqlServer": "1.7.31",
+          "Microsoft.AspNet.WebApi.Core": "4.0.20710",
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "VkNet": "1.71.0"
         },
@@ -4244,6 +4277,24 @@
         "lib/netstandard2.0/Hangfire.SqlServer.dll",
         "lib/netstandard2.0/Hangfire.SqlServer.xml",
         "tools/install.sql"
+      ]
+    },
+    "Hellang.Middleware.ProblemDetails/6.5.1": {
+      "sha512": "LgceF4mPguB/q3NWs6T3bitOFnYIANSRvfhASMgVb8ks7fSqY8jbdBHoVEuUDmxg3T7+kF21qSE0jQv9hdpLng==",
+      "type": "package",
+      "path": "hellang.middleware.problemdetails/6.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "hellang.middleware.problemdetails.6.5.1.nupkg.sha512",
+        "hellang.middleware.problemdetails.nuspec",
+        "lib/net5.0/Hellang.Middleware.ProblemDetails.dll",
+        "lib/net5.0/Hellang.Middleware.ProblemDetails.xml",
+        "lib/net6.0/Hellang.Middleware.ProblemDetails.dll",
+        "lib/net6.0/Hellang.Middleware.ProblemDetails.xml",
+        "lib/netcoreapp3.1/Hellang.Middleware.ProblemDetails.dll",
+        "lib/netcoreapp3.1/Hellang.Middleware.ProblemDetails.xml",
+        "problem-logo.png"
       ]
     },
     "HtmlAgilityPack/1.11.45": {
@@ -8625,6 +8676,30 @@
         "system.reflection.extensions.nuspec"
       ]
     },
+    "System.Reflection.Metadata/5.0.0": {
+      "sha512": "5NecZgXktdGg34rh1OenY1rFNDCI8xSjFr+Z4OU4cU06AQHUdRnIIEeWENu3Wl4YowbzkymAIMvi3WyK9U53pQ==",
+      "type": "package",
+      "path": "system.reflection.metadata/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Reflection.Metadata.dll",
+        "lib/net461/System.Reflection.Metadata.xml",
+        "lib/netstandard1.1/System.Reflection.Metadata.dll",
+        "lib/netstandard1.1/System.Reflection.Metadata.xml",
+        "lib/netstandard2.0/System.Reflection.Metadata.dll",
+        "lib/netstandard2.0/System.Reflection.Metadata.xml",
+        "lib/portable-net45+win8/System.Reflection.Metadata.dll",
+        "lib/portable-net45+win8/System.Reflection.Metadata.xml",
+        "system.reflection.metadata.5.0.0.nupkg.sha512",
+        "system.reflection.metadata.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Reflection.Primitives/4.3.0": {
       "sha512": "5RXItQz5As4xN2/YUDxdpsEkMhvw3e6aNveFXUn4Hl/udNTCNhnKp8lT9fnc3MhvGKh1baak5CovpuQUXHAlIA==",
       "type": "package",
@@ -10586,6 +10661,7 @@
       "EntityFrameworkCore.AutoFixture >= 2.0.0",
       "FluentValidation >= 11.2.1",
       "FluentValidation.AspNetCore >= 11.2.1",
+      "Hellang.Middleware.ProblemDetails >= 6.5.1",
       "Microsoft.AspNet.WebApi.Client >= 5.2.9",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 6.0.8",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 6.0.9",
@@ -10663,6 +10739,10 @@
           "FluentValidation.AspNetCore": {
             "target": "Package",
             "version": "[11.2.1, )"
+          },
+          "Hellang.Middleware.ProblemDetails": {
+            "target": "Package",
+            "version": "[6.5.1, )"
           },
           "Microsoft.AspNet.WebApi.Client": {
             "target": "Package",
@@ -10747,7 +10827,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Версия обнаруженного пакета нарушает ограничение зависимости: Microsoft.AspNet.WebApi.Core 4.0.20710 требуется Microsoft.AspNet.WebApi.Client (>= 4.0.20710 && < 4.1.0), но в результате разрешения получена версия Microsoft.AspNet.WebApi.Client 5.2.9.",
+      "message": "Detected package version outside of dependency constraint: Microsoft.AspNet.WebApi.Core 4.0.20710 requires Microsoft.AspNet.WebApi.Client (>= 4.0.20710 && < 4.1.0) but version Microsoft.AspNet.WebApi.Client 5.2.9 was resolved.",
       "libraryId": "Microsoft.AspNet.WebApi.Client",
       "targetGraphs": [
         "net6.0"
@@ -10757,7 +10837,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.AspNet.WebApi.Core 4.0.20710\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 4.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         "net6.0"
@@ -10767,7 +10847,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Swashbuckle.Core 5.6.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Swashbuckle.Core 5.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Swashbuckle.Core",
       "targetGraphs": [
         "net6.0"
