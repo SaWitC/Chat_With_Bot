@@ -25,19 +25,19 @@ namespace BotServer.Services.Services.Commands.WikiCommand
         public async Task<string> ProcessCommand(ICommand command)
         {
             string wikiDomain = "https://en.wikipedia.org/wiki/";
-            var requeststring = Regex.Replace(command.CommandString, "(wiki|wikipedia|wikidepia)", "");
-            var respmodel = await _wikiHttpClient.GetLinks(requeststring);
+            var requestString = Regex.Replace(command.CommandString, "(wiki|wikipedia|wikidepia)", "");
+            var respModel = await _wikiHttpClient.GetLinks(requestString);
 
-            if (respmodel != null)
+            if (respModel != null)
             {
-                string resp = $"i gona found:";
-                foreach (var x in respmodel.query.pages)
+                string resp = $"i gonna found:";
+                foreach (var x in respModel.query.pages)
                 {
                     resp += $"</br><a href={wikiDomain + x.title}>{x.title}</a>";
                 }
                 return resp;
             }
-            return "i can not found nothin";
+            return "i can not found nothing";
         }
     }
 }

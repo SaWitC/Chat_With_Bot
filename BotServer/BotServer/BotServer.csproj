@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="settings.json" />
+    <InternalsVisibleTo Include="BotServer.Clietn.Tests" />
   </ItemGroup>
 
   <ItemGroup>

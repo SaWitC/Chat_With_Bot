@@ -328,3 +328,8 @@ C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\obj\Debug\net6.0\ref\
 C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\bin\Debug\net6.0\Ardalis.Specification.dll
 C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\bin\Debug\net6.0\Ardalis.Specification.EntityFrameworkCore.dll
 C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\bin\Debug\net6.0\Hellang.Middleware.ProblemDetails.dll
+C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\obj\Debug\net6.0\staticwebassets\msbuild.BotServer.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\obj\Debug\net6.0\staticwebassets\msbuild.build.BotServer.props
+C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.BotServer.props
+C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.BotServer.props
+C:\Users\USER\Downloads\Chat_With_Bot1\BotServer\BotServer\obj\Debug\net6.0\staticwebassets.pack.json

@@ -36,7 +36,7 @@ namespace BotServer.Services.Tests.Services.Commands.WikiCommands
             if (isCorrect)
             {
                 Assert.IsTrue(canProcess);
-                Assert.AreEqual("i can not found nothin", respMessage);
+                Assert.AreEqual("i can not found nothing", respMessage);
             }
             else
             {

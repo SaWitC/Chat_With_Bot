@@ -74,7 +74,7 @@ namespace BotServer.Controllers
             command.SendToVk = dto.SendToVk;
             command.Id = UserId.ToString();
             var res = await _mediatr.Send(command);
-            return Ok(res);
+            return Ok(res); 
         }
     }
 }

@@ -8,6 +8,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Moq;
 using System.Security.Claims;
+using BotServer.Application.DataServices;
 using Xunit;
 
 namespace BotServer.Features.Tests.Commands.Chat
@@ -29,7 +30,7 @@ namespace BotServer.Features.Tests.Commands.Chat
                 _mapper = mapper;
             }
         }
-        public async Task<ChatModel> returnChatmodel(ChatModel chatModel)
+        private async Task<ChatModel> returnChatmodel(ChatModel chatModel)
         {
             return chatModel;
         }
@@ -49,7 +50,7 @@ namespace BotServer.Features.Tests.Commands.Chat
             var baseRepo = new Mock<IBaseRepository>();
             baseRepo.Setup(a => a.Create<ChatModel>(chatModel)).Returns(returnChatmodel(chatModel));
 
-            var httpContext = new Mock<IHttpContextAccessor>();
+            var httpContext = new Mock<IHttpContextService>();
 
             IEnumerable<Claim> claims = new List<Claim>()
             {
