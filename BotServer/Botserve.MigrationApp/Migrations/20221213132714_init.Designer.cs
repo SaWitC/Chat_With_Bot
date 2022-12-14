@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Botserve.MigrationApp.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220922103532_addedSendToVkForuserModel")]
-    partial class addedSendToVkForuserModel
+    [Migration("20221213132714_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,27 @@ namespace Botserve.MigrationApp.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Chats");
+                });
+
+            modelBuilder.Entity("BotServer.Domain.Models.HubConnections", b =>
+                {
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("AvtorId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("HubConnection")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsClosed")
+                        .HasColumnType("bit");
+
+                    b.HasKey("id");
+
+                    b.ToTable("HubConnections");
                 });
 
             modelBuilder.Entity("BotServer.Domain.Models.MessageModel", b =>
@@ -148,6 +169,9 @@ namespace Botserve.MigrationApp.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("SendToVk")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -156,14 +180,10 @@ namespace Botserve.MigrationApp.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("VkEmail")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<long?>("VkId")
                         .HasColumnType("bigint");
-
-                    b.Property<bool>("sendToVk")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

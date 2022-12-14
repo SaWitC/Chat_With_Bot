@@ -13,7 +13,7 @@ namespace BotServer.Features.Features.Account.RegistrationCommand
 
             RuleFor(x => x.Password)
                 .NotEmpty()
-                .Equal(x => x.ConfirmPass).WithMessage("passwort must be equal ConfirmPass");
+                .Equal(x => x.ConfirmPass).WithMessage("password must be equal ConfirmPass");
 
             RuleFor(p => p.Password).Matches(@"[A-Z]+").WithMessage("Your password must contain at least one uppercase letter.");
             RuleFor(p => p.Password).Matches(@"[a-z]+").WithMessage("Your password must contain at least one lowercase letter.");

@@ -3819,6 +3819,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "BotServer.Data": "1.0.0",
+          "Microsoft.EntityFrameworkCore.InMemory": "6.0.9",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.8"
         },
         "compile": {

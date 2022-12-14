@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Botserve.MigrationApp.Migrations
 {
-    public partial class addedRemindsTable2 : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,6 +28,9 @@ namespace Botserve.MigrationApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    VkId = table.Column<long>(type: "bigint", nullable: true),
+                    VkEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SendToVk = table.Column<bool>(type: "bit", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -59,6 +63,20 @@ namespace Botserve.MigrationApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Chats", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HubConnections",
+                columns: table => new
+                {
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AvtorId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HubConnection = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IsClosed = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HubConnections", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -266,6 +284,9 @@ namespace Botserve.MigrationApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "HubConnections");
 
             migrationBuilder.DropTable(
                 name: "Messages");

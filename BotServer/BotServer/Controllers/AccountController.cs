@@ -43,9 +43,9 @@ namespace BotServer.Controllers
         [HttpPost("Login")]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "Login in sustem", OperationId = "Login")]
-        public async Task<IActionResult> Login(LoginCommand registrationCommand)
+        public async Task<IActionResult> Login(LoginCommand loginCommand)
         {
-            var res = await _mediatr.Send(registrationCommand);
+            var res = await _mediatr.Send(loginCommand);
             if (!string.IsNullOrEmpty(res))
                 return Ok(res);
             else

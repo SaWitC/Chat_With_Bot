@@ -28,7 +28,10 @@ namespace BotServer
 
                     var UserManager = services.GetRequiredService<UserManager<User>>();
                     var RoleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+
                     await SampleData.Initialize(UserManager, RoleManager);
+                    //await SampleDataForIntegrationTesting.Initialize(UserManager, RoleManager);
+
                 }
             }
             catch

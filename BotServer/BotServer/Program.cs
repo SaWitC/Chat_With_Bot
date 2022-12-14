@@ -1,3 +1,4 @@
+using BotServer.Midlewares;
 using BotServer.SignalR.Hubs;
 using BotServer.SignalR_info.Hubs;
 using Hangfire;
@@ -33,6 +34,10 @@ try
 
     await BotServer.SetSampleData.SetData(app);
 
+    if (app.Environment.EnvironmentName == "Testing")
+    {
+        app.UseMiddleware<DbTransactionMiddleware>();
+    }
     // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
