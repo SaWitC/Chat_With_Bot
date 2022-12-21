@@ -2,28 +2,73 @@ using System.Text.Json;
 using System.Transactions;
 using Alba.Security;
 using Botserve.MigrationApp.Migrations;
+using BotServer.Data.Data;
 using BotServer.Features.Features.Account.LoginCommand;
 using BotServer.Features.Features.Account.RegistrationCommand;
+using BotServer.Midlewares;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.JsonWebTokens;
 using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using SwaggerCodegen;
 using VkNet.Enums.SafetyEnums;
+using VkNet.Model;
 
 namespace BotServer.Clietn.Tests
 {
     public class AccountControllerIntegrationTests
     {
-        //private readonly TransactionScope _scope;
-        public AccountControllerIntegrationTests()
+        private IAlbaHost host;
+
+        [SetUp]
+        public async Task Initialize()
         {
-            //var scope = new TransactionScope();
-            //_scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled);
+            host = await AlbaHost.For<global::Program>(o =>
+            {
+                o.ConfigureServices(services =>
+                {
+                    var dbContextDescriptor = services.FirstOrDefault(descriptor =>
+                    descriptor.ServiceType == typeof(AppDbContext));
+                    var dbContextOptionDescriptor = services.FirstOrDefault(descriptor =>
+                    descriptor.ServiceType == typeof(DbContextOptions<AppDbContext>));
+
+                    services.Remove(dbContextDescriptor);
+                    services.Remove(dbContextOptionDescriptor);
+
+                    services.AddDbContext<AppDbContext>(o => o.UseInMemoryDatabase("mycustombd"));
+                    services.AddIdentity<User, IdentityRole>()
+                        .AddEntityFrameworkStores<AppDbContext>();
+                });
+            });
+        }
+        [Fact]
+        public async Task AccountController_Registration_shouldReturn200()
+        {
+            await using var host = await AlbaHost.For<global::Program>(x =>
+            {
+            });
+            RegistrationCommand registrationCommand = new RegistrationCommand();
+            registrationCommand.Password = "Secret1_";
+            registrationCommand.UserName = "User1";
+            registrationCommand.Email = "user1@gmail.com";
+            registrationCommand.ConfirmPass = "Secret1_";
+
+            await host.Scenario(_ =>
+            {
+                _.Post.Json(registrationCommand).ToUrl("/api/Account/Register");
+                _.StatusCodeShouldBe(200);
+            });
         }
 
         [Fact]
         [Category("Integration")]
         public async Task AccountController_Login_ShoulReturn400()
-        { 
+        {
             await using var host = await AlbaHost.For<global::Program>();
 
             await host.Scenario(_ =>
@@ -34,8 +79,8 @@ namespace BotServer.Clietn.Tests
             });
         }
 
-        [Fact]
-        //[Category("Integration")]
+        [Test]
+        [Category("Integration")]
         public async Task AccountController_Login_ShouldReturn200()
         {
             await using var host = await AlbaHost.For<global::Program>();
@@ -51,17 +96,15 @@ namespace BotServer.Clietn.Tests
                 _.StatusCodeShouldBeOk();
             });
         }
-        //[TestCase("user1","user1@gmail.com","Secret1_","Secret1_")]
+        [TestCase("user1", "user1@gmail.com", "Secret1_", "Secret1_")]
         [TestCase("1", "1", "1", "1")]
         [TestCase("user1", "user1@gmail.com", "Secret2_", "Secret1_")]
         [TestCase("user1", "user1@.com", "Secret1_", "Secret1_")]
         [TestCase("user1", "user1@gmail.com", "Secret1", "Secret1")]
-        [TestCase("user1", "user1@gmail.com", "Secret1_", "Secret1_")]
         [TestCase("user1", "user1@gmail.com", "Secret_", "Secret_")]
         [Category("Integration")]
 
-
-        public async Task AccountController_Register_ShoulReturn400(string username,string email, string password,string confirmpassword)
+        public async Task AccountController_Register_ShoulReturn400(string username, string email, string password, string confirmpassword)
         {
             await using var host = await AlbaHost.For<global::Program>();
             await host.Scenario(_ =>
@@ -71,49 +114,5 @@ namespace BotServer.Clietn.Tests
                 _.StatusCodeShouldBe(400);
             });
         }
-        
-        [TestCase("user14", "user14@gmail.com", "Secret1_", "Secret1_")]
-        public async Task AccountController_Register_ShoulReturn200(string username, string email, string password, string confirmPassword)
-        {
-            await using var host = await AlbaHost.For<global::Program>(x =>
-            {
-                x.UseEnvironment("Testing");
-            });
-
-            //await using var host = await AlbaHost.For<global::Program>();
-
-            RegistrationCommand registrationCommand = new RegistrationCommand();
-            registrationCommand.Password = password;
-            registrationCommand.UserName = username;
-            registrationCommand.Email = email;
-            registrationCommand.ConfirmPass = confirmPassword;
-
-            await host.Scenario(_ =>
-            {
-                _.Post.Json(registrationCommand).ToUrl("/api/Account/Register");
-                _.StatusCodeShouldBe(200);
-            });
-
-            //_scope.Dispose();
-
-        }
-        //[Category("Integration")]
-        //public async Task AccountController_GetPersonalData_ShouldReturn200()
-        //{
-        //    var securityStub = new AuthenticationStub()
-        //        .With(JwtRegisteredClaimNames.Email, "user1@gmail.com")
-        //        .WithName("user1");
-
-        //    await using var host = await AlbaHost.For<global::Program>();
-        //    await host.Scenario(_ =>
-        //    {
-        //        _.Get.Url("/Api/Account/GetPersonalData");
-        //    });
-        //}
-
-        //public void Dispose()
-        //{
-        //    _scope.Dispose();
-        //}
     }
 }

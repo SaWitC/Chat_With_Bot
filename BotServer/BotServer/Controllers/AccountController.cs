@@ -58,6 +58,7 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "Get personal data", OperationId = "GetPersonalData")]
         public async Task<IActionResult> GetPersonalData()
         {
+            var x=Request.Headers;
             GetPersonalDataQuery query = new GetPersonalDataQuery();
             query.UserId = UserId.ToString();
             var res = await _mediatr.Send(query);

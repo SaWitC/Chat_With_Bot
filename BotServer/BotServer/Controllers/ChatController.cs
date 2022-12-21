@@ -66,6 +66,7 @@ namespace BotServer.Controllers
 
         // DELETE api/<ChatController>/5
         [HttpDelete("{id}")]
+        [Authorize]
         [SwaggerResponse(StatusCodes.Status200OK, Type = typeof(Response))]
         [SwaggerOperation(summary: "Delete chat", OperationId = "Delete")]
         public async Task<IActionResult> Delete(string id)

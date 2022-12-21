@@ -67,53 +67,62 @@ namespace BotServer
 
 
             var authoptions = configuration.GetSection("auth");
-            services.Configure<AuthOptions>(authoptions);
-
-            var AuthOptionsForVlidation = configuration.GetSection("auth").Get<AuthOptions>();
-
-            services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<AppDbContext>();
-
-            services.AddAuthentication(x =>
+            if (env.EnvironmentName != "Testing")
             {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            }).AddJwtBearer(o =>
-            {
-                o.RequireHttpsMetadata = true;
-                o.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
-                {
-                    ValidateIssuer = true,
-                    ValidateAudience = true,
-                    ValidateLifetime = true,
-                    ValidateIssuerSigningKey = true,
+                services.AddIdentity<User, IdentityRole>()
+                   .AddEntityFrameworkStores<AppDbContext>();
+            }
+                services.Configure<AuthOptions>(authoptions);
 
-                    IssuerSigningKey = AuthOptionsForVlidation.GetSymetricSecurityKey(),
-                    ValidIssuer = AuthOptionsForVlidation.Issuer,
-                    //ValidAudience = AuthOptionsForVlidation.Audience
+                var AuthOptionsForVlidation = configuration.GetSection("auth").Get<AuthOptions>();
 
-                    ValidAudiences = AuthOptionsForVlidation.Audience,
-                };
-                o.Events = new JwtBearerEvents
+
+            
+
+               
+
+                services.AddAuthentication(x =>
                 {
-                    OnMessageReceived = context =>
+                    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                    x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+                }).AddJwtBearer(o =>
+                {
+                    o.RequireHttpsMetadata = true;
+                    o.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
                     {
-                        var accessToken = context.Request.Query["access_token"];
+                        ValidateIssuer = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
 
-                        //is request to hub
-                        var path = context.HttpContext.Request.Path;
-                        if (!string.IsNullOrEmpty(accessToken) &&
-                            (path.StartsWithSegments("/toastr") || path.StartsWithSegments("/notify")))
+                        IssuerSigningKey = AuthOptionsForVlidation.GetSymetricSecurityKey(),
+                        ValidIssuer = AuthOptionsForVlidation.Issuer,
+                        //ValidAudience = AuthOptionsForVlidation.Audience
+
+                        ValidAudiences = AuthOptionsForVlidation.Audience,
+                    };
+                    o.Events = new JwtBearerEvents
+                    {
+                        OnMessageReceived = context =>
                         {
-                            //get token from the request
-                            context.Token = accessToken;
-                        }
-                        return Task.CompletedTask;
-                    }
+                            var accessToken = context.Request.Query["access_token"];
 
-                };
-            });
+                            //is request to hub
+                            var path = context.HttpContext.Request.Path;
+                            if (!string.IsNullOrEmpty(accessToken) &&
+                                (path.StartsWithSegments("/toastr") || path.StartsWithSegments("/notify")))
+                            {
+                                //get token from the request
+                                context.Token = accessToken;
+                            }
+                            return Task.CompletedTask;
+                        }
+
+                    };
+                });
+            
+         
         }
     }
 }
