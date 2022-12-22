@@ -3924,26 +3924,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\oadmin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Data\\BotServer.Data.csproj",
+      "projectUniqueName": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Data\\BotServer.Data.csproj",
       "projectName": "BotServer.Data",
-      "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Data\\BotServer.Data.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Data\\obj\\",
+      "projectPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Data\\BotServer.Data.csproj",
+      "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Data\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3957,8 +3950,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj": {
-              "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj"
+            "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj": {
+              "projectPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Comunications\\BotServer.Comunications.csproj"
             }
           }
         }
@@ -4042,7 +4035,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

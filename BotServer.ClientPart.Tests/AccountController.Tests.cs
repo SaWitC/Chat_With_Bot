@@ -1,20 +1,25 @@
 using Alba;
 using BotServer.ClientPart.Tests.Fixtures;
+using BotServer.Data.Data;
 using BotServer.Features.Features.Account.LoginCommand;
 using BotServer.Features.Features.Account.RegistrationCommand;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace BotServer.Clietn.Tests
 {
     public class AccountControllerIntegrationTests
     {
-        private BaseFixture fixture;
+        private BaseFixture fixture = new();
         
         
         [SetUp]
         public async Task Initialize()
         {
-            fixture.Initialize(); 
+            fixture.Initialize();
         }
         [Test]
         [Category("Integration")]

@@ -1087,26 +1087,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\oadmin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
+      "projectUniqueName": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
       "projectName": "BotServer.Domain",
-      "projectPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Downloads\\Chat_With_Bot1\\BotServer\\BotServer.Domain\\obj\\",
+      "projectPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
+      "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
+      "outputPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Domain\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1161,7 +1154,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

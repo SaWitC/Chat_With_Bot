@@ -5,15 +5,14 @@ using BotServer.Features.Features.Account.RegistrationCommand;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
-using EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
 
 namespace BotServer.ClientPart.Tests.Fixtures
 {
     public class BaseFixture
     {
-        public IAlbaHost Host { get; set; }
+        public IAlbaHost Host { get; private set; }
         public string JwtToken { get; private set; }
         public async Task Initialize()
         {
@@ -39,11 +38,10 @@ namespace BotServer.ClientPart.Tests.Fixtures
                 });
             });
 
-            //arrange 
             // register test account
             RegistrationCommand registrationCommand = new RegistrationCommand();
             registrationCommand.Password = "Secret1_";
-            registrationCommand.UserName = "User1";
+            registrationCommand.UserName = "user1";
             registrationCommand.Email = "user1@gmail.com";
             registrationCommand.ConfirmPass = "Secret1_";
             registrationCommand.VkEmail = "user1@gmail.com";
@@ -66,9 +64,6 @@ namespace BotServer.ClientPart.Tests.Fixtures
             });
 
             JwtToken = result.ReadAsText();
-
         }
     }
-
-    
 }
