@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\Chat\UpdateChatCommand\Fixtures\Abstractions\" />
+    <Folder Include="Commands\Chat\UpdateChatCommand\Fixtures\" />
   </ItemGroup>
 
 </Project>

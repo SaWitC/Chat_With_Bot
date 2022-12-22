@@ -35,7 +35,7 @@ namespace BotServer.Features.Tests.Commands.Chat
             return chatModel;
         }
 
-        [Fact]
+        //[Fact]
         //[Theory("fisrt")]
 
         //public async Task CreateChat()
@@ -70,6 +70,7 @@ namespace BotServer.Features.Tests.Commands.Chat
         //    Assert.Equal(res, chatModel);
 
         //}
+    
 
     }
 }
