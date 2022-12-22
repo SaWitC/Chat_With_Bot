@@ -11,15 +11,22 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BotServer.Clietn.Tests
 {
+    [TestFixture]
     public class AccountControllerIntegrationTests
     {
         private BaseFixture fixture = new();
-        
-        
-        [SetUp]
+
+        [OneTimeSetUp]
         public async Task Initialize()
         {
-            fixture.Initialize();
+            await fixture.Init();
+        }
+
+        [OneTimeTearDown]
+        public async Task Dispose()
+        {
+            fixture.Dispose();
+            //await BaseFixture
         }
         [Test]
         [Category("Integration")]
@@ -54,16 +61,18 @@ namespace BotServer.Clietn.Tests
             });
         }
 
+
         [Test]
         [Category("Integration")]
         public async Task AccountController_Login_ShouldReturn200()
         {
             //arrange
+            await fixture.RegisterTestAccount_user1();
             //test login data
             LoginCommand loginCommand = new LoginCommand();
             loginCommand.Password = "Secret1_";
             loginCommand.UserName = "user1";
-            var json = JsonSerializer.Serialize(loginCommand);  
+            var json = JsonSerializer.Serialize(loginCommand);
 
             //act
             await fixture.Host.Scenario(_ =>
@@ -106,10 +115,12 @@ namespace BotServer.Clietn.Tests
         [Category("Integration")]
         public async Task AccountController_GetPersonalData_ShouldReturn200()
         {
+            await fixture.RegisterAndLoginTestAccount_user1();
+
             var token = "Bearer " + fixture.JwtToken;
             await fixture.Host.Scenario(_ =>
             {
-                _.WithRequestHeader("Authorization", @token.Replace("\"",""));
+                _.WithRequestHeader("Authorization", @token.Replace("\"", ""));
                 _.Get.Url("/api/Account/GetPersonalData");
                 _.StatusCodeShouldBe(200);
             });
