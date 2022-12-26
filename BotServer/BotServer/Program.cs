@@ -58,7 +58,7 @@ public class Program
                     //c.RoutePrefix = string.Empty;
                 });
             }
-            //asdasd
+          
             app.UseProblemDetails();
             app.UseRouting();
             app.UseCors("MyAllowSpecificOrigins");

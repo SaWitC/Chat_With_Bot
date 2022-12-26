@@ -26,9 +26,6 @@ namespace BotServer.Features
                 return api;
             });
 
-            //Services.AddHangfire(c=>c.UseSqlServerStorage);
-
-            //Services.AddValidatorsFromAssembly(typeof(startupFeatures).Assembly);
             Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             Services.AddScoped<ISelectRepository, SelectRepository>();
 
@@ -40,12 +37,6 @@ namespace BotServer.Features
             Services.AddHangfireServer();
 
             Services.AddScoped<IBGJobRemind, BGJobRemind>();
-            //Services.AddScoped<IVkApi>(sp => {
-            //    var api = new VkApi();
-            //    //api.Token=""
-            //    //api.Authorize(new ApiAuthParams { AccessToken = Configuration["VkConfig:token"]});
-            //    return api;
-            //});
         }
     }
 }

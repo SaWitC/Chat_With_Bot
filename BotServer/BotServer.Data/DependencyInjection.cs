@@ -14,12 +14,12 @@ namespace BotServer.Data
                 .FromAssemblyOf<startupData>()
                     .AddClasses(classes => classes.WithAttribute(typeof(ServiceAttribute)))
                     .AsImplementedInterfaces()
-                    .WithTransientLifetime()
+                    .WithScopedLifetime()
                 );
 
 
 
-            services.AddScoped(typeof(ChatRepository));
+            //services.AddScoped(typeof(ChatRepository));
 
         }
     }

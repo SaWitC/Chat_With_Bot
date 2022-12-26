@@ -34,8 +34,17 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "Create new chat", OperationId = "CreateChat")]
         public async Task<IActionResult> CreateChat(CreateChatCommand createChatCommand)
         {
-            var res = await _mediatr.Send(createChatCommand);
-            return Ok(res);
+            try
+            {
+                var res = await _mediatr.Send(createChatCommand);
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+                
+                return BadRequest();
+            }
+          
         }
         [HttpGet("getMy/{page}")]
         [Authorize(AuthenticationSchemes = "Bearer")]
@@ -43,6 +52,8 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "get my chates", OperationId = "GetMyChats")]
         public async Task<IActionResult> GetMyChats(int page)
         {
+
+            var h = Request.Headers;
             GetMyChatsQuery query = new GetMyChatsQuery();
             query.AvtorId = _httpContextService.GetCurentUserId();
             query.Page = page;

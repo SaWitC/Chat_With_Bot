@@ -71,56 +71,56 @@ namespace BotServer
             {
                 services.AddIdentity<User, IdentityRole>()
                    .AddEntityFrameworkStores<AppDbContext>();
-            }
-                services.Configure<AuthOptions>(authoptions);
+        }
+            services.Configure<AuthOptions>(authoptions);
 
-                var AuthOptionsForVlidation = configuration.GetSection("auth").Get<AuthOptions>();
+            var AuthOptionsForVlidation = configuration.GetSection("auth").Get<AuthOptions>();
 
 
             
 
                
 
-                services.AddAuthentication(x =>
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(o =>
+            {
+                o.RequireHttpsMetadata = true;
+                o.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
                 {
-                    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                    x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-                }).AddJwtBearer(o =>
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+
+                    IssuerSigningKey = AuthOptionsForVlidation.GetSymetricSecurityKey(),
+                    ValidIssuer = AuthOptionsForVlidation.Issuer,
+                    //ValidAudience = AuthOptionsForVlidation.Audience
+
+                    ValidAudiences = AuthOptionsForVlidation.Audience,
+                };
+                o.Events = new JwtBearerEvents
                 {
-                    o.RequireHttpsMetadata = true;
-                    o.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                    OnMessageReceived = context =>
                     {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
+                        var accessToken = context.Request.Query["access_token"];
 
-                        IssuerSigningKey = AuthOptionsForVlidation.GetSymetricSecurityKey(),
-                        ValidIssuer = AuthOptionsForVlidation.Issuer,
-                        //ValidAudience = AuthOptionsForVlidation.Audience
-
-                        ValidAudiences = AuthOptionsForVlidation.Audience,
-                    };
-                    o.Events = new JwtBearerEvents
-                    {
-                        OnMessageReceived = context =>
+                        //is request to hub
+                        var path = context.HttpContext.Request.Path;
+                        if (!string.IsNullOrEmpty(accessToken) &&
+                            (path.StartsWithSegments("/toastr") || path.StartsWithSegments("/notify")))
                         {
-                            var accessToken = context.Request.Query["access_token"];
-
-                            //is request to hub
-                            var path = context.HttpContext.Request.Path;
-                            if (!string.IsNullOrEmpty(accessToken) &&
-                                (path.StartsWithSegments("/toastr") || path.StartsWithSegments("/notify")))
-                            {
-                                //get token from the request
-                                context.Token = accessToken;
-                            }
-                            return Task.CompletedTask;
+                            //get token from the request
+                            context.Token = accessToken;
                         }
+                        return Task.CompletedTask;
+                    }
 
-                    };
-                });
+                };
+            });
             
          
         }
