@@ -57,8 +57,6 @@ namespace BotServer.ClientPart.Tests.Fixtures
             {
 
             }
-            
-           
         }
 
         public async Task RegisterAndLoginTestAccount_user1()
@@ -79,7 +77,6 @@ namespace BotServer.ClientPart.Tests.Fixtures
             {
 
             }
-          
 
             LoginCommand loginCommand = new LoginCommand();
             loginCommand.Password = "Secret1_";
