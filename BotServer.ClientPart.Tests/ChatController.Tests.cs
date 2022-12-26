@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using BotServer.ClientPart.Tests.Fixtures;
 using BotServer.Features.Features.Account.RegistrationCommand;
 using BotServer.Features.Features.Commands.Chat.CreateChatCommand;
+using BotServer.Features.Features.Queries.Chat.GetChatById;
 using MassTransit.Internals;
 
 namespace BotServer.ClientPart.Tests
@@ -51,10 +52,6 @@ namespace BotServer.ClientPart.Tests
         [Category("Integration")]
         public async Task ChatController_GetMyChats_ShouldReturn200()
         {
-            var securityStub = new AuthenticationStub()
-                .With(JwtRegisteredClaimNames.Email, "user1@gmail.com")
-                .With(JwtRegisteredClaimNames.NameId, Guid.Empty.ToString());
-
             await fixture.RegisterAndLoginTestAccount_user1();
             var token = "Bearer " + fixture.JwtToken;
             await fixture.Host.Scenario(o =>
@@ -65,21 +62,33 @@ namespace BotServer.ClientPart.Tests
             });
         }
 
-       
-        //[Test]
-            //public async Task ChatController_GetMyChats_ShouldReturn200()
-            //{
-            //    var securityStub = new AuthenticationStub()
-            //        .With(JwtRegisteredClaimNames.Email, "user1@gmail.com")
-            //        .With(JwtRegisteredClaimNames.NameId, Guid.Empty.ToString());
-
-            //    var theHost = await AlbaHost.For<Program>(securityStub);
-
-            //    var resp = theHost.Scenario(o =>
-            //    {
-            //        o.Get.Url("https://localhost:7126/api/Chat/getMy/1");
-            //        o.StatusCodeShouldBe(200);
-            //    });
-            //}
+        [Test]
+        public async Task ChatController_Details_ShouldReturn401()
+        {
+            var id = Guid.Empty.ToString();
+            await fixture.Host.Scenario(o =>
+            {
+                o.Get.Url($"/api/Chat/Details/{id}");
+                o.StatusCodeShouldBe(401);
+            });
         }
+
+        [Test]
+        public async Task ChatController_Details_ShouldReturn400()
+        {
+            var id = Guid.Empty.ToString();
+
+            await fixture.RegisterAndLoginTestAccount_user1();
+            var token = "Bearer " + fixture.JwtToken;
+            await fixture.Host.Scenario(o =>
+            {
+                o.WithRequestHeader("Authorization", @token.Replace("\"", ""));
+                o.Get.Url($"/api/Chat/Details/{id}");
+                o.StatusCodeShouldBe(400);
+            });
+        }
+
+        
+
+    }
 }

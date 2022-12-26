@@ -34,8 +34,17 @@ namespace BotServer.Controllers
         [SwaggerOperation(summary: "Create new chat", OperationId = "CreateChat")]
         public async Task<IActionResult> CreateChat(CreateChatCommand createChatCommand)
         {
-            var res = await _mediatr.Send(createChatCommand);
-            return Ok(res);
+            try
+            {
+                var res = await _mediatr.Send(createChatCommand);
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+                
+                return BadRequest();
+            }
+          
         }
         [HttpGet("getMy/{page}")]
         [Authorize(AuthenticationSchemes = "Bearer")]
