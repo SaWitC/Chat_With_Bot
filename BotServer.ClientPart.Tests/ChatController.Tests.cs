@@ -26,6 +26,10 @@ namespace BotServer.ClientPart.Tests
         {
             await fixture.Init();
         }
+        /// <summary>
+        /// asdasdsa
+        /// </summary>
+        /// <returns></returns>
 
         [OneTimeTearDown]
         public async Task Dispose()
