@@ -31,7 +31,6 @@ namespace BotServer.Data.MapperProfiles
 
             //CreateMap<SendMessageDTO, MessageModel>();
 
-
         }
     }
 }

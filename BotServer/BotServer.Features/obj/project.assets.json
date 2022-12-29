@@ -4960,11 +4960,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj",
+      "projectUniqueName": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj",
       "projectName": "BotServer.Features",
-      "projectPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj",
+      "projectPath": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj",
       "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Features\\obj\\",
+      "outputPath": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Features\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -4981,8 +4981,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj": {
-              "projectPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj"
+            "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj": {
+              "projectPath": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.SignalR_info\\BotServer.SignalR_info.csproj"
             }
           }
         }
@@ -5051,7 +5051,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.AspNet.WebApi.Client 4.0.20710\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Client 4.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Client",
       "targetGraphs": [
         "net6.0"
@@ -5061,7 +5061,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.AspNet.WebApi.Core 4.0.20710\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 4.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         "net6.0"
@@ -5071,7 +5071,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.Net.Http 2.0.20710\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.Net.Http 2.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.Net.Http",
       "targetGraphs": [
         "net6.0"
