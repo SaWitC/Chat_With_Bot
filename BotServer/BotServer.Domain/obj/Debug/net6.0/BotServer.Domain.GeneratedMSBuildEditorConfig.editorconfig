@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BotServer.Domain
-build_property.ProjectDir = D:\Projects\Chat_With_Bot\BotServer\BotServer.Domain\
+build_property.ProjectDir = D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\

@@ -34,3 +34,15 @@ D:\Projects\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\BotServer.
 D:\Projects\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\refint\BotServer.Domain.dll
 D:\Projects\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\BotServer.Domain.pdb
 D:\Projects\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\ref\BotServer.Domain.dll
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\bin\Debug\net6.0\BotServer.Domain.deps.json
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\bin\Debug\net6.0\BotServer.Domain.dll
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\bin\Debug\net6.0\BotServer.Domain.pdb
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\BotServer.Domain.csproj.AssemblyReference.cache
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\BotServer.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\BotServer.Domain.AssemblyInfoInputs.cache
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\BotServer.Domain.AssemblyInfo.cs
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\BotServer.Domain.csproj.CoreCompileInputs.cache
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\BotServer.Domain.dll
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\refint\BotServer.Domain.dll
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\BotServer.Domain.pdb
+D:\Projects\DockerApplications-BotApp\Chat_With_Bot\BotServer\BotServer.Domain\obj\Debug\net6.0\ref\BotServer.Domain.dll

@@ -36,6 +36,8 @@ services:
     depends_on:
       - db
       - rabbitmq
+    ports:
+        - 44341:443
 
   serverapp:
     image: ${DOCKER_REGISTRY-}vkserviceapplication
@@ -45,3 +47,15 @@ services:
       dockerfile: VkServiceApplication/Dockerfile
     depends_on:
       - rabbitmq
+
+  client:
+    image: client-app
+    #restart: always
+    #volumes:
+    #    - '../AngularClient:/AngularClient'
+    #build:
+    #  context: .
+    #  dockerfile: ../../ChatBotClientAngular/AngularClient/Dockerfile
+    ports:
+        - 70:70
+        - 4200:4200

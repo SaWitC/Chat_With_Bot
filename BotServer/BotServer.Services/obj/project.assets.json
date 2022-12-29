@@ -9261,11 +9261,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Services\\BotServer.Services.csproj",
+      "projectUniqueName": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Services\\BotServer.Services.csproj",
       "projectName": "BotServer.Services",
-      "projectPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Services\\BotServer.Services.csproj",
+      "projectPath": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Services\\BotServer.Services.csproj",
       "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Services\\obj\\",
+      "outputPath": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Services\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9282,8 +9282,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj": {
-              "projectPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj"
+            "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj": {
+              "projectPath": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Features\\BotServer.Features.csproj"
             }
           }
         }
@@ -9348,7 +9348,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Версия обнаруженного пакета нарушает ограничение зависимости: Microsoft.AspNet.WebApi.Core 4.0.20710 требуется Microsoft.AspNet.WebApi.Client (>= 4.0.20710 && < 4.1.0), но в результате разрешения получена версия Microsoft.AspNet.WebApi.Client 5.2.9.",
+      "message": "Detected package version outside of dependency constraint: Microsoft.AspNet.WebApi.Core 4.0.20710 requires Microsoft.AspNet.WebApi.Client (>= 4.0.20710 && < 4.1.0) but version Microsoft.AspNet.WebApi.Client 5.2.9 was resolved.",
       "libraryId": "Microsoft.AspNet.WebApi.Client",
       "targetGraphs": [
         "net6.0"
@@ -9358,7 +9358,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.AspNet.WebApi.Core 4.0.20710\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net6.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 4.0.20710' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebApi.Core",
       "targetGraphs": [
         "net6.0"

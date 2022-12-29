@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AEync66MvDOxTmG1Hu8lxh2B9KdMqC7RRAg2KCz07h7C8bvERhSbzmGIH+dHtuEjKSWcj6cEYdVx4n7/spLJcQ==",
+  "dgSpecHash": "y9+10Ud75SKFp1KOcHcsfesqq7MZEZ04/gw+wrbi755O0sQcCHiEKCv/wPBmwd3VAw4Sy/CqPX3rxF3WeZ4fuA==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
+  "projectFilePath": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Application\\BotServer.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oadmin\\.nuget\\packages\\ardalis.specification\\6.1.0\\ardalis.specification.6.1.0.nupkg.sha512",
     "C:\\Users\\oadmin\\.nuget\\packages\\ardalis.specification.entityframeworkcore\\6.1.0\\ardalis.specification.entityframeworkcore.6.1.0.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj": {}
+    "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj": {
+    "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
+        "projectUniqueName": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
         "projectName": "BotServer.Domain",
-        "projectPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
+        "projectPath": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Domain\\BotServer.Domain.csproj",
         "packagesPath": "C:\\Users\\oadmin\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Chat_With_Bot\\BotServer\\BotServer.Domain\\obj\\",
+        "outputPath": "D:\\Projects\\DockerApplications-BotApp\\Chat_With_Bot\\BotServer\\BotServer.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\oadmin\\AppData\\Roaming\\NuGet\\NuGet.Config",
